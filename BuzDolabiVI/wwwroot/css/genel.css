@@ -1,0 +1,62 @@
+﻿#LogoVeGiris {
+    width: 100%;
+    height: 30px;
+}
+
+#Logo {
+    width: 33%;
+    text-align: center;
+    float: left;
+}
+
+#AramaCubugu {
+    width: 33%;
+    text-align: center;
+    float: left;
+}
+
+#KullaniciKismi {
+    width: 33%;
+    text-align: center;
+    float: left;
+}
+
+#NavIcerecek {
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+#Nav {
+    width: 85%;
+}
+
+#DropDown:hover {
+    color: black;
+}
+
+#DropDown {
+    color: black;
+}
+
+#Container {
+    width: 75%;
+    margin: 0 12.5% 0 12.5%;
+}
+
+#Footer {
+    padding-left: 9%;
+    margin-top:10%;
+}
+
+
+.banner {
+    background: #a770ef;
+    background: -webkit-linear-gradient(to right, #a770ef, #cf8bf3, #fdb99b);
+    background: linear-gradient(to right, #a770ef, #cf8bf3, #fdb99b);
+}
+
+
+
+.olursaIns{
+}
