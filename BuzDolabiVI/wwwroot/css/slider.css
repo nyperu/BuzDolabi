@@ -5,6 +5,7 @@
     --black: #2b2d42;
     --white: #fff;
     --thumb: #edf2f4;
+    
 }
 
 * {
@@ -86,6 +87,7 @@ h2 {
 
     .card:hover .card-link {
         background: var(--darkred);
+       
     }
 
 .cards::-webkit-scrollbar {
