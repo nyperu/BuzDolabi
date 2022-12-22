@@ -1,5 +1,6 @@
 ﻿using BuzDolabiVI.Models;
 using BuzDolabiVI.Views.Tarifler;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -19,6 +20,7 @@ namespace BuzDolabiVI.Controllers
             return View();
         }
 
+        [Authorize]
         public IActionResult Privacy()
         {
             return View();
