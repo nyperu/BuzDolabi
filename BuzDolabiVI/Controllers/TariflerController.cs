@@ -33,5 +33,9 @@ namespace BuzDolabiVI.Controllers
         {
             return View("Detayli_Tarif", id);
         }
+        public IActionResult TarifEkle()
+        {
+            return View("TarifEkle");
+        }
     }
 }
