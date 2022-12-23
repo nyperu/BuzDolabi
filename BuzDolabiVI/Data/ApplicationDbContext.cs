@@ -6,11 +6,13 @@ namespace BuzDolabiVI.Data
 {
     public class ApplicationDbContext : IdentityDbContext<UserDetails>
     {
+        public DbSet<Yorum> Yorum { get; set; }
+        public DbSet<Tarif> Tarif { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+
         }
-        public DbSet<BuzDolabiVI.Models.Yorum> Yorum { get; set; }
-        public DbSet<BuzDolabiVI.Models.Tarif> Tarif { get; set; }
+       
     }
 }

@@ -157,5 +157,10 @@ namespace BuzDolabiVI.Controllers
         {
           return _context.Tarif.Any(e => e.tarifID == id);
         }
+        public IActionResult TarifEkle(Tarif tarif)
+        {
+
+            return View(tarif);
+        }
     }
 }
