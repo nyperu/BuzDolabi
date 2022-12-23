@@ -1,0 +1,125 @@
+﻿@model IEnumerable<BuzDolabiVI.Models.Tarif>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.userID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tarifAd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tarifMalzemeler)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tarifNasilYapilir)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tarifTarih)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.goruntulenme)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tarifGirisYazisi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.kacKalori)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.besinDegeriLink)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.kacKisilik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hazirlanmaSuresi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pisirmeSuresi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.yazarAd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.yazarOzluSoz)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.yazarCinsiyet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.yazarSosyal)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.userID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tarifAd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tarifMalzemeler)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tarifNasilYapilir)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tarifTarih)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.goruntulenme)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tarifGirisYazisi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kacKalori)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.besinDegeriLink)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kacKisilik)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hazirlanmaSuresi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pisirmeSuresi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.yazarAd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.yazarOzluSoz)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.yazarCinsiyet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.yazarSosyal)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.tarifID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.tarifID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.tarifID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
