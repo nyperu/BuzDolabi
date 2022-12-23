@@ -11,5 +11,6 @@ namespace BuzDolabiVI.Data
         {
         }
         public DbSet<BuzDolabiVI.Models.Yorum> Yorum { get; set; }
+        public DbSet<BuzDolabiVI.Models.Tarif> Tarif { get; set; }
     }
 }
