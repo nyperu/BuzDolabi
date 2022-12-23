@@ -10,5 +10,6 @@ namespace BuzDolabiVI.Data
             : base(options)
         {
         }
+        public DbSet<BuzDolabiVI.Models.Yorum> Yorum { get; set; }
     }
 }
