@@ -19,6 +19,7 @@ namespace BuzDolabiVI.Models
         public int kacKisilik { get; set; }
         public int hazirlanmaSuresi { get; set; }
         public int pisirmeSuresi { get; set; }
+        public string onay { get; set; }
 
         public string yazarAd { get; set; }
         public string yazarOzluSoz { get; set; }
