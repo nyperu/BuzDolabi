@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BuzDolabiVI.Models.Tarifler1>
+﻿@model IEnumerable<BuzDolabiVI.Models.Tarif>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,10 +13,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.tarifAd)
+                @Html.DisplayNameFor(model => model.userID)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.tarifFoto)
+                @Html.DisplayNameFor(model => model.tarifAd)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.tarifMalzemeler)
@@ -67,10 +67,10 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.tarifAd)
+                @Html.DisplayFor(modelItem => item.userID)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.tarifFoto)
+                @Html.DisplayFor(modelItem => item.tarifAd)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.tarifMalzemeler)

@@ -76,24 +76,12 @@ namespace BuzDolabiVI.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [Required]
-            [Display(Name = "Ad Soyad Giriniz")]
-            public string AdSoyad { get; set; }
-
-
-            [Display(Name = "Özlü Söz Giriniz")]
-            public string ozluSoz { get; set; }
-
+            [Display(Name = "Ad Giriniz")]
+            public string Ad { get; set; }
 
             [Required]
-            [Display(Name = "Cinsiyet Seçiniz")]
-            public string cinsiyet { get; set; }
-
-
-            [Required]
-            [Display(Name = "Sosyal Medya Linki Giriniz")]
-            public string sosyalmedya { get; set; }
-
-
+            [Display(Name = "Soyad Giriniz")]
+            public string Soyad { get; set; }
 
             [Required]
             [EmailAddress]
@@ -137,10 +125,8 @@ namespace BuzDolabiVI.Areas.Identity.Pages.Account
                 {
                     UserName = Input.Email,
                     Email = Input.Email,
-                    AdSoyad = Input.AdSoyad,
-                    ozluSoz=Input. ozluSoz, 
-                    cinsiyet=Input. cinsiyet,
-                    sosyalMedya=Input.sosyalmedya
+                    Ad = Input.Ad,
+                    Soyad = Input.Soyad
                 };
                 /*var user = CreateUser();
 

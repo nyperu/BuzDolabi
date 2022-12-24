@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace BuzDolabiVI.Migrations
+namespace BuzDolabiVI.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -22,7 +22,7 @@ namespace BuzDolabiVI.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("BuzDolabiVI.Models.Tarifler1", b =>
+            modelBuilder.Entity("BuzDolabiVI.Models.Tarif", b =>
                 {
                     b.Property<int>("tarifID")
                         .ValueGeneratedOnAdd()
@@ -46,10 +46,6 @@ namespace BuzDolabiVI.Migrations
 
                     b.Property<int>("kacKisilik")
                         .HasColumnType("int");
-
-                    b.Property<string>("onay")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("pisirmeSuresi")
                         .HasColumnType("int");
@@ -77,6 +73,9 @@ namespace BuzDolabiVI.Migrations
                     b.Property<DateTime>("tarifTarih")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("userID")
+                        .HasColumnType("int");
+
                     b.Property<string>("yazarAd")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -95,7 +94,7 @@ namespace BuzDolabiVI.Migrations
 
                     b.HasKey("tarifID");
 
-                    b.ToTable("Tarifler1");
+                    b.ToTable("Tarif");
                 });
 
             modelBuilder.Entity("BuzDolabiVI.Models.UserDetails", b =>
@@ -106,7 +105,7 @@ namespace BuzDolabiVI.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<string>("AdSoyad")
+                    b.Property<string>("Ad")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -147,24 +146,16 @@ namespace BuzDolabiVI.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Soyad")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("cinsiyet")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ozluSoz")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("sosyalMedya")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

@@ -1,12 +1,13 @@
-﻿
-using KeyAttribute = System.ComponentModel.DataAnnotations.KeyAttribute;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Drawing;
 
 namespace BuzDolabiVI.Models
 {
-    public class Tarifler1
+    public class Tarif
     {
         [Key]
         public int tarifID { get; set; }
+        public int userID { get; set; }
         public string tarifAd { get; set; }
         public string tarifFoto { get; set; }
         public string tarifMalzemeler { get; set; }
@@ -19,12 +20,10 @@ namespace BuzDolabiVI.Models
         public int kacKisilik { get; set; }
         public int hazirlanmaSuresi { get; set; }
         public int pisirmeSuresi { get; set; }
-        public string onay { get; set; }
 
         public string yazarAd { get; set; }
         public string yazarOzluSoz { get; set; }
         public string yazarCinsiyet { get; set; }
         public string yazarSosyal { get; set; }
-
     }
 }
