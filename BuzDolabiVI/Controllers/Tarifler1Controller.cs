@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BuzDolabiVI.Data;
 using BuzDolabiVI.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BuzDolabiVI.Controllers
 {
+   
     public class Tarifler1Controller : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -54,7 +56,8 @@ namespace BuzDolabiVI.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("tarifID,tarifAd,tarifFoto,tarifMalzemeler,tarifNasilYapilir,tarifTarih,goruntulenme,tarifGirisYazisi,kacKalori,besinDegeriLink,kacKisilik,hazirlanmaSuresi,pisirmeSuresi,yazarAd,yazarOzluSoz,yazarCinsiyet,yazarSosyal")] Tarifler1 tarifler1)
+        [AllowAnonymous]
+        public async Task<IActionResult> Create([Bind("tarifID,tarifAd,tarifFoto,tarifMalzemeler,tarifNasilYapilir,tarifTarih,goruntulenme,tarifGirisYazisi,kacKalori,besinDegeriLink,kacKisilik,hazirlanmaSuresi,pisirmeSuresi,onay,yazarAd,yazarOzluSoz,yazarCinsiyet,yazarSosyal")] Tarifler1 tarifler1)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +89,7 @@ namespace BuzDolabiVI.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("tarifID,tarifAd,tarifFoto,tarifMalzemeler,tarifNasilYapilir,tarifTarih,goruntulenme,tarifGirisYazisi,kacKalori,besinDegeriLink,kacKisilik,hazirlanmaSuresi,pisirmeSuresi,yazarAd,yazarOzluSoz,yazarCinsiyet,yazarSosyal")] Tarifler1 tarifler1)
+        public async Task<IActionResult> Edit(int id, [Bind("tarifID,tarifAd,tarifFoto,tarifMalzemeler,tarifNasilYapilir,tarifTarih,goruntulenme,tarifGirisYazisi,kacKalori,besinDegeriLink,kacKisilik,hazirlanmaSuresi,pisirmeSuresi,onay,yazarAd,yazarOzluSoz,yazarCinsiyet,yazarSosyal")] Tarifler1 tarifler1)
         {
             if (id != tarifler1.tarifID)
             {
