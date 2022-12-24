@@ -1,4 +1,8 @@
-﻿@model BuzDolabiVI.Models.Tarifler1
+﻿@using Microsoft.AspNetCore.Mvc.RazorPages;
+@model BuzDolabiVI.Models.Tarifler1
+using Microsoft.AspNetCore.Identity;
+
+
 
 @{
     ViewData["Title"] = "Create";
@@ -71,6 +75,11 @@
                 <span asp-validation-for="pisirmeSuresi" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="onay" class="control-label"></label>
+                <input asp-for="onay" class="form-control" />
+                <span asp-validation-for="onay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="yazarAd" class="control-label"></label>
                 <input asp-for="yazarAd" class="form-control" />
                 <span asp-validation-for="yazarAd" class="text-danger"></span>
@@ -86,9 +95,7 @@
                 <span asp-validation-for="yazarCinsiyet" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="yazarSosyal" class="control-label"></label>
-                <input asp-for="yazarSosyal" class="form-control" />
-                <span asp-validation-for="yazarSosyal" class="text-danger"></span>
+                <input asp-for="yazarSosyal" type="hidden" value="@User.Identity.Name" class="form-control" />
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
