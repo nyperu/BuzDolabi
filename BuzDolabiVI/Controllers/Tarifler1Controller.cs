@@ -125,6 +125,7 @@ namespace BuzDolabiVI.Controllers
         {
             if (id == null || _context.Tarifler1 == null)
             {
+
                 return NotFound();
             }
 
