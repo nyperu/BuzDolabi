@@ -6,6 +6,7 @@ namespace BuzDolabiVI.Controllers
     {
         public IActionResult Index()
         {
+            
             return View();
         }
     }

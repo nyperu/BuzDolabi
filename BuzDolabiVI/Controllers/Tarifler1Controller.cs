@@ -46,9 +46,10 @@ namespace BuzDolabiVI.Controllers
         }
 
         // GET: Tarifler1/Create
+        
         public IActionResult Create()
         {
-            return View();
+            return View(User);
         }
 
         // POST: Tarifler1/Create
