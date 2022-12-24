@@ -7,7 +7,7 @@ namespace BuzDolabiVI.Data
     public class ApplicationDbContext : IdentityDbContext<UserDetails>
     {
         public DbSet<Yorum> Yorum { get; set; }
-        public DbSet<Tarif> Tarif { get; set; }
+        public DbSet<Tarifler1> Tarifler1 { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {

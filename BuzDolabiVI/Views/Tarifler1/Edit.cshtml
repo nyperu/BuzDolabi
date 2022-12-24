@@ -1,4 +1,4 @@
-﻿@model BuzDolabiVI.Models.Tarif
+﻿@model BuzDolabiVI.Models.Tarifler1
 
 @{
     ViewData["Title"] = "Edit";
@@ -6,7 +6,7 @@
 
 <h1>Edit</h1>
 
-<h4>Tarif</h4>
+<h4>Tarifler1</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -14,14 +14,14 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="tarifID" />
             <div class="form-group">
-                <label asp-for="userID" class="control-label"></label>
-                <input asp-for="userID" class="form-control" />
-                <span asp-validation-for="userID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="tarifAd" class="control-label"></label>
                 <input asp-for="tarifAd" class="form-control" />
                 <span asp-validation-for="tarifAd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tarifFoto" class="control-label"></label>
+                <input asp-for="tarifFoto" class="form-control" />
+                <span asp-validation-for="tarifFoto" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="tarifMalzemeler" class="control-label"></label>

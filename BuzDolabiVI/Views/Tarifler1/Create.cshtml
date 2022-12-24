@@ -1,4 +1,4 @@
-﻿@model BuzDolabiVI.Models.Tarif
+﻿@model BuzDolabiVI.Models.Tarifler1
 
 @{
     ViewData["Title"] = "Create";
@@ -6,21 +6,21 @@
 
 <h1>Create</h1>
 
-<h4>Tarif</h4>
+<h4>Tarifler1</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="userID" class="control-label"></label>
-                <input asp-for="userID" class="form-control" />
-                <span asp-validation-for="userID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="tarifAd" class="control-label"></label>
                 <input asp-for="tarifAd" class="form-control" />
                 <span asp-validation-for="tarifAd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tarifFoto" class="control-label"></label>
+                <input asp-for="tarifFoto" class="form-control" />
+                <span asp-validation-for="tarifFoto" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="tarifMalzemeler" class="control-label"></label>
@@ -38,9 +38,7 @@
                 <span asp-validation-for="tarifTarih" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="goruntulenme" class="control-label"></label>
-                <input asp-for="goruntulenme" class="form-control" />
-                <span asp-validation-for="goruntulenme" class="text-danger"></span>
+                <input asp-for="goruntulenme" min="0" value="0" type="hidden" class="form-control" />
             </div>
             <div class="form-group">
                 <label asp-for="tarifGirisYazisi" class="control-label"></label>

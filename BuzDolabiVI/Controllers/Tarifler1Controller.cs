@@ -10,85 +10,85 @@ using BuzDolabiVI.Models;
 
 namespace BuzDolabiVI.Controllers
 {
-    public class TarifController : Controller
+    public class Tarifler1Controller : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public TarifController(ApplicationDbContext context)
+        public Tarifler1Controller(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Tarif
+        // GET: Tarifler1
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Tarif.ToListAsync());
+              return View(await _context.Tarifler1.ToListAsync());
         }
 
-        // GET: Tarif/Details/5
+        // GET: Tarifler1/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Tarif == null)
+            if (id == null || _context.Tarifler1 == null)
             {
                 return NotFound();
             }
 
-            var tarif = await _context.Tarif
+            var tarifler1 = await _context.Tarifler1
                 .FirstOrDefaultAsync(m => m.tarifID == id);
-            if (tarif == null)
+            if (tarifler1 == null)
             {
                 return NotFound();
             }
 
-            return View(tarif);
+            return View(tarifler1);
         }
 
-        // GET: Tarif/Create
+        // GET: Tarifler1/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Tarif/Create
+        // POST: Tarifler1/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("tarifID,userID,tarifAd,tarifMalzemeler,tarifNasilYapilir,tarifTarih,goruntulenme,tarifGirisYazisi,kacKalori,besinDegeriLink,kacKisilik,hazirlanmaSuresi,pisirmeSuresi,yazarAd,yazarOzluSoz,yazarCinsiyet,yazarSosyal")] Tarif tarif)
+        public async Task<IActionResult> Create([Bind("tarifID,tarifAd,tarifFoto,tarifMalzemeler,tarifNasilYapilir,tarifTarih,goruntulenme,tarifGirisYazisi,kacKalori,besinDegeriLink,kacKisilik,hazirlanmaSuresi,pisirmeSuresi,yazarAd,yazarOzluSoz,yazarCinsiyet,yazarSosyal")] Tarifler1 tarifler1)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(tarif);
+                _context.Add(tarifler1);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(tarif);
+            return View(tarifler1);
         }
 
-        // GET: Tarif/Edit/5
+        // GET: Tarifler1/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Tarif == null)
+            if (id == null || _context.Tarifler1 == null)
             {
                 return NotFound();
             }
 
-            var tarif = await _context.Tarif.FindAsync(id);
-            if (tarif == null)
+            var tarifler1 = await _context.Tarifler1.FindAsync(id);
+            if (tarifler1 == null)
             {
                 return NotFound();
             }
-            return View(tarif);
+            return View(tarifler1);
         }
 
-        // POST: Tarif/Edit/5
+        // POST: Tarifler1/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("tarifID,userID,tarifAd,tarifMalzemeler,tarifNasilYapilir,tarifTarih,goruntulenme,tarifGirisYazisi,kacKalori,besinDegeriLink,kacKisilik,hazirlanmaSuresi,pisirmeSuresi,yazarAd,yazarOzluSoz,yazarCinsiyet,yazarSosyal")] Tarif tarif)
+        public async Task<IActionResult> Edit(int id, [Bind("tarifID,tarifAd,tarifFoto,tarifMalzemeler,tarifNasilYapilir,tarifTarih,goruntulenme,tarifGirisYazisi,kacKalori,besinDegeriLink,kacKisilik,hazirlanmaSuresi,pisirmeSuresi,yazarAd,yazarOzluSoz,yazarCinsiyet,yazarSosyal")] Tarifler1 tarifler1)
         {
-            if (id != tarif.tarifID)
+            if (id != tarifler1.tarifID)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace BuzDolabiVI.Controllers
             {
                 try
                 {
-                    _context.Update(tarif);
+                    _context.Update(tarifler1);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TarifExists(tarif.tarifID))
+                    if (!Tarifler1Exists(tarifler1.tarifID))
                     {
                         return NotFound();
                     }
@@ -113,54 +113,49 @@ namespace BuzDolabiVI.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(tarif);
+            return View(tarifler1);
         }
 
-        // GET: Tarif/Delete/5
+        // GET: Tarifler1/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Tarif == null)
+            if (id == null || _context.Tarifler1 == null)
             {
                 return NotFound();
             }
 
-            var tarif = await _context.Tarif
+            var tarifler1 = await _context.Tarifler1
                 .FirstOrDefaultAsync(m => m.tarifID == id);
-            if (tarif == null)
+            if (tarifler1 == null)
             {
                 return NotFound();
             }
 
-            return View(tarif);
+            return View(tarifler1);
         }
 
-        // POST: Tarif/Delete/5
+        // POST: Tarifler1/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Tarif == null)
+            if (_context.Tarifler1 == null)
             {
-                return Problem("Entity set 'ApplicationDbContext.Tarif'  is null.");
+                return Problem("Entity set 'ApplicationDbContext.Tarifler1'  is null.");
             }
-            var tarif = await _context.Tarif.FindAsync(id);
-            if (tarif != null)
+            var tarifler1 = await _context.Tarifler1.FindAsync(id);
+            if (tarifler1 != null)
             {
-                _context.Tarif.Remove(tarif);
+                _context.Tarifler1.Remove(tarifler1);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool TarifExists(int id)
+        private bool Tarifler1Exists(int id)
         {
-          return _context.Tarif.Any(e => e.tarifID == id);
-        }
-        public IActionResult TarifEkle(Tarif tarif)
-        {
-
-            return View(tarif);
+          return _context.Tarifler1.Any(e => e.tarifID == id);
         }
     }
 }
