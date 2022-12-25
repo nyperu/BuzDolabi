@@ -21,6 +21,5 @@ namespace BuzDolabiVI.Models
         public int hazirlanmaSuresi { get; set; }
         public int pisirmeSuresi { get; set; }
         public string kategori { get; set; }
-        public ICollection<Yorum> yorumlar { get; set; }
     }
 }

@@ -340,7 +340,7 @@ namespace BuzDolabiVI.Migrations
             modelBuilder.Entity("BuzDolabiVI.Models.Yorum", b =>
                 {
                     b.HasOne("BuzDolabiVI.Models.Tarif", "Tarif")
-                        .WithMany("yorumlar")
+                        .WithMany()
                         .HasForeignKey("tarifID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -397,11 +397,6 @@ namespace BuzDolabiVI.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("BuzDolabiVI.Models.Tarif", b =>
-                {
-                    b.Navigation("yorumlar");
                 });
 #pragma warning restore 612, 618
         }
