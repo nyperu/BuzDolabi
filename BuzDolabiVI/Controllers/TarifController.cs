@@ -61,8 +61,10 @@ namespace BuzDolabiVI.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            
             return View(tarif);
         }
+
 
         // GET: Tarif/Edit/5
         public async Task<IActionResult> Edit(int? id)
