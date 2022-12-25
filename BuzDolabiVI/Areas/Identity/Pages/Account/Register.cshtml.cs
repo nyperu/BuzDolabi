@@ -84,12 +84,10 @@ namespace BuzDolabiVI.Areas.Identity.Pages.Account
             public string ozluSoz { get; set; }
 
 
-            [Required]
             [Display(Name = "Cinsiyet Seçiniz")]
             public string cinsiyet { get; set; }
 
 
-            [Required]
             [Display(Name = "Sosyal Medya Linki Giriniz")]
             public string sosyalmedya { get; set; }
 
@@ -138,8 +136,8 @@ namespace BuzDolabiVI.Areas.Identity.Pages.Account
                     UserName = Input.Email,
                     Email = Input.Email,
                     AdSoyad = Input.AdSoyad,
-                    ozluSoz=Input. ozluSoz, 
-                    cinsiyet=Input. cinsiyet,
+                    ozluSoz=Input.ozluSoz, 
+                    cinsiyet=Input.cinsiyet,
                     sosyalMedya=Input.sosyalmedya
                 };
                 /*var user = CreateUser();

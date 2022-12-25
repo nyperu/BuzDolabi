@@ -13,28 +13,19 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.userID)
+                @Html.DisplayNameFor(model => model.yorumOnay)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.kullaniciAdi)
+                @Html.DisplayNameFor(model => model.yorumTarih)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.tarifAdi)
+                @Html.DisplayNameFor(model => model.yorumIcerik)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.kategoriID)
+                @Html.DisplayNameFor(model => model.yorumKisi)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.onay)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.tarifID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.tarih)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.icerik)
+                @Html.DisplayNameFor(model => model.sosyal)
             </th>
             <th></th>
         </tr>
@@ -43,28 +34,19 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.userID)
+                @Html.DisplayFor(modelItem => item.yorumOnay)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.kullaniciAdi)
+                @Html.DisplayFor(modelItem => item.yorumTarih)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.tarifAdi)
+                @Html.DisplayFor(modelItem => item.yorumIcerik)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.kategoriID)
+                @Html.DisplayFor(modelItem => item.yorumKisi)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.onay)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.tarifID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.tarih)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.icerik)
+                @Html.DisplayFor(modelItem => item.sosyal)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.yorumID">Edit</a> |

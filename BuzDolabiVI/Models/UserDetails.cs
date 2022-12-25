@@ -9,5 +9,7 @@ namespace BuzDolabiVI.Models
         public string cinsiyet { get; set; }
         public string sosyalMedya { get; set; }
 
+        public ICollection<Tarif> tarifler { get; set; }
+
     }
 }

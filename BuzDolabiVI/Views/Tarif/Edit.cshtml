@@ -1,34 +1,27 @@
-﻿@using Microsoft.AspNetCore.Mvc.RazorPages;
-@model BuzDolabiVI.Models.Tarifler1
-@{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.AspNetCore.Mvc.Rendering;
-    using Microsoft.EntityFrameworkCore;
-    using BuzDolabiVI.Data;
-    using BuzDolabiVI.Models;
-    using Microsoft.AspNetCore.Authorization;
+﻿@model BuzDolabiVI.Models.Tarif
 
-    ViewData["Title"] = "Create";
-     ApplicationDbContext _context = context;
-    await _context.Tarifler1.ToListAsync();
+@{
+    ViewData["Title"] = "Edit";
 }
 
-<h1>Create</h1>
+<h1>Edit</h1>
 
-<h4>Tarifler1</h4>
+<h4>Tarif</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="tarifID" />
             <div class="form-group">
                 <label asp-for="tarifAd" class="control-label"></label>
                 <input asp-for="tarifAd" class="form-control" />
                 <span asp-validation-for="tarifAd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tarifOnay" class="control-label"></label>
+                <input asp-for="tarifOnay" class="form-control" />
+                <span asp-validation-for="tarifOnay" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="tarifFoto" class="control-label"></label>
@@ -51,7 +44,9 @@
                 <span asp-validation-for="tarifTarih" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input asp-for="goruntulenme" min="0" value="0" type="hidden" class="form-control" />
+                <label asp-for="goruntulenme" class="control-label"></label>
+                <input asp-for="goruntulenme" class="form-control" />
+                <span asp-validation-for="goruntulenme" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="tarifGirisYazisi" class="control-label"></label>
@@ -84,30 +79,12 @@
                 <span asp-validation-for="pisirmeSuresi" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="onay" class="control-label"></label>
-                <input asp-for="onay" class="form-control" />
-                <span asp-validation-for="onay" class="text-danger"></span>
+                <label asp-for="kategori" class="control-label"></label>
+                <input asp-for="kategori" class="form-control" />
+                <span asp-validation-for="kategori" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="yazarAd" class="control-label"></label>
-                <input asp-for="yazarAd" class="form-control" />
-                <span asp-validation-for="yazarAd" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="yazarOzluSoz" class="control-label"></label>
-                <input asp-for="yazarOzluSoz" class="form-control" />
-                <span asp-validation-for="yazarOzluSoz" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="yazarCinsiyet" class="control-label"></label>
-                <input asp-for="yazarCinsiyet" class="form-control" />
-                <span asp-validation-for="yazarCinsiyet" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input asp-for="yazarSosyal" type="hidden" value="" class="form-control" />
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>

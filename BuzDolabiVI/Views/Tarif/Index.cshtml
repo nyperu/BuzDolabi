@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BuzDolabiVI.Models.Tarifler1>
+﻿@model IEnumerable<BuzDolabiVI.Models.Tarif>
 
 @{
     ViewData["Title"] = "Index";
@@ -14,6 +14,9 @@
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.tarifAd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tarifOnay)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.tarifFoto)
@@ -49,16 +52,7 @@
                 @Html.DisplayNameFor(model => model.pisirmeSuresi)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.yazarAd)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.yazarOzluSoz)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.yazarCinsiyet)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.yazarSosyal)
+                @Html.DisplayNameFor(model => model.kategori)
             </th>
             <th></th>
         </tr>
@@ -68,6 +62,9 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.tarifAd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tarifOnay)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.tarifFoto)
@@ -103,16 +100,7 @@
                 @Html.DisplayFor(modelItem => item.pisirmeSuresi)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.yazarAd)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.yazarOzluSoz)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.yazarCinsiyet)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.yazarSosyal)
+                @Html.DisplayFor(modelItem => item.kategori)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.tarifID">Edit</a> |

@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BuzDolabiVI.Models;
-using BuzDolabiVI.Data;
 
 namespace BuzDolabiVI.Controllers
 {
@@ -54,7 +53,7 @@ namespace BuzDolabiVI.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("yorumID,userID,kullaniciAdi,tarifAdi,kategoriID,onay,tarifID,tarih,icerik")] Yorum yorum)
+        public async Task<IActionResult> Create([Bind("yorumID,yorumOnay,yorumTarih,yorumIcerik,yorumKisi,sosyal")] Yorum yorum)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +85,7 @@ namespace BuzDolabiVI.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("yorumID,userID,kullaniciAdi,tarifAdi,kategoriID,onay,tarifID,tarih,icerik")] Yorum yorum)
+        public async Task<IActionResult> Edit(int id, [Bind("yorumID,yorumOnay,yorumTarih,yorumIcerik,yorumKisi,sosyal")] Yorum yorum)
         {
             if (id != yorum.yorumID)
             {

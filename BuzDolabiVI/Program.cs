@@ -1,4 +1,3 @@
-using BuzDolabiVI.Data;
 using BuzDolabiVI.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
