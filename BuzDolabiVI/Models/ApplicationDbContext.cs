@@ -1,16 +1,17 @@
-﻿using BuzDolabiVI.Models;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace BuzDolabiVI.Data
+namespace BuzDolabiVI.Models
 {
     public class ApplicationDbContext : IdentityDbContext<UserDetails>
     {
+        public DbSet<Yorum> Yorum { get; set; }
+        public DbSet<Tarif> Tarif { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+
         }
-        public DbSet<BuzDolabiVI.Models.Yorum> Yorum { get; set; }
-        public DbSet<BuzDolabiVI.Models.Tarif> Tarif { get; set; }
+
     }
 }

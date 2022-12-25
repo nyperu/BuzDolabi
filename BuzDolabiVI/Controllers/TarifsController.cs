@@ -5,27 +5,26 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using BuzDolabiVI.Data;
 using BuzDolabiVI.Models;
 
 namespace BuzDolabiVI.Controllers
 {
-    public class TarifController : Controller
+    public class TarifsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public TarifController(ApplicationDbContext context)
+        public TarifsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Tarif
+        // GET: Tarifs
         public async Task<IActionResult> Index()
         {
               return View(await _context.Tarif.ToListAsync());
         }
 
-        // GET: Tarif/Details/5
+        // GET: Tarifs/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Tarif == null)
@@ -43,29 +42,30 @@ namespace BuzDolabiVI.Controllers
             return View(tarif);
         }
 
-        // GET: Tarif/Create
+        // GET: Tarifs/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Tarif/Create
+        // POST: Tarifs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("tarifID,userID,tarifAd,tarifMalzemeler,tarifNasilYapilir,tarifTarih,goruntulenme,tarifGirisYazisi,kacKalori,besinDegeriLink,kacKisilik,hazirlanmaSuresi,pisirmeSuresi,yazarAd,yazarOzluSoz,yazarCinsiyet,yazarSosyal")] Tarif tarif)
+        public async Task<IActionResult> Create([Bind("tarifID,tarifAd,tarifOnay,tarifFoto,tarifMalzemeler,tarifNasilYapilir,tarifTarih,goruntulenme,tarifGirisYazisi,kacKalori,besinDegeriLink,kacKisilik,hazirlanmaSuresi,pisirmeSuresi,kategori")] Tarif tarif)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(tarif);
+                
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(tarif);
         }
 
-        // GET: Tarif/Edit/5
+        // GET: Tarifs/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Tarif == null)
@@ -81,12 +81,12 @@ namespace BuzDolabiVI.Controllers
             return View(tarif);
         }
 
-        // POST: Tarif/Edit/5
+        // POST: Tarifs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("tarifID,userID,tarifAd,tarifMalzemeler,tarifNasilYapilir,tarifTarih,goruntulenme,tarifGirisYazisi,kacKalori,besinDegeriLink,kacKisilik,hazirlanmaSuresi,pisirmeSuresi,yazarAd,yazarOzluSoz,yazarCinsiyet,yazarSosyal")] Tarif tarif)
+        public async Task<IActionResult> Edit(int id, [Bind("tarifID,tarifAd,tarifOnay,tarifFoto,tarifMalzemeler,tarifNasilYapilir,tarifTarih,goruntulenme,tarifGirisYazisi,kacKalori,besinDegeriLink,kacKisilik,hazirlanmaSuresi,pisirmeSuresi,kategori")] Tarif tarif)
         {
             if (id != tarif.tarifID)
             {
@@ -116,7 +116,7 @@ namespace BuzDolabiVI.Controllers
             return View(tarif);
         }
 
-        // GET: Tarif/Delete/5
+        // GET: Tarifs/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Tarif == null)
@@ -134,7 +134,7 @@ namespace BuzDolabiVI.Controllers
             return View(tarif);
         }
 
-        // POST: Tarif/Delete/5
+        // POST: Tarifs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

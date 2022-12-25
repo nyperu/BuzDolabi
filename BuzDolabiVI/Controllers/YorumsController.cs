@@ -2,97 +2,96 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BuzDolabiVI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using BuzDolabiVI.Data;
-using BuzDolabiVI.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace BuzDolabiVI.Controllers
 {
-   
-    public class Tarifler1Controller : Controller
+    public class YorumsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public Tarifler1Controller(ApplicationDbContext context)
+        public YorumsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Tarifler1
+        // GET: Yorums
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Tarifler1.ToListAsync());
+            var applicationDbContext = _context.Yorum.Include(y => y.Tarif);
+            return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Tarifler1/Details/5
+        // GET: Yorums/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Tarifler1 == null)
+            if (id == null || _context.Yorum == null)
             {
                 return NotFound();
             }
 
-            var tarifler1 = await _context.Tarifler1
-                .FirstOrDefaultAsync(m => m.tarifID == id);
-            if (tarifler1 == null)
+            var yorum = await _context.Yorum
+                .Include(y => y.Tarif)
+                .FirstOrDefaultAsync(m => m.yorumID == id);
+            if (yorum == null)
             {
                 return NotFound();
             }
 
-            return View(tarifler1);
+            return View(yorum);
         }
 
-        // GET: Tarifler1/Create
-        
+        // GET: Yorums/Create
         public IActionResult Create()
         {
-            return View(User);
+            ViewData["tarifID"] = new SelectList(_context.Tarif, "tarifID", "tarifID");
+            return View();
         }
 
-        // POST: Tarifler1/Create
+        // POST: Yorums/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [AllowAnonymous]
-        public async Task<IActionResult> Create([Bind("tarifID,tarifAd,tarifFoto,tarifMalzemeler,tarifNasilYapilir,tarifTarih,goruntulenme,tarifGirisYazisi,kacKalori,besinDegeriLink,kacKisilik,hazirlanmaSuresi,pisirmeSuresi,onay,yazarAd,yazarOzluSoz,yazarCinsiyet,yazarSosyal")] Tarifler1 tarifler1)
+        public async Task<IActionResult> Create([Bind("yorumID,yorumOnay,yorumTarih,yorumIcerik,yorumKisi,sosyal,tarifID")] Yorum yorum)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(tarifler1);
+           
+                _context.Add(yorum);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
-            return View(tarifler1);
+            
+            ViewData["tarifID"] = new SelectList(_context.Tarif, "tarifID", "tarifID", yorum.tarifID);
+         
         }
 
-        // GET: Tarifler1/Edit/5
+        // GET: Yorums/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Tarifler1 == null)
+            if (id == null || _context.Yorum == null)
             {
                 return NotFound();
             }
 
-            var tarifler1 = await _context.Tarifler1.FindAsync(id);
-            if (tarifler1 == null)
+            var yorum = await _context.Yorum.FindAsync(id);
+            if (yorum == null)
             {
                 return NotFound();
             }
-            return View(tarifler1);
+            ViewData["tarifID"] = new SelectList(_context.Tarif, "tarifID", "tarifID", yorum.tarifID);
+            return View(yorum);
         }
 
-        // POST: Tarifler1/Edit/5
+        // POST: Yorums/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("tarifID,tarifAd,tarifFoto,tarifMalzemeler,tarifNasilYapilir,tarifTarih,goruntulenme,tarifGirisYazisi,kacKalori,besinDegeriLink,kacKisilik,hazirlanmaSuresi,pisirmeSuresi,onay,yazarAd,yazarOzluSoz,yazarCinsiyet,yazarSosyal")] Tarifler1 tarifler1)
+        public async Task<IActionResult> Edit(int id, [Bind("yorumID,yorumOnay,yorumTarih,yorumIcerik,yorumKisi,sosyal,tarifID")] Yorum yorum)
         {
-            if (id != tarifler1.tarifID)
+            if (id != yorum.yorumID)
             {
                 return NotFound();
             }
@@ -101,12 +100,12 @@ namespace BuzDolabiVI.Controllers
             {
                 try
                 {
-                    _context.Update(tarifler1);
+                    _context.Update(yorum);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!Tarifler1Exists(tarifler1.tarifID))
+                    if (!YorumExists(yorum.yorumID))
                     {
                         return NotFound();
                     }
@@ -117,49 +116,51 @@ namespace BuzDolabiVI.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(tarifler1);
+            ViewData["tarifID"] = new SelectList(_context.Tarif, "tarifID", "tarifID", yorum.tarifID);
+            return View(yorum);
         }
 
-        // GET: Tarifler1/Delete/5
+        // GET: Yorums/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Tarifler1 == null)
+            if (id == null || _context.Yorum == null)
             {
                 return NotFound();
             }
 
-            var tarifler1 = await _context.Tarifler1
-                .FirstOrDefaultAsync(m => m.tarifID == id);
-            if (tarifler1 == null)
+            var yorum = await _context.Yorum
+                .Include(y => y.Tarif)
+                .FirstOrDefaultAsync(m => m.yorumID == id);
+            if (yorum == null)
             {
                 return NotFound();
             }
 
-            return View(tarifler1);
+            return View(yorum);
         }
 
-        // POST: Tarifler1/Delete/5
+        // POST: Yorums/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Tarifler1 == null)
+            if (_context.Yorum == null)
             {
-                return Problem("Entity set 'ApplicationDbContext.Tarifler1'  is null.");
+                return Problem("Entity set 'ApplicationDbContext.Yorum'  is null.");
             }
-            var tarifler1 = await _context.Tarifler1.FindAsync(id);
-            if (tarifler1 != null)
+            var yorum = await _context.Yorum.FindAsync(id);
+            if (yorum != null)
             {
-                _context.Tarifler1.Remove(tarifler1);
+                _context.Yorum.Remove(yorum);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool Tarifler1Exists(int id)
+        private bool YorumExists(int id)
         {
-          return _context.Tarifler1.Any(e => e.tarifID == id);
+            return _context.Yorum.Any(e => e.yorumID == id);
         }
     }
 }

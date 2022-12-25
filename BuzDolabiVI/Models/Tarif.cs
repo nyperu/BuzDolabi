@@ -7,8 +7,8 @@ namespace BuzDolabiVI.Models
     {
         [Key]
         public int tarifID { get; set; }
-        public int userID { get; set; }
         public string tarifAd { get; set; }
+        public string tarifOnay { get; set; }
         public string tarifFoto { get; set; }
         public string tarifMalzemeler { get; set; }
         public string tarifNasilYapilir { get; set; }
@@ -20,10 +20,6 @@ namespace BuzDolabiVI.Models
         public int kacKisilik { get; set; }
         public int hazirlanmaSuresi { get; set; }
         public int pisirmeSuresi { get; set; }
-
-        public string yazarAd { get; set; }
-        public string yazarOzluSoz { get; set; }
-        public string yazarCinsiyet { get; set; }
-        public string yazarSosyal { get; set; }
+        public string kategori { get; set; }
     }
 }

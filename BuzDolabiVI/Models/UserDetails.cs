@@ -4,7 +4,9 @@ namespace BuzDolabiVI.Models
 {
     public class UserDetails:IdentityUser
     {
-        public string Ad { get; set; }
-        public string Soyad { get; set; }
+        public string AdSoyad { get; set; }
+        public string ozluSoz { get; set; }
+        public string cinsiyet { get; set; }
+        public string sosyalMedya { get; set; }
     }
 }

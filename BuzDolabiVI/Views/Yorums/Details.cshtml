@@ -1,0 +1,54 @@
+﻿@model BuzDolabiVI.Models.Yorum
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Yorum</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.yorumOnay)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.yorumOnay)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.yorumTarih)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.yorumTarih)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.yorumIcerik)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.yorumIcerik)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.yorumKisi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.yorumKisi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.sosyal)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.sosyal)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tarif)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tarif.tarifID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.yorumID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

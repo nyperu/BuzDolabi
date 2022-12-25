@@ -13,10 +13,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.userID)
+                @Html.DisplayNameFor(model => model.tarifAd)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.tarifAd)
+                @Html.DisplayNameFor(model => model.tarifOnay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tarifFoto)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.tarifMalzemeler)
@@ -49,16 +52,7 @@
                 @Html.DisplayNameFor(model => model.pisirmeSuresi)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.yazarAd)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.yazarOzluSoz)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.yazarCinsiyet)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.yazarSosyal)
+                @Html.DisplayNameFor(model => model.kategori)
             </th>
             <th></th>
         </tr>
@@ -67,10 +61,13 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.userID)
+                @Html.DisplayFor(modelItem => item.tarifAd)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.tarifAd)
+                @Html.DisplayFor(modelItem => item.tarifOnay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tarifFoto)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.tarifMalzemeler)
@@ -103,16 +100,7 @@
                 @Html.DisplayFor(modelItem => item.pisirmeSuresi)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.yazarAd)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.yazarOzluSoz)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.yazarCinsiyet)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.yazarSosyal)
+                @Html.DisplayFor(modelItem => item.kategori)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.tarifID">Edit</a> |

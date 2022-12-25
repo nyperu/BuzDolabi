@@ -5,19 +5,16 @@ using KeyAttribute = System.ComponentModel.DataAnnotations.KeyAttribute;
 namespace BuzDolabiVI.Models
 {
     public class Yorum
-    {
-
+    { 
         [Key]
         public int yorumID { get; set; }
-
-        public int userID { get; set; }
-        public string kullaniciAdi { get; set; }
-        public string tarifAdi { get; set; }
-        public string kategoriID { get; set; }
-        public string onay { get; set; }
+        public string yorumOnay { get; set; }
+        public DateTime yorumTarih { get; set; }
+        public string yorumIcerik { get; set; }
+        public string yorumKisi { get; set; }
+        public string sosyal { get; set; }
         public int tarifID { get; set; }
-
-        public DateTime tarih { get; set; }
-        public string icerik { get; set; }
+        public Tarif Tarif { get; set; }
+        
     }
 }
