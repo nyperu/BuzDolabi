@@ -11,5 +11,7 @@ namespace BuzDolabiVI.Models
 
         public ICollection<Tarif> tarifler { get; set; }
 
+        public ICollection<Yorum> yorumlar { get; set; }
+
     }
 }
