@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BuzDolabiVI.Migrations
 {
-    public partial class a : Migration
+    public partial class _11 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -50,6 +50,32 @@ namespace BuzDolabiVI.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Tarif",
+                columns: table => new
+                {
+                    tarifID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    tarifAd = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    tarifOnay = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    tarifFoto = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    tarifMalzemeler = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    tarifNasilYapilir = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    tarifTarih = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    goruntulenme = table.Column<int>(type: "int", nullable: false),
+                    tarifGirisYazisi = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    kacKalori = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    besinDegeriLink = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    kacKisilik = table.Column<int>(type: "int", nullable: false),
+                    hazirlanmaSuresi = table.Column<int>(type: "int", nullable: false),
+                    pisirmeSuresi = table.Column<int>(type: "int", nullable: false),
+                    kategori = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Tarif", x => x.tarifID);
                 });
 
             migrationBuilder.CreateTable(
@@ -159,38 +185,6 @@ namespace BuzDolabiVI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Tarif",
-                columns: table => new
-                {
-                    tarifID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    tarifAd = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    tarifOnay = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    tarifFoto = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    tarifMalzemeler = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    tarifNasilYapilir = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    tarifTarih = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    goruntulenme = table.Column<int>(type: "int", nullable: false),
-                    tarifGirisYazisi = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    kacKalori = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    besinDegeriLink = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    kacKisilik = table.Column<int>(type: "int", nullable: false),
-                    hazirlanmaSuresi = table.Column<int>(type: "int", nullable: false),
-                    pisirmeSuresi = table.Column<int>(type: "int", nullable: false),
-                    kategori = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    tarifKullaniciId = table.Column<string>(type: "nvarchar(450)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Tarif", x => x.tarifID);
-                    table.ForeignKey(
-                        name: "FK_Tarif_AspNetUsers_tarifKullaniciId",
-                        column: x => x.tarifKullaniciId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Yorum",
                 columns: table => new
                 {
@@ -201,18 +195,11 @@ namespace BuzDolabiVI.Migrations
                     yorumIcerik = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     yorumKisi = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     sosyal = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    tarifID = table.Column<int>(type: "int", nullable: false),
-                    yorumKullaniciId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    tarifID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Yorum", x => x.yorumID);
-                    table.ForeignKey(
-                        name: "FK_Yorum_AspNetUsers_yorumKullaniciId",
-                        column: x => x.yorumKullaniciId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Yorum_Tarif_tarifID",
                         column: x => x.tarifID,
@@ -261,19 +248,9 @@ namespace BuzDolabiVI.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Tarif_tarifKullaniciId",
-                table: "Tarif",
-                column: "tarifKullaniciId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Yorum_tarifID",
                 table: "Yorum",
                 column: "tarifID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Yorum_yorumKullaniciId",
-                table: "Yorum",
-                column: "yorumKullaniciId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -300,10 +277,10 @@ namespace BuzDolabiVI.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "Tarif");
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "Tarif");
         }
     }
 }

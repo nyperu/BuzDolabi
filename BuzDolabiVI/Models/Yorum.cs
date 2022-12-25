@@ -13,8 +13,8 @@ namespace BuzDolabiVI.Models
         public string yorumIcerik { get; set; }
         public string yorumKisi { get; set; }
         public string sosyal { get; set; }
+        public int tarifID { get; set; }
         public Tarif Tarif { get; set; }
         
-        public UserDetails yorumKullanici { get; set; }
     }
 }

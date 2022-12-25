@@ -11,7 +11,7 @@ namespace BuzDolabiVI.Controllers
 {
     public class TarifController : Controller
     {
-        public ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
         public TarifController(ApplicationDbContext context)
         {
@@ -52,19 +52,15 @@ namespace BuzDolabiVI.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("tarifID,tarifAd,tarifOnay,tarifFoto,tarifMalzemeler,tarifNasilYapilir,tarifTarih,goruntulenme,tarifGirisYazisi,kacKalori,besinDegeriLink,kacKisilik,hazirlanmaSuresi,pisirmeSuresi,kategori")] Tarif tarif)
+        public async Task<IActionResult> Create(Tarif tarif)
         {
-            if (ModelState.IsValid)
-            {
+            
                 _context.Add(tarif);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
             
-            return View(tarif);
-        }
-
+            
+         }
 
         // GET: Tarif/Edit/5
         public async Task<IActionResult> Edit(int? id)

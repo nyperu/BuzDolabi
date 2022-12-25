@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BuzDolabiVI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221225105042_req")]
-    partial class req
+    [Migration("20221225152648_11")]
+    partial class _11
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -68,10 +68,6 @@ namespace BuzDolabiVI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("tarifKullaniciId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("tarifMalzemeler")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -88,8 +84,6 @@ namespace BuzDolabiVI.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("tarifID");
-
-                    b.HasIndex("tarifKullaniciId");
 
                     b.ToTable("Tarif");
                 });
@@ -198,10 +192,6 @@ namespace BuzDolabiVI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("yorumKullaniciId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("yorumOnay")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -212,8 +202,6 @@ namespace BuzDolabiVI.Migrations
                     b.HasKey("yorumID");
 
                     b.HasIndex("tarifID");
-
-                    b.HasIndex("yorumKullaniciId");
 
                     b.ToTable("Yorum");
                 });
@@ -351,17 +339,6 @@ namespace BuzDolabiVI.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("BuzDolabiVI.Models.Tarif", b =>
-                {
-                    b.HasOne("BuzDolabiVI.Models.UserDetails", "tarifKullanici")
-                        .WithMany("tarifler")
-                        .HasForeignKey("tarifKullaniciId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("tarifKullanici");
-                });
-
             modelBuilder.Entity("BuzDolabiVI.Models.Yorum", b =>
                 {
                     b.HasOne("BuzDolabiVI.Models.Tarif", "Tarif")
@@ -370,15 +347,7 @@ namespace BuzDolabiVI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BuzDolabiVI.Models.UserDetails", "yorumKullanici")
-                        .WithMany("yorumlar")
-                        .HasForeignKey("yorumKullaniciId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Tarif");
-
-                    b.Navigation("yorumKullanici");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -434,13 +403,6 @@ namespace BuzDolabiVI.Migrations
 
             modelBuilder.Entity("BuzDolabiVI.Models.Tarif", b =>
                 {
-                    b.Navigation("yorumlar");
-                });
-
-            modelBuilder.Entity("BuzDolabiVI.Models.UserDetails", b =>
-                {
-                    b.Navigation("tarifler");
-
                     b.Navigation("yorumlar");
                 });
 #pragma warning restore 612, 618

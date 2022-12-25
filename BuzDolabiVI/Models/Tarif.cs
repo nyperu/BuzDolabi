@@ -22,7 +22,5 @@ namespace BuzDolabiVI.Models
         public int pisirmeSuresi { get; set; }
         public string kategori { get; set; }
         public ICollection<Yorum> yorumlar { get; set; }
-        [Required]
-        public UserDetails tarifKullanici { get; set; }
     }
 }

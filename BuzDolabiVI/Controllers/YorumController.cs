@@ -21,7 +21,8 @@ namespace BuzDolabiVI.Controllers
         // GET: Yorum
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Yorum.ToListAsync());
+            var applicationDbContext = _context.Yorum.Include(y => y.Tarif);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Yorum/Details/5
@@ -33,6 +34,7 @@ namespace BuzDolabiVI.Controllers
             }
 
             var yorum = await _context.Yorum
+                .Include(y => y.Tarif)
                 .FirstOrDefaultAsync(m => m.yorumID == id);
             if (yorum == null)
             {
@@ -45,6 +47,7 @@ namespace BuzDolabiVI.Controllers
         // GET: Yorum/Create
         public IActionResult Create()
         {
+            ViewData["tarifID"] = new SelectList(_context.Tarif, "tarifID", "tarifID");
             return View();
         }
 
@@ -53,15 +56,14 @@ namespace BuzDolabiVI.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("yorumID,yorumOnay,yorumTarih,yorumIcerik,yorumKisi,sosyal")] Yorum yorum)
+        public async Task<IActionResult> Create([Bind("yorumID,yorumOnay,yorumTarih,yorumIcerik,yorumKisi,sosyal,tarifID")] Yorum yorum)
         {
-            if (ModelState.IsValid)
-            {
+          
                 _context.Add(yorum);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
-            return View(yorum);
+            
+            
         }
 
         // GET: Yorum/Edit/5
@@ -77,6 +79,7 @@ namespace BuzDolabiVI.Controllers
             {
                 return NotFound();
             }
+            ViewData["tarifID"] = new SelectList(_context.Tarif, "tarifID", "tarifID", yorum.tarifID);
             return View(yorum);
         }
 
@@ -85,7 +88,7 @@ namespace BuzDolabiVI.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("yorumID,yorumOnay,yorumTarih,yorumIcerik,yorumKisi,sosyal")] Yorum yorum)
+        public async Task<IActionResult> Edit(int id, [Bind("yorumID,yorumOnay,yorumTarih,yorumIcerik,yorumKisi,sosyal,tarifID")] Yorum yorum)
         {
             if (id != yorum.yorumID)
             {
@@ -112,6 +115,7 @@ namespace BuzDolabiVI.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["tarifID"] = new SelectList(_context.Tarif, "tarifID", "tarifID", yorum.tarifID);
             return View(yorum);
         }
 
@@ -124,6 +128,7 @@ namespace BuzDolabiVI.Controllers
             }
 
             var yorum = await _context.Yorum
+                .Include(y => y.Tarif)
                 .FirstOrDefaultAsync(m => m.yorumID == id);
             if (yorum == null)
             {
