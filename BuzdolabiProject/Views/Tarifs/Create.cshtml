@@ -1,0 +1,109 @@
+﻿@model BuzdolabiProject.Models.Tarif
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Tarif</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="tarifAd" class="control-label"></label>
+                <input asp-for="tarifAd" class="form-control" />
+                <span asp-validation-for="tarifAd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tarifOnay" class="control-label"></label>
+                <input asp-for="tarifOnay" class="form-control" />
+                <span asp-validation-for="tarifOnay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tarifFoto" class="control-label"></label>
+                <input asp-for="tarifFoto" class="form-control" />
+                <span asp-validation-for="tarifFoto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tarifMalzemeler" class="control-label"></label>
+                <input asp-for="tarifMalzemeler" class="form-control" />
+                <span asp-validation-for="tarifMalzemeler" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tarifNasilYapilir" class="control-label"></label>
+                <input asp-for="tarifNasilYapilir" class="form-control" />
+                <span asp-validation-for="tarifNasilYapilir" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="tarifTarih" type="hidden" value="@ViewData["tarih"]" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="goruntulenme" class="control-label"></label>
+                <input asp-for="goruntulenme" class="form-control" />
+                <span asp-validation-for="goruntulenme" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tarifGirisYazisi" class="control-label"></label>
+                <input asp-for="tarifGirisYazisi" class="form-control" />
+                <span asp-validation-for="tarifGirisYazisi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="kacKalori" class="control-label"></label>
+                <input asp-for="kacKalori" class="form-control" />
+                <span asp-validation-for="kacKalori" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="besinDegeriLink" class="control-label"></label>
+                <input asp-for="besinDegeriLink" class="form-control" />
+                <span asp-validation-for="besinDegeriLink" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="kacKisilik" class="control-label"></label>
+                <input asp-for="kacKisilik" class="form-control" />
+                <span asp-validation-for="kacKisilik" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="hazirlanmaSuresi" class="control-label"></label>
+                <input asp-for="hazirlanmaSuresi" class="form-control" />
+                <span asp-validation-for="hazirlanmaSuresi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="pisirmeSuresi" class="control-label"></label>
+                <input asp-for="pisirmeSuresi" class="form-control" />
+                <span asp-validation-for="pisirmeSuresi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="kategori" class="control-label"></label>
+                <input asp-for="kategori" class="form-control" />
+                <span asp-validation-for="kategori" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="ozluSoz" type="hidden" value="@ViewData["tarifOzluSoz"]" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input asp-for="adSoyad" type="hidden" value="@ViewData["tarifAdi"]" class="form-control" />
+
+            </div>
+            <div class="form-group">
+                <input asp-for="sosyalMedya" type="hidden" value="@ViewData["tarifSosyalMedya"]" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input asp-for="cinsiyet" type="hidden" value="@ViewData["tarifCinsiyet"]" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
