@@ -5,7 +5,7 @@
 @{
     int yorumSayisi = 0;
 }
-<div class="sayfalarinBasligi"><h1>CORBA TARİFLERİ</h1></div>
+<div class="sayfalarinBasligi"><h1>TATLI TARİFLERİ</h1></div>
 
 <div class="container-fluid">
     <div class="px-lg-5">
@@ -20,7 +20,7 @@
                 {
                     continue;
                 }
-                if (item.tarifOnay != "onay")
+                     if (item.tarifOnay != "onay")
                 {
                     continue;
                 }
@@ -32,7 +32,7 @@
                                     @item.tarifAd
                                 </h5>
                                 <br />
-                                <img src="~/images/@item.tarifFoto" alt="" class="" style="width:90%;height:90%">
+                                <img src="https://bootstrapious.com/i/snippets/sn-gallery/img-1.jpg" alt="" class="" style="width:90%;height:90%">
                             </a>
                             <p class="small text-muted mb-0 mt-1"> @item.tarifGirisYazisi </p>
                             <div class="text-center  rounded-pill bg-light mb-2 mt-4">
@@ -50,35 +50,36 @@
         <!-- SON YORUMLAR LİSTELENİYOR -->
         @foreach (var std in ViewData["yorumlar"] as IList<Yorum>)
         {
-            @if (std.Tarif.kategori == "Corba")
+            @if (std.Tarif.kategori == "Tatli")
             {
                 yorumSayisi++;
             }
         }
         <div class="be-comment-block">
-            <h1 class="comments-title">Corba Kategorisinde Toplam  @yorumSayisi yorum bulunmaktadır.</h1>
+            <h1 class="comments-title">TATLI Kategorisinde Toplam  @yorumSayisi yorum bulunmaktadır.</h1>
             @{
                 yorumSayisi = 0;
             }
             <div class="be-comment">
                 @foreach (var std in ViewData["yorumlar"] as IList<Yorum>)
                 {
-                    @if (std.Tarif.kategori != "Corba")
+                    @if (std.Tarif.kategori != "Tatli")
                     {
                         continue;
                     }
                     <div class="be-img-comment">
-                        <a href="@std.yorumSosyal">
-                            @if (std.yorumCinsiyet == "erkek")
-                            {
-                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="be-ava-comment">
+                        <a href="blog-detail-2.html">
+                            <a href="@std.yorumSosyal">
+                                @if (std.yorumCinsiyet == "erkek")
+                                {
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="be-ava-comment">
 
-                            }
-                            else
-                            {
-                                <img src="https://bootdey.com/img/Content/avatar/avatar8.png" alt="" class="be-ava-comment">
-                            }
-                        </a>
+                                }
+                                else
+                                {
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar8.png" alt="" class="be-ava-comment">
+                                }
+                            </a>
                     </div>
                     <div class="be-comment-content">
 

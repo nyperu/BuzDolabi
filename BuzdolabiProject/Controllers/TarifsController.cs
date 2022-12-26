@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BuzdolabiProject.Models;
 using System.Globalization;
+using BuzdolabiProject.Models;
 
 namespace BuzdolabiProject.Controllers
 {
@@ -20,6 +21,89 @@ namespace BuzdolabiProject.Controllers
         }
 
         // GET: Tarifs
+        public async Task<IActionResult> admin()
+        {
+            return View(await _context.Tarif.ToListAsync());
+        }
+        public async Task<IActionResult> adminDetails(int? id)
+        {
+
+            if (id == null || _context.Tarif == null)
+            {
+                return NotFound();
+            }
+
+            var tarif = await _context.Tarif
+                .FirstOrDefaultAsync(m => m.tarifID == id);
+            if (tarif == null)
+            {
+                return NotFound();
+            }
+            return View(tarif);
+        }
+        public async Task<IActionResult> adminDuzenle(int? id)
+        {
+            if (id == null || _context.Tarif == null)
+            {
+                return NotFound();
+            }
+
+            var tarif = await _context.Tarif.FindAsync(id);
+            if (tarif == null)
+            {
+                return NotFound();
+            }
+            return View(tarif);
+        }
+        public async Task<IActionResult> adminDuzenle(int id, [Bind("tarifID,tarifAd,tarifOnay,tarifFoto,tarifMalzemeler,tarifNasilYapilir,tarifTarih,goruntulenme,tarifGirisYazisi,kacKalori,besinDegeriLink,kacKisilik,hazirlanmaSuresi,pisirmeSuresi,kategori,ozluSoz,adSoyad,sosyalMedya,cinsiyet")] Tarif tarif)
+        {
+            if (id != tarif.tarifID)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(tarif);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!TarifExists(tarif.tarifID))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(tarif);
+        }
+        public async Task<IActionResult> adminOnay(int? id)
+        {
+
+            if (id == null || _context.Tarif == null)
+            {
+                return NotFound();
+            }
+            var tarif = await _context.Tarif
+                .FirstOrDefaultAsync(m => m.tarifID == id);
+            if (tarif == null)
+            {
+                return NotFound();
+            }
+
+            tarif.tarifOnay = "onay";
+            _context.Update(tarif);
+            await _context.SaveChangesAsync();
+            return View(tarif);
+        }
+
         public async Task<IActionResult> Index()
         {
             ViewData["yorumlar"] = _context.Yorum.ToList();
@@ -69,6 +153,9 @@ namespace BuzdolabiProject.Controllers
                 return NotFound();
             }
 
+            tarif.goruntulenme++;
+            _context.Update(tarif);
+            await _context.SaveChangesAsync();
             return View(tarif);
         }
 
@@ -202,5 +289,6 @@ namespace BuzdolabiProject.Controllers
         {
             return _context.Tarif.Any(e => e.tarifID == id);
         }
+
     }
 }

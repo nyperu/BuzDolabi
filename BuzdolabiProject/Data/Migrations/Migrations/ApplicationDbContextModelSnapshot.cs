@@ -100,7 +100,7 @@ namespace BuzdolabiProject.Migrations
 
                     b.HasKey("tarifID");
 
-                    b.ToTable("Tarif");
+                    b.ToTable("Tarif", (string)null);
                 });
 
             modelBuilder.Entity("BuzdolabiProject.Models.UserDetails", b =>
@@ -227,7 +227,7 @@ namespace BuzdolabiProject.Migrations
 
                     b.HasIndex("tarifID");
 
-                    b.ToTable("Yorum");
+                    b.ToTable("Yorum", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

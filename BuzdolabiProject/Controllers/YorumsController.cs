@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using BuzdolabiProject.Models;
 using System.Globalization;
 
+
 namespace BuzdolabiProject.Controllers
 {
     public class YorumsController : Controller
