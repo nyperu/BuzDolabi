@@ -51,7 +51,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllerRoute(
 name: "default",
-     pattern: "{controller=Tarifler}/{action=Index}/{id?}");
+     pattern: "{controller=Tarifs}/{action=Index}/{id?}");
 app.MapRazorPages();
 
 app.Run();

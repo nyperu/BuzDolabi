@@ -74,11 +74,11 @@ namespace BuzdolabiProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("yorumID,yorumOnay,yorumTarih,yorumIcerik,yorumAdSoyad,yorumOzluSoz,yorumCinsiyet,yorumSosyal,tarifID")] Yorum yorum)
         {
-            
-                _context.Add(yorum);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            
+
+            _context.Add(yorum);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+
             ViewData["tarifID"] = new SelectList(_context.Tarif, "tarifID", "tarifID", yorum.tarifID);
             return View(yorum);
         }
@@ -169,14 +169,14 @@ namespace BuzdolabiProject.Controllers
             {
                 _context.Yorum.Remove(yorum);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool YorumExists(int id)
         {
-          return _context.Yorum.Any(e => e.yorumID == id);
+            return _context.Yorum.Any(e => e.yorumID == id);
         }
     }
 }
