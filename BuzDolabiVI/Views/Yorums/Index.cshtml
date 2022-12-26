@@ -22,22 +22,19 @@
                 @Html.DisplayNameFor(model => model.yorumIcerik)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.yorumKisi)
+                @Html.DisplayNameFor(model => model.yorumAdSoyad)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.sosyal)
+                @Html.DisplayNameFor(model => model.yorumOzluSoz)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.yorumCinsiyet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.yorumSosyal)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Tarif)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tarif.tarifFoto)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tarif.tarifAd)
-            </th>
-                    <th>
-                @Html.DisplayNameFor(model => model.Tarif.tarifNasilYapilir)
             </th>
             <th></th>
         </tr>
@@ -55,24 +52,20 @@
                 @Html.DisplayFor(modelItem => item.yorumIcerik)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.yorumKisi)
+                @Html.DisplayFor(modelItem => item.yorumAdSoyad)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.sosyal)
+                @Html.DisplayFor(modelItem => item.yorumOzluSoz)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.yorumCinsiyet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.yorumSosyal)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Tarif.tarifID)
             </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Tarif.tarifFoto)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Tarif.tarifAd)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Tarif.tarifNasilYapilir)
-                </td>
-            
             <td>
                 <a asp-action="Edit" asp-route-id="@item.yorumID">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.yorumID">Details</a> |

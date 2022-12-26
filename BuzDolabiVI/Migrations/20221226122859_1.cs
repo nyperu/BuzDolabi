@@ -63,7 +63,7 @@ namespace BuzDolabiVI.Migrations
                     tarifFoto = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     tarifMalzemeler = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     tarifNasilYapilir = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    tarifTarih = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    tarifTarih = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     goruntulenme = table.Column<int>(type: "int", nullable: false),
                     tarifGirisYazisi = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     kacKalori = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -71,7 +71,11 @@ namespace BuzDolabiVI.Migrations
                     kacKisilik = table.Column<int>(type: "int", nullable: false),
                     hazirlanmaSuresi = table.Column<int>(type: "int", nullable: false),
                     pisirmeSuresi = table.Column<int>(type: "int", nullable: false),
-                    kategori = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    kategori = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ozluSoz = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    adSoyad = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    sosyalMedya = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    cinsiyet = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -191,10 +195,12 @@ namespace BuzDolabiVI.Migrations
                     yorumID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     yorumOnay = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    yorumTarih = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    yorumTarih = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     yorumIcerik = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    yorumKisi = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    sosyal = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    yorumAdSoyad = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    yorumOzluSoz = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    yorumCinsiyet = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    yorumSosyal = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     tarifID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

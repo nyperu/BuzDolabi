@@ -30,7 +30,15 @@ namespace BuzDolabiVI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("tarifID"), 1L, 1);
 
+                    b.Property<string>("adSoyad")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("besinDegeriLink")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("cinsiyet")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -51,8 +59,16 @@ namespace BuzDolabiVI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ozluSoz")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("pisirmeSuresi")
                         .HasColumnType("int");
+
+                    b.Property<string>("sosyalMedya")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("tarifAd")
                         .IsRequired()
@@ -78,8 +94,9 @@ namespace BuzDolabiVI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("tarifTarih")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("tarifTarih")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("tarifID");
 
@@ -175,18 +192,18 @@ namespace BuzDolabiVI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("yorumID"), 1L, 1);
 
-                    b.Property<string>("sosyal")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("tarifID")
                         .HasColumnType("int");
 
-                    b.Property<string>("yorumIcerik")
+                    b.Property<string>("yorumAdSoyad")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("yorumKisi")
+                    b.Property<string>("yorumCinsiyet")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("yorumIcerik")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -194,8 +211,17 @@ namespace BuzDolabiVI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("yorumTarih")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("yorumOzluSoz")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("yorumSosyal")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("yorumTarih")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("yorumID");
 

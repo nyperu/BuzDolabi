@@ -38,9 +38,7 @@
                 <span asp-validation-for="tarifNasilYapilir" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="tarifTarih" class="control-label"></label>
-                <input asp-for="tarifTarih" class="form-control" />
-                <span asp-validation-for="tarifTarih" class="text-danger"></span>
+                <input asp-for="tarifTarih" type="hidden" value="@ViewData["tarih"]" class="form-control" />
             </div>
             <div class="form-group">
                 <label asp-for="goruntulenme" class="control-label"></label>
@@ -81,6 +79,19 @@
                 <label asp-for="kategori" class="control-label"></label>
                 <input asp-for="kategori" class="form-control" />
                 <span asp-validation-for="kategori" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="ozluSoz" type="hidden" value="@ViewData["tarifOzluSoz"]" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input asp-for="adSoyad" type="hidden" value="@ViewData["tarifAdi"]" class="form-control" />
+
+            </div>
+            <div class="form-group">
+                <input asp-for="sosyalMedya" type="hidden" value="@ViewData["tarifSosyalMedya"]" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input asp-for="cinsiyet" type="hidden" value="@ViewData["tarifCinsiyet"]" class="form-control" />
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
