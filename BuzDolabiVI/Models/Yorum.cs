@@ -9,10 +9,12 @@ namespace BuzDolabiVI.Models
         [Key]
         public int yorumID { get; set; }
         public string yorumOnay { get; set; }
-        public DateTime yorumTarih { get; set; }
+        public string yorumTarih { get; set; }
         public string yorumIcerik { get; set; }
-        public string yorumKisi { get; set; }
-        public string sosyal { get; set; }
+        public string yorumAdSoyad { get; set; }
+        public string yorumOzluSoz { get; set; }
+        public string yorumCinsiyet { get; set; }
+        public string yorumSosyal { get; set; }
         public int tarifID { get; set; }
         public Tarif Tarif { get; set; }
         

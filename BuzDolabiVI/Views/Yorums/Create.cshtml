@@ -13,14 +13,10 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="yorumOnay" class="control-label"></label>
-                <input asp-for="yorumOnay" class="form-control" />
-                <span asp-validation-for="yorumOnay" class="text-danger"></span>
+                <input asp-for="yorumOnay" value="0" type="hidden" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="yorumTarih" class="control-label"></label>
-                <input asp-for="yorumTarih" class="form-control" />
-                <span asp-validation-for="yorumTarih" class="text-danger"></span>
+                <input asp-for="yorumTarih" value="@ViewData["tarih"]" type="hidden" class="form-control" />
             </div>
             <div class="form-group">
                 <label asp-for="yorumIcerik" class="control-label"></label>
@@ -28,14 +24,16 @@
                 <span asp-validation-for="yorumIcerik" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="yorumKisi" class="control-label"></label>
-                <input asp-for="yorumKisi" class="form-control" />
-                <span asp-validation-for="yorumKisi" class="text-danger"></span>
+                <input asp-for="yorumAdSoyad" value="@ViewData["yorumAdi"]" type="hidden" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="sosyal" class="control-label"></label>
-                <input asp-for="sosyal" class="form-control" />
-                <span asp-validation-for="sosyal" class="text-danger"></span>
+                <input asp-for="yorumOzluSoz" value="@ViewData["yorumOzluSoz"]" type="hidden" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input asp-for="yorumCinsiyet" value="@ViewData["yorumCinsiyet"]" type="hidden" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input asp-for="yorumSosyal" value="@ViewData["yorumSosyalMedya"]" type="hidden" class="form-control" />
             </div>
             <div class="form-group">
                 <label asp-for="tarifID" class="control-label"></label>

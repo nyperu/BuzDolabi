@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.Drawing;
 
 namespace BuzDolabiVI.Models
@@ -12,7 +13,7 @@ namespace BuzDolabiVI.Models
         public string tarifFoto { get; set; }
         public string tarifMalzemeler { get; set; }
         public string tarifNasilYapilir { get; set; }
-        public DateTime tarifTarih { get; set; }
+        public string tarifTarih { get; set; }
         public int goruntulenme { get; set; }
         public string tarifGirisYazisi { get; set; }
         public string kacKalori { get; set; }
@@ -21,5 +22,11 @@ namespace BuzDolabiVI.Models
         public int hazirlanmaSuresi { get; set; }
         public int pisirmeSuresi { get; set; }
         public string kategori { get; set; }
+       
+    
+        public string ozluSoz { get; set; }
+        public string adSoyad { get; set; }
+        public string sosyalMedya { get; set; }
+        public string cinsiyet { get; set; }
     }
 }

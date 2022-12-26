@@ -2,6 +2,8 @@
 
 @{
     ViewData["Title"] = "Index";
+
+
 }
 
 <h1>Index</h1>
@@ -54,6 +56,18 @@
             <th>
                 @Html.DisplayNameFor(model => model.kategori)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ozluSoz)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.adSoyad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sosyalMedya)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cinsiyet)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -101,6 +115,18 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.kategori)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ozluSoz)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.adSoyad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sosyalMedya)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cinsiyet)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.tarifID">Edit</a> |
