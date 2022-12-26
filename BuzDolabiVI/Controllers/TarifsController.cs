@@ -25,6 +25,29 @@ namespace BuzDolabiVI.Controllers
             ViewData["yorumlar"]= _context.Yorum.ToList();
             return View(await _context.Tarif.ToListAsync());
         }
+        public async Task<IActionResult> corba()
+        {
+            ViewData["yorumlar"] = _context.Yorum.ToList();
+            return View(await _context.Tarif.ToListAsync());
+        }
+        public async Task<IActionResult>anaYemek()
+        {
+            ViewData["yorumlar"] = _context.Yorum.ToList();
+            return View(await _context.Tarif.ToListAsync());
+        }
+
+        public async Task<IActionResult> tatli()
+        {
+            ViewData["yorumlar"] = _context.Yorum.ToList();
+            return View(await _context.Tarif.ToListAsync());
+        }
+        public async Task<IActionResult> icecek()
+        {
+            ViewData["yorumlar"] = _context.Yorum.ToList();
+            return View(await _context.Tarif.ToListAsync());
+        }
+
+
 
         // GET: Tarifs/Details/5
         public async Task<IActionResult> Details(int? id)

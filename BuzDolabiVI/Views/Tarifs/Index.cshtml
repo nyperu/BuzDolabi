@@ -3,137 +3,194 @@
 @{
     ViewData["Title"] = "Index";
 
-
+    int yorumSayisi = 0;
 }
 
 <h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.tarifAd)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.tarifOnay)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.tarifFoto)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.tarifMalzemeler)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.tarifNasilYapilir)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.tarifTarih)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.goruntulenme)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.tarifGirisYazisi)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.kacKalori)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.besinDegeriLink)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.kacKisilik)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.hazirlanmaSuresi)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.pisirmeSuresi)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.kategori)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ozluSoz)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.adSoyad)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.sosyalMedya)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.cinsiyet)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.tarifAd)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.tarifOnay)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.tarifFoto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.tarifMalzemeler)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.tarifNasilYapilir)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.tarifTarih)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.goruntulenme)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.tarifGirisYazisi)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.kacKalori)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.besinDegeriLink)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.kacKisilik)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.hazirlanmaSuresi)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.pisirmeSuresi)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.kategori)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ozluSoz)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.adSoyad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.sosyalMedya)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.cinsiyet)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.tarifID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.tarifID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.tarifID">Delete</a>
-            </td>
-        </tr>
+<div class="container">
+    <div style="margin-top:9%">
+        <h2 style="text-align:center;">SON EKLENEN TARİFLER</h2>
+            <ul class="cards"> 
+                @foreach (var item in Model)
+                {
+                   <li class="card">
+                        <div>
+                           <h3 class="card-title">@Html.DisplayFor(modelItem => item.tarifAd)</h3>
+                                    <img src="~/images/buzdolabi.png" width="10%" height="10%">
+                            <div class="card-content">
+                                Yazan Kişi = @item.adSoyad
+                                        <p>
+                                            @Html.DisplayFor(modelItem => item.tarifGirisYazisi)
+                                        </p>
+                            </div>
+                        </div>
+                        <div class="card-link-wrapper">
+                            <a class="card-link" asp-action="Details" asp-route-id="@item.tarifID">Learn More</a>
+                        </div>
+                    </li>
+                  }
+            </ul>
+    </div>
+    <div style="margin-top=:11%">
+        <h2 style="text-align:center;">ANA YEMEK TARİFLERİ</h2>
+        
+            <ul class="cards">
+            @foreach (var item in Model)
+            {
+                @if(item.kategori != "Ana_Yemek")
+                {
+                    continue;
+                }
+                    <li class="card">
+                        <div>
+                            <h3 class="card-title">@Html.DisplayFor(modelItem => item.tarifAd)</h3>
+                            <img src="~/images/buzdolabi.png" width="10%" height="10%">
+                            <div class="card-content">
+                                Yazan Kişi = @item.adSoyad
+                                <p>
+                                    @Html.DisplayFor(modelItem => item.tarifGirisYazisi)
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card-link-wrapper">
+                            <a class="card-link" asp-action="Details" asp-route-id="@item.tarifID">Learn More</a>
+                        </div>
+                    </li>
+                  
+             }
+            </ul>
+        
+    </div>
+                <div style="margin-top=:11%">
+                    <h2 style="text-align:center;">ÇORBA TARİFLERİ</h2>
+                   
+                        <ul class="cards">
+                        @foreach (var item in Model)
+                        {
+                            @if (item.kategori != "Corba")
+                            {
+                                continue;
+                            }                            
+                            <li class="card">
+                                <div>
+                                    <h3 class="card-title">@Html.DisplayFor(modelItem => item.tarifAd)</h3>
+                                    <img src="~/images/buzdolabi.png" width="10%" height="10%">
+                                    <div class="card-content">
+                                        Yazan Kişi = @item.adSoyad
+                                        <p>
+                                            @Html.DisplayFor(modelItem => item.tarifGirisYazisi)
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="card-link-wrapper">
+                                    <a class="card-link" asp-action="Details" asp-route-id="@item.tarifID">Learn More</a>
+                                </div>
+                            </li>
+                        }
+                        </ul>
+                    
+                </div>
+                <div style="margin-top=:11%">
+                    <h2 style="text-align:center;">TATLI TARİFLERİ</h2>
+                    
+
+                        <ul class="cards">
+                    @foreach (var item in Model)
+                    {
+                        @if (item.kategori != "Tatli")
+                        {
+                            continue;
+                        }
+                        <li class="card">
+                                <div>
+                                    <h3 class="card-title">@Html.DisplayFor(modelItem => item.tarifAd)</h3>
+                                    <img src="~/images/buzdolabi.png" width="10%" height="10%">
+                                    <div class="card-content">
+                                        Yazan Kişi = @item.adSoyad
+                                        <p>
+                                            @Html.DisplayFor(modelItem => item.tarifGirisYazisi)
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="card-link-wrapper">
+                                    <a class="card-link" asp-action="Details" asp-route-id="@item.tarifID">Learn More</a>
+                                </div>
+                            </li>
+                     }
+                        </ul>
+                    
+                </div>
+                <div style="margin-top=:11%">
+                    <h2 style="text-align:center;">İÇECEK TARİFLERİ</h2>
+                        <ul class="cards">
+                        @foreach (var item in Model)
+                        {
+                            @if (item.kategori != "Icecek")
+                            {
+                                continue;
+                            }
+                              <li class="card">
+                                <div>
+                                    <h3 class="card-title">@Html.DisplayFor(modelItem => item.tarifAd)</h3>
+                                    <img src="~/images/buzdolabi.png" width="10%" height="10%">
+                                    <div class="card-content">
+                                        Yazan Kişi = @item.adSoyad
+                                        <p>
+                                            @Html.DisplayFor(modelItem => item.tarifGirisYazisi)
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="card-link-wrapper">
+                                    <a class="card-link" asp-action="Details" asp-route-id="@item.tarifID">Learn More</a>
+                                </div>
+                            </li>
+                         }
+                        </ul>
+                  
+                </div>
+        
+</div>
+@{
+    foreach (var std in ViewData["yorumlar"] as IList<Yorum>)
+    {
+                  yorumSayisi++;
+    }
+  
 }
-    </tbody>
-</table>
+
+<div class="be-comment-block">
+    <h1 class="comments-title">Bu Sitede Toplam  @yorumSayisi yorum bulunmaktadır.</h1>
+    @{
+        yorumSayisi = 0;
+    }
+    <div class="be-comment">
+    @foreach (var std in ViewData["yorumlar"] as IList<Yorum>)
+    {
+            <div class="be-img-comment">
+                <a href="blog-detail-2.html">
+                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="be-ava-comment">
+                </a>
+            </div>
+            <div class="be-comment-content">
+
+                <span class="be-comment-name">
+                    <a href="blog-detail-2.html">@std.yorumAdSoyad</a>
+                </span>
+                <a class="yorumunTarifBasligi" asp-controller="Tarifs" asp-action="Details" asp-route-id="@std.tarifID"> @std.Tarif.tarifAd tarifine yorum yaptı.</a>
+                <span class="be-comment-time">
+                    <i class="fa fa-clock-o"></i>
+                    @std.yorumTarih
+                </span>
+
+                <p class="be-comment-text">
+                   @std.yorumIcerik
+                </p>
+            </div>
+    
+    }   
+        </div>
+    </div>
+
+
+
