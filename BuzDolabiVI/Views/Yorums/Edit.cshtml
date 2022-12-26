@@ -1,0 +1,69 @@
+﻿@model BuzDolabiVI.Models.Yorum
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Yorum</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="yorumID" />
+            <div class="form-group">
+                <label asp-for="yorumOnay" class="control-label"></label>
+                <input asp-for="yorumOnay" class="form-control" />
+                <span asp-validation-for="yorumOnay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="yorumTarih" class="control-label"></label>
+                <input asp-for="yorumTarih" class="form-control" />
+                <span asp-validation-for="yorumTarih" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="yorumIcerik" class="control-label"></label>
+                <input asp-for="yorumIcerik" class="form-control" />
+                <span asp-validation-for="yorumIcerik" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="yorumAdSoyad" class="control-label"></label>
+                <input asp-for="yorumAdSoyad" class="form-control" />
+                <span asp-validation-for="yorumAdSoyad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="yorumOzluSoz" class="control-label"></label>
+                <input asp-for="yorumOzluSoz" class="form-control" />
+                <span asp-validation-for="yorumOzluSoz" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="yorumCinsiyet" class="control-label"></label>
+                <input asp-for="yorumCinsiyet" class="form-control" />
+                <span asp-validation-for="yorumCinsiyet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="yorumSosyal" class="control-label"></label>
+                <input asp-for="yorumSosyal" class="form-control" />
+                <span asp-validation-for="yorumSosyal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tarifID" class="control-label"></label>
+                <select asp-for="tarifID" class="form-control" asp-items="ViewBag.tarifID"></select>
+                <span asp-validation-for="tarifID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

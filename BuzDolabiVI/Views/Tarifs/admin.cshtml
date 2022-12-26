@@ -1,0 +1,178 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<BuzDolabiVI.Models.Tarif>
+
+
+
+<h1>Index</h1>
+
+<div class="container">
+    <div style="margin-top:9%">
+        <h2 style="text-align:center;">--- ONAYSIZ --- SON EKLENEN TARİFLER</h2>
+        <ul class="cards">
+            @foreach (var item in Model)
+            {
+                if (item.tarifOnay == "onay")
+                {
+                    continue;
+                }
+                <li class="card">
+                    <div>
+                        <h3 class="card-title">@Html.DisplayFor(modelItem => item.tarifAd)</h3>
+                        <img src="~/images/@item.tarifFoto" width="10%" height="10%">
+                        <div class="card-content">
+                            Yazan Kişi = @item.adSoyad
+                            <p>
+                                @Html.DisplayFor(modelItem => item.tarifGirisYazisi)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card-link-wrapper">
+                        <a class="card-link" asp-action="adminDetails" asp-route-id="@item.tarifID">İNCELE</a> @item.goruntulenme görüntülenme
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+    <div style="margin-top=:11%">
+        <h2 style="text-align:center;">--- ONAYSIZ --- ANA YEMEK TARİFLERİ</h2>
+
+        <ul class="cards">
+            @foreach (var item in Model)
+            {
+                @if (item.kategori == "anaYemek")
+                {
+                    continue;
+                }
+                if (item.tarifOnay != "onay")
+                {
+                    continue;
+                }
+                <li class="card">
+                    <div>
+                        <h3 class="card-title">@Html.DisplayFor(modelItem => item.tarifAd)</h3>
+                        <img src="~/images/@item.tarifFoto" width="10%" height="10%">
+                        <div class="card-content">
+                            Yazan Kişi = @item.adSoyad
+                            <p>
+                                @Html.DisplayFor(modelItem => item.tarifGirisYazisi)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card-link-wrapper">
+                        <a class="card-link" asp-action="adminDetails" asp-route-id="@item.tarifID">İncele</a> @item.goruntulenme görüntülenme
+                    </div>
+                </li>
+
+            }
+        </ul>
+
+    </div>
+    <div style="margin-top=:11%">
+        <h2 style="text-align:center;">--- ONAYSIZ --- ÇORBA TARİFLERİ</h2>
+
+        <ul class="cards">
+            @foreach (var item in Model)
+            {
+                if (item.tarifOnay == "onay")
+                {
+                    continue;
+                }
+                @if (item.kategori != "Corba")
+                {
+                    continue;
+                }
+                <li class="card">
+                    <div>
+                        <h3 class="card-title">@Html.DisplayFor(modelItem => item.tarifAd)</h3>
+                        <img src="~/images/@item.tarifFoto" width="10%" height="10%">
+                        <div class="card-content">
+                            Yazan Kişi = @item.adSoyad
+                            <p>
+                                @Html.DisplayFor(modelItem => item.tarifGirisYazisi)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card-link-wrapper">
+                        <a class="card-link" asp-action="adminDetails" asp-route-id="@item.tarifID">İncele</a>@item.goruntulenme görüntülenme
+                    </div>
+                </li>
+            }
+        </ul>
+
+    </div>
+    <div style="margin-top=:11%">
+        <h2 style="text-align:center;">--- ONAYSIZ --- TATLI TARİFLERİ</h2>
+
+
+        <ul class="cards">
+            @foreach (var item in Model)
+            {
+                if (item.tarifOnay == "onay")
+                {
+                    continue;
+                }
+                @if (item.kategori != "Tatli")
+                {
+                    continue;
+                }
+                <li class="card">
+                    <div>
+                        <h3 class="card-title">@Html.DisplayFor(modelItem => item.tarifAd)</h3>
+                        <img src="~/images/@item.tarifFoto" width="10%" height="10%">
+                        <div class="card-content">
+                            Yazan Kişi = @item.adSoyad
+                            <p>
+                                @Html.DisplayFor(modelItem => item.tarifGirisYazisi)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card-link-wrapper">
+                        <a class="card-link" asp-action="adminDetails" asp-route-id="@item.tarifID">İncele</a>@item.goruntulenme görüntülenme
+                    </div>
+                </li>
+            }
+        </ul>
+
+    </div>
+    <div style="margin-top=:11%">
+        <h2 style="text-align:center;">--- ONAYSIZ --- İÇECEK TARİFLERİ</h2>
+        <ul class="cards">
+            @foreach (var item in Model)
+            {
+                if (item.tarifOnay == "onay")
+                {
+                    continue;
+                }
+                @if (item.kategori != "Icecek")
+                {
+                    continue;
+                }
+                <li class="card">
+                    <div>
+                        <h3 class="card-title">@Html.DisplayFor(modelItem => item.tarifAd)</h3>
+                        <img src="~/images/@item.tarifFoto" width="10%" height="10%">
+                        <div class="card-content">
+                            Yazan Kişi = @item.adSoyad
+                            <p>
+                                @Html.DisplayFor(modelItem => item.tarifGirisYazisi)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card-link-wrapper">
+                        <a class="card-link" asp-action="adminDetails" asp-route-id="@item.tarifID">İncele</a>@item.goruntulenme görüntülenme
+                    </div>
+                </li>
+            }
+        </ul>
+
+    </div>
+
+</div>
+
+
+
+
