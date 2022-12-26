@@ -22,9 +22,32 @@ namespace BuzdolabiProject.Controllers
         // GET: Tarifs
         public async Task<IActionResult> Index()
         {
-            ViewData["yorumlar"]= _context.Yorum.ToList();
+            ViewData["yorumlar"] = _context.Yorum.ToList();
             return View(await _context.Tarif.ToListAsync());
         }
+        public async Task<IActionResult> corba()
+        {
+            ViewData["yorumlar"] = _context.Yorum.ToList();
+            return View(await _context.Tarif.ToListAsync());
+        }
+        public async Task<IActionResult> anaYemek()
+        {
+            ViewData["yorumlar"] = _context.Yorum.ToList();
+            return View(await _context.Tarif.ToListAsync());
+        }
+
+        public async Task<IActionResult> tatli()
+        {
+            ViewData["yorumlar"] = _context.Yorum.ToList();
+            return View(await _context.Tarif.ToListAsync());
+        }
+        public async Task<IActionResult> icecek()
+        {
+            ViewData["yorumlar"] = _context.Yorum.ToList();
+            return View(await _context.Tarif.ToListAsync());
+        }
+
+
 
         // GET: Tarifs/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -36,8 +59,8 @@ namespace BuzdolabiProject.Controllers
             }
             var yorum = _context.Yorum.ToList();
             var yorumlar = (from m in yorum
-                        where m.tarifID == id
-                        select m).ToList();
+                            where m.tarifID == id
+                            select m).ToList();
             ViewData["yorumlar"] = yorumlar;
             var tarif = await _context.Tarif
                 .FirstOrDefaultAsync(m => m.tarifID == id);
@@ -170,14 +193,14 @@ namespace BuzdolabiProject.Controllers
             {
                 _context.Tarif.Remove(tarif);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool TarifExists(int id)
         {
-          return _context.Tarif.Any(e => e.tarifID == id);
+            return _context.Tarif.Any(e => e.tarifID == id);
         }
     }
 }
