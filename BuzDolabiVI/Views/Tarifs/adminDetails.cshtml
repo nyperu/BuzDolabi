@@ -1,0 +1,120 @@
+﻿@model BuzDolabiVI.Models.Tarif
+
+@{
+    ViewData["Title"] = "Details";
+
+}
+
+<h1>
+    Details
+
+</h1>
+<div class="imageHolder">
+    <img src="~/images/@Model.tarifFoto" alt="kestane" class="tarifBanner golgelendir" style="" />
+    <div class="imageBaslik">@Model.tarifAd</div>
+</div>
+<div class="row">
+    <div class="col-8 mt-4">
+        <div class="mt-2">@Model.tarifTarih</div>
+        <hr />
+        <p>
+            @Model.tarifGirisYazisi
+        </p>
+        <hr />
+        <div class="bilgiKutusu">@Model.kacKalori</div>
+        <div class="bilgiKutusu"><a href="@Model.besinDegeriLink">@Model.besinDegeriLink</a></div>
+        <div class="row genelKutu">
+            <div class="col-4 mt-2 text-center ">
+                <h5 class="tarifDetay3luBaslik">Kaç Kişilik</h5>
+                <h3 class="tarifDetay3luCevap">@Model.kacKisilik</h3>
+
+            </div>
+            <div class="col-4 mt-2 text-center ">
+                <h5 class="tarifDetay3luBaslik">Hazırlama S.</h5>
+                <h3 class="tarifDetay3luCevap">@Model.hazirlanmaSuresi dakika</h3>
+            </div>
+            <div class="col-4 mt-2 text-center ">
+                <h5 class="tarifDetay3luBaslik">Pisme S.</h5>
+                <h3 class="tarifDetay3luCevap">@Model.pisirmeSuresi dakika</h3>
+            </div>
+        </div>
+
+        <div class="genelKutu">
+            <div>
+                <img src="~/images/ingredients.png" class="float-start" />
+
+
+                <h4> -- 'Tarif ismi' Tarifi İçin Gerekli Malzemeler</h4>
+
+
+            </div>
+            <ul class="tarifMalzemeleri">
+                <li class="mt-5">
+                    <h6 class="fw-bold float-start" style="margin-top:2px">
+                        @Model.tarifMalzemeler
+                    </h6>
+
+            </ul>
+        </div>
+        <div class="genelKutu">
+            <img class="float-start" src="~/images/instructions.png" />
+            <h4> -- 'Tarif ismi' Tarifi Nasıl Yapılır?</h4>
+            <div class="tarifAnlatimi mt-5">
+                @Model.tarifNasilYapilir
+            </div>
+        </div>
+    </div>
+
+    <div class="col-4">
+        <div class="buTarifeKacKisiBakti text-center">
+            <h5> Bu tarife kaç kişi baktı?</h5>
+            <h2> @Model.goruntulenme</h2>
+        </div>
+        <hr />
+        <div class="buTarifiYazanKisi text-center">
+            <a href="@Model.sosyalMedya">
+                @if (@Model.cinsiyet == "erkek")
+                {
+                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="be-ava-comment">
+
+                }
+                else
+                {
+                    <img src="https://bootdey.com/img/Content/avatar/avatar8.png" alt="" class="be-ava-comment">
+                }
+            </a>
+            <h2> @Model.adSoyad</h2>
+
+            <h6> @Model.ozluSoz </h6>
+            Fotoğraf erkek yada kadın olarak tek bir tane olacak, herkeste.
+            <hr />
+            <a href="@Model.sosyalMedya">İletişim</a>
+
+        </div>
+        <a asp-action="adminDuzenle" asp-route-id="@Model?.tarifID">DÜZENLE</a>
+        <a asp-action="adminOnay" asp-route-id="@Model?.tarifID">ONAY VER</a>
+
+    </div>
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="genelKutu">
+    <h2>
+        AFİYET OLSUNN :))
+    </h2>
+</div>
+
+
+
+
+
+
+
