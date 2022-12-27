@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BuzDolabiVI.Models.Tarif>
+@model IEnumerable<BuzDolabiVI.Models.Tarif>
 
 @{
     ViewData["Title"] = "Index";
@@ -30,7 +30,7 @@
                         </div>
                     </div>
                     <div class="card-link-wrapper">
-                        <a class="card-link" asp-action="Details" asp-route-id="@item.tarifID">İNCELE</a> @item.goruntulenme görüntülenme
+                        <a class="card-link" asp-action="Create" asp-controller="Yorums" asp-route-id="@item.tarifID">İNCELE</a> @item.goruntulenme görüntülenme
                     </div>
                 </li>
             }

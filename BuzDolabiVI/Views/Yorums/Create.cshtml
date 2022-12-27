@@ -1,57 +1,208 @@
-﻿@model BuzDolabiVI.Models.Yorum
+@model BuzDolabiVI.Models.Yorum
 
 @{
     ViewData["Title"] = "Create";
+    int yorumSayisi=0;
+    int sayac = 0;
 }
-
-<h1>Create</h1>
-
-<h4>Yorum</h4>
 <hr />
+@foreach (var std in ViewData["tarifler"] as IList<Tarif>)
+{
+    @if(std.tarifID != Convert.ToInt32(ViewData["tID"])){
+
+        continue;
+    }
+    
+
+<div class="imageHolder">
+    <img src="~/images/@std.tarifFoto" alt="kestane" class="tarifBanner golgelendir" style="" />
+    <div class="imageBaslik">@std.tarifAd</div>
+</div>
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <input asp-for="yorumOnay" value="0" type="hidden" class="form-control" />
+    <div class="col-8 mt-4">
+        <div class="mt-2">@std.tarifTarih</div>
+        <hr />
+        <p>
+            @std.tarifGirisYazisi
+        </p>
+        <hr />
+        <div class="bilgiKutusu">@std.kacKalori</div>
+        <div class="bilgiKutusu"><a href="@std.besinDegeriLink">@std.besinDegeriLink</a></div>
+        <div class="row genelKutu">
+            <div class="col-4 mt-2 text-center ">
+                <h5 class="tarifDetay3luBaslik">Kaç Kişilik</h5>
+                <h3 class="tarifDetay3luCevap">@std.kacKisilik</h3>
+
             </div>
-            <div class="form-group">
-                <input asp-for="yorumTarih" value="@ViewData["tarih"]" type="hidden" class="form-control" />
+            <div class="col-4 mt-2 text-center ">
+                <h5 class="tarifDetay3luBaslik">Hazırlama S.</h5>
+                <h3 class="tarifDetay3luCevap">@std.hazirlanmaSuresi dakika</h3>
             </div>
-            <div class="form-group">
-                <label asp-for="yorumIcerik" class="control-label"></label>
-                <input asp-for="yorumIcerik" class="form-control" />
-                <span asp-validation-for="yorumIcerik" class="text-danger"></span>
+            <div class="col-4 mt-2 text-center ">
+                <h5 class="tarifDetay3luBaslik">Pisme S.</h5>
+                <h3 class="tarifDetay3luCevap">@std.pisirmeSuresi dakika</h3>
             </div>
-            <div class="form-group">
-                <input asp-for="yorumAdSoyad" value="@ViewData["yorumAdi"]" type="hidden" class="form-control" />
+        </div>
+
+        <div class="genelKutu">
+            <div>
+                <img src="~/images/ingredients.png" class="float-start" />
+
+
+                <h4> -- 'Tarif ismi' Tarifi İçin Gerekli Malzemeler</h4>
+
+
             </div>
-            <div class="form-group">
-                <input asp-for="yorumOzluSoz" value="@ViewData["yorumOzluSoz"]" type="hidden" class="form-control" />
+            <ul class="tarifMalzemeleri">
+                <li class="mt-5">
+                    <h6 class="fw-bold float-start" style="margin-top:2px">
+                        @std.tarifMalzemeler
+                    </h6>
+
+            </ul>
+        </div>
+        <div class="genelKutu">
+            <img class="float-start" src="~/images/instructions.png" />
+            <h4> -- 'Tarif ismi' Tarifi Nasıl Yapılır?</h4>
+            <div class="tarifAnlatimi mt-5">
+                @std.tarifNasilYapilir
             </div>
-            <div class="form-group">
-                <input asp-for="yorumCinsiyet" value="@ViewData["yorumCinsiyet"]" type="hidden" class="form-control" />
-            </div>
-            <div class="form-group">
-                <input asp-for="yorumSosyal" value="@ViewData["yorumSosyalMedya"]" type="hidden" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label asp-for="tarifID" class="control-label"></label>
-                <select asp-for="tarifID" class="form-control" asp-items="ViewBag.tarifID"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
+
+    <div class="col-4">
+        <div class="buTarifeKacKisiBakti text-center">
+            <h5> Bu tarife kaç kişi baktı?</h5>
+            <h2> @std.goruntulenme</h2>
+        </div>
+        <hr />
+        <div class="buTarifiYazanKisi text-center">
+            <a href="@std.sosyalMedya">
+                @if (@std.cinsiyet == "erkek")
+                {
+                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="be-ava-comment">
+
+                }
+                else
+                {
+                    <img src="https://bootdey.com/img/Content/avatar/avatar8.png" alt="" class="be-ava-comment">
+                }
+            </a>
+            <h2> @std.adSoyad</h2>
+
+            <h6> @std.ozluSoz </h6>
+            <hr />
+            <a href="@std.sosyalMedya">İletişim</a>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+</div>
+}
+<div class="genelKutu">
+    <h2>
+        AFİYET OLSUNN :))
+    </h2>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+
+
+
+@foreach (var std in ViewData["yorumlar"] as IList<Yorum>)
+        {
+            @if (std.tarifID == Convert.ToInt32(ViewData["tID"]))
+            {
+        yorumSayisi++;
+    }
+        }
+
+        <div class="be-comment-block">
+            <h1 class="comments-title">Bu Tarifte Toplam  @yorumSayisi yorum bulunmaktadır.</h1>
+            @{
+                yorumSayisi = 0;
+            }
+
+            <div class="be-comment">
+        @foreach (var std in ViewData["yorumlar"] as IList<Yorum>)
+        {
+            @if (std.tarifID != Convert.ToInt32(ViewData["tID"]))
+            {
+                continue;
+            }
+                    <div class="be-img-comment">
+
+                        <a href="@std.yorumSosyal">
+                            @if (std.yorumCinsiyet == "erkek")
+                            {
+                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="be-ava-comment">
+
+                            }
+                            else
+                            {
+                                <img src="https://bootdey.com/img/Content/avatar/avatar8.png" alt="" class="be-ava-comment">
+                            }
+                        </a>
+                    </div>
+                    <div class="be-comment-content">
+
+                        <span class="be-comment-name">
+                            <a href="@std.yorumSosyal">@std.yorumAdSoyad</a>
+                        </span>
+                        <a class="yorumunTarifBasligi" asp-controller="Tarifs" asp-action="Details" asp-route-id="@std.tarifID"> @std.Tarif.tarifAd tarifine yorum yaptı.</a>
+                        <span class="be-comment-time">
+                            <i class="fa fa-clock-o"></i>
+                            @std.yorumTarih
+                        </span>
+
+                        <p class="be-comment-text">
+                            @std.yorumIcerik
+                        </p>
+                    </div>
+}
+
+   <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input asp-for="yorumOnay" value="0" type="hidden" class="form-control" />
+                 <input asp-for="yorumTarih" value="@ViewData["tarih"]" type="hidden" class="form-control" />
+            <input asp-for="yorumAdSoyad" value="@ViewData["yorumAdi"]" type="hidden" class="form-control" />
+            <input asp-for="yorumOzluSoz" value="@ViewData["yorumOzluSoz"]" type="hidden" class="form-control" />
+            <input asp-for="yorumCinsiyet" value="@ViewData["yorumCinsiyet"]" type="hidden" class="form-control" />
+            <input asp-for="yorumSosyal" value="@ViewData["yorumSosyalMedya"]" type="hidden" class="form-control" />
+            <input asp-for="tarifID" type="hidden" value="@ViewData["tID"]" class="form-control" />
+
+            <div class="yorumYapBasligi text-center w-100"> <h2>YORUM YAP</h2></div>
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="form-group">
+                         <input asp-for="yorumIcerik" class="form-control" />
+                         <span asp-validation-for="yorumIcerik" class="text-danger" row="3"></span>
+            
+                     </div>
+                     <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-primary w-100" />
+                        </div>
+                    </div>
+            </div>
+    </form>
+
+
+
+
+
+
+
+<div class="mt-5">
+    <a asp-action="Index" asp-controller="Tarifs">Ana Sayfaya Dön</a>
 </div>
 
 @section Scripts {
     @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-}

@@ -1,104 +1,167 @@
-﻿@model BuzDolabiVI.Models.Tarif
+@model BuzDolabiVI.Models.Tarif
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "TARİF EKLE";
 }
 
-<h1>Create</h1>
-
-<h4>Tarif</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="tarifAd" class="control-label"></label>
-                <input asp-for="tarifAd" class="form-control" />
-                <span asp-validation-for="tarifAd" class="text-danger"></span>
+<form asp-action="Create">
+   <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="row">
+      <div class="col-8 mt-4">
+            <div class="text-center">
+                <h1>TARİF EKLE</h1>
             </div>
-            <div class="form-group">
-                <label asp-for="tarifOnay" class="control-label"></label>
-                <input asp-for="tarifOnay" class="form-control" />
-                <span asp-validation-for="tarifOnay" class="text-danger"></span>
+            <ul style="list-style-type: ' ★ '">
+                <li>
+                    <div>
+                        <div class="mb-3">
+                            <label for="ad" class="form-label">Tarifinizi Başlığını Giriniz.</label>
+
+                            <span asp-validation-for="tarifAd" class="text-danger"></span>
+                            <textarea class="form-control" id="ad" name="tarifAd" rows="3"></textarea>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <label for="baslik" class="form-label">Tarifiniz hakkında kısa fikir verin.</label>
+                    <textarea class="form-control" id="baslik" name="tarifGirisYazisi" rows="1"></textarea>
+                    <span asp-validation-for="tarifGirisYazisi" class="text-danger"></span>
+
+                </li>
+                <li>
+                    <div>
+                        <label for="formFileLg" class="form-label">Fotoğraf Seçiniz.</label>
+                        <input class="form-control form-control-lg" name="tarifFoto" id="formFileLg" type="file">
+
+                        <span asp-validation-for="tarifFoto" class="text-danger"></span>
+                    </div>
+                </li>
+                <li>
+                    <h4>  KATEOGORİ SEÇİNİZ </h4>
+                    <select id="cars" name="kategori">
+                        <option value="Corba">ÇORBA KATEGORİSİ</option>
+                        <option value="Icecek">İÇECEK KATEGORİSİ</option>
+                        <option value="Tatli">TATLI KATEGORİSİ</option>
+                        <option value="anaYemek">ANAYEMEK KATEGORİSİ</option>
+                    </select>
+                    <span asp-validation-for="kategori" class="text-danger"></span>
+                </li>
+                <li>
+                    <div>
+                        <h4>  100gram/ml KAÇ KALORİ BULUNMAKTA ?</h4>
+                        <input asp-for="kacKalori" class="form-control" />
+                        <span asp-validation-for="kacKalori" class="text-danger"></span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <h4>  BESİN DEĞERİ LİNKİ GİRİNİZ. </h4>
+                        <input asp-for="besinDegeriLink" class="form-control" />
+                        <span asp-validation-for="besinDegeriLink" class="text-danger"></span>
+                    </div>
+                </li>
+            </ul>
+            <div class="row genelKutu">
+                <div class="col-4 mt-2 text-center ">
+                    <h5 class="tarifDetay3luBaslik mb-4">Kaç Kişilik?</h5>
+                    <input type="number" id="tentacles" class="float-left" name="kacKisilik"
+                           min="0" max="300">
+
+                    <span asp-validation-for="kacKisilik" class="text-danger"></span>
+
+                    <select id="cars">
+                        <option>Kişi</option>
+                        <option>Adet</option>
+                        <option>Servis</option>
+                    </select>
+                    <hr />
+                </div>
+                <div class="col-4 mt-2 text-center ">
+                    <h5 class="tarifDetay3luBaslik mb-4">Hazır Süresi</h5>
+                    <input type="number" id="tentacles" class="float-left" name="hazirlanmaSuresi"
+                           min="0" max="300">
+                    <span asp-validation-for="hazirlanmaSuresi" class="text-danger"></span>
+
+                    <select id="cars">
+                        <option>Dakika</option>
+                        <option>Saat</option>
+                    </select>
+                    <hr />
+                </div>
+                <div class="col-4 mt-2 text-center ">
+                    <h5 class="tarifDetay3luBaslik mb-4">Pişirme Süresi</h5>
+                    <input type="number" id="tentacles" class="float-left" name="pisirmeSuresi"
+                           min="0" max="300">
+                    <select id="cars">
+                        <option>Dakika</option>
+                        <option>Saat</option>
+                    </select>
+                    <hr />
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="tarifFoto" class="control-label"></label>
-                <input asp-for="tarifFoto" class="form-control" />
-                <span asp-validation-for="tarifFoto" class="text-danger"></span>
+
+            <div class="genelKutu">
+                <div>
+                    <img src="~/images/ingredients.png" class="float-start" />
+                    <h4> -- Tarif İçin Gerekli Malzemeler virgül ile ayırınız.</h4>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="tarifMalzemeler" rows="3"></textarea>
+                    <span asp-validation-for="tarifMalzemeler" class="text-danger"></span>
+                    <span asp-validation-for="tarifNasilYapilir" class="text-danger"></span>
+
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="tarifMalzemeler" class="control-label"></label>
-                <input asp-for="tarifMalzemeler" class="form-control" />
-                <span asp-validation-for="tarifMalzemeler" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="tarifNasilYapilir" class="control-label"></label>
-                <input asp-for="tarifNasilYapilir" class="form-control" />
-                <span asp-validation-for="tarifNasilYapilir" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+            <div class="genelKutu">
+                <img class="float-start" src="~/images/instructions.png" />
+                <h4> -- Tarif Nasıl Yapılır?</h4>
+                <textarea class="form-control" name="tarifNasilYapilir" id="exampleFormControlTextarea1" rows="3"></textarea>
+
+                <input asp-for="tarifOnay" type="hidden" value="-" class="form-control" />
                 <input asp-for="tarifTarih" type="hidden" value="@ViewData["tarih"]" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label asp-for="goruntulenme" class="control-label"></label>
-                <input asp-for="goruntulenme" class="form-control" />
-                <span asp-validation-for="goruntulenme" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="tarifGirisYazisi" class="control-label"></label>
-                <input asp-for="tarifGirisYazisi" class="form-control" />
-                <span asp-validation-for="tarifGirisYazisi" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="kacKalori" class="control-label"></label>
-                <input asp-for="kacKalori" class="form-control" />
-                <span asp-validation-for="kacKalori" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="besinDegeriLink" class="control-label"></label>
-                <input asp-for="besinDegeriLink" class="form-control" />
-                <span asp-validation-for="besinDegeriLink" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="kacKisilik" class="control-label"></label>
-                <input asp-for="kacKisilik" class="form-control" />
-                <span asp-validation-for="kacKisilik" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="hazirlanmaSuresi" class="control-label"></label>
-                <input asp-for="hazirlanmaSuresi" class="form-control" />
-                <span asp-validation-for="hazirlanmaSuresi" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="pisirmeSuresi" class="control-label"></label>
-                <input asp-for="pisirmeSuresi" class="form-control" />
-                <span asp-validation-for="pisirmeSuresi" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="kategori" class="control-label"></label>
-                <input asp-for="kategori" class="form-control" />
-                <span asp-validation-for="kategori" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input asp-for="ozluSoz" type="hidden" value="@ViewData["tarifOzluSoz"]" class="form-control" />
-            </div>
-            <div class="form-group">
-                <input asp-for="adSoyad" type="hidden" value="@ViewData["tarifAdi"]" class="form-control" />
+                <input asp-for="goruntulenme" type="hidden" value="0" class="form-control" />
 
             </div>
-            <div class="form-group">
-                <input asp-for="sosyalMedya" type="hidden" value="@ViewData["tarifSosyalMedya"]" class="form-control" />
-            </div>
-            <div class="form-group">
-                <input asp-for="cinsiyet" type="hidden" value="@ViewData["tarifCinsiyet"]" class="form-control" />
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+        <div class="genelKutu">
+           
+
+
+                <div class="form-group">
+                    <input asp-for="ozluSoz" type="hidden" value="@ViewData["tarifOzluSoz"]" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <input asp-for="adSoyad" type="hidden" value="@ViewData["tarifAdi"]" class="form-control" />
+
+                </div>
+                <div class="form-group">
+                    <input asp-for="sosyalMedya" type="hidden" value="@ViewData["tarifSosyalMedya"]" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <input asp-for="cinsiyet" type="hidden" value="@ViewData["tarifCinsiyet"]" class="form-control" />
+                </div>
+                <div class="col-4 genelKutu w-75">
+                    <div class="form-group">
+                        <input type="submit" value="ONAYA GÖNDER" class="btn btn-primary" style="height:100px; width:100%;" />
+                    </div>
+
+                </div>
+              
+        </div>
+
+           
+
+        </div>
+      
+
+
+        
+     </div>
+   </div>
+</form>
+
+
+
+
 
 <div>
     <a asp-action="Index">Back to List</a>
