@@ -8,11 +8,16 @@ using Microsoft.EntityFrameworkCore;
 using BuzDolabiVI.Models;  
 using System.Globalization;
 using BuzDolabiVI.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace BuzDolabiVI.Controllers
 {
     public class TarifsController : Controller
+
     {
+
         private readonly ApplicationDbContext _context;
 
         public TarifsController(ApplicationDbContext context)
@@ -20,11 +25,14 @@ namespace BuzDolabiVI.Controllers
             _context = context;
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Tarifs
         public async Task<IActionResult> admin()
         {
             return View(await _context.Tarif.ToListAsync());
         }
+
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> adminDetails(int? id)
         {
 
@@ -41,6 +49,8 @@ namespace BuzDolabiVI.Controllers
             }
             return View(tarif);
         }
+
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> adminDuzenle(int? id)
         {
             if (id == null || _context.Tarif == null)
@@ -55,6 +65,8 @@ namespace BuzDolabiVI.Controllers
             }
             return View(tarif);
         }
+
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> adminDuzenle(int id, [Bind("tarifID,tarifAd,tarifOnay,tarifFoto,tarifMalzemeler,tarifNasilYapilir,tarifTarih,goruntulenme,tarifGirisYazisi,kacKalori,besinDegeriLink,kacKisilik,hazirlanmaSuresi,pisirmeSuresi,kategori,ozluSoz,adSoyad,sosyalMedya,cinsiyet")] Tarif tarif)
         {
             if (id != tarif.tarifID)
@@ -84,6 +96,8 @@ namespace BuzDolabiVI.Controllers
             }
             return View(tarif);
         }
+
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> adminOnay(int? id)
         {
 
@@ -159,6 +173,7 @@ namespace BuzDolabiVI.Controllers
             return View(tarif);
         }
 
+        [Authorize]
         // GET: Tarifs/Create
         public IActionResult Create()
         {
@@ -186,6 +201,7 @@ namespace BuzDolabiVI.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("tarifID,tarifAd,tarifOnay,tarifFoto,tarifMalzemeler,tarifNasilYapilir,tarifTarih,goruntulenme,tarifGirisYazisi,kacKalori,besinDegeriLink,kacKisilik,hazirlanmaSuresi,pisirmeSuresi,kategori,ozluSoz,adSoyad,sosyalMedya,cinsiyet")] Tarif tarif)
         {
             if (ModelState.IsValid)
