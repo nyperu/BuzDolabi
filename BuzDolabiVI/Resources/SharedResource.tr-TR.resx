@@ -118,132 +118,132 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Ad Soyad" xml:space="preserve">
-    <value>Name Surname</value>
+    <value>Ad Soyad</value>
   </data>
   <data name="Adet" xml:space="preserve">
-    <value>Number</value>
+    <value>Adet</value>
   </data>
   <data name="ANA YEMEK KATEGORİSİ" xml:space="preserve">
-    <value>MAIN DISH CATEGORY</value>
+    <value>ANA YEMEK KATEGORİSİ</value>
   </data>
   <data name="Ana Yemek Tarifleri" xml:space="preserve">
-    <value>Main Recipes</value>
+    <value>Ana Yemek Tarifleri</value>
   </data>
   <data name="BESİN DEĞERİ LİNKİ GİRİNİZ." xml:space="preserve">
-    <value>ENTER NUTRITIONAL VALUE LINK.</value>
+    <value>BESİN DEĞERİ LİNKİ GİRİNİZ.</value>
   </data>
   <data name="Cinsiyetinizi Giriniz" xml:space="preserve">
-    <value>Enter Your Gender</value>
+    <value>Cinsiyetinizi Giriniz</value>
   </data>
   <data name="Dakika" xml:space="preserve">
-    <value>Minute</value>
+    <value>Dakika</value>
   </data>
   <data name="E-posta onayını yeniden gönder" xml:space="preserve">
-    <value>Resend email confirmation</value>
+    <value>E-posta onayını yeniden gönder</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>
   </data>
   <data name="Fotoğraf Seçiniz." xml:space="preserve">
-    <value>Select Photo.</value>
+    <value>Fotoğraf Seçiniz.</value>
   </data>
   <data name="Giriş Yap" xml:space="preserve">
-    <value>Login</value>
+    <value>Giriş Yap</value>
   </data>
   <data name="Hazırlama Süresi" xml:space="preserve">
-    <value>Preparation Time</value>
+    <value>Hazırlama Süresi</value>
   </data>
   <data name="Index" xml:space="preserve">
-    <value>Index</value>
+    <value>İçerik</value>
   </data>
   <data name="Kategori Seçiniz." xml:space="preserve">
-    <value>Select Category.</value>
+    <value>Kategori Seçiniz.</value>
   </data>
   <data name="Kayıt Ol" xml:space="preserve">
-    <value>Register</value>
+    <value>Kayıt Ol</value>
   </data>
   <data name="KAÇ KALORİ BULUNMAKTA?" xml:space="preserve">
-    <value>HOW MANY CALORIES ARE THERE?</value>
+    <value>KAÇ KALORİ BULUNMAKTA?</value>
   </data>
   <data name="Kaç Kişilik?" xml:space="preserve">
-    <value>For how many person?</value>
+    <value>Kaç Kişilik?</value>
   </data>
   <data name="Kişi" xml:space="preserve">
-    <value>Person</value>
+    <value>Kişi</value>
   </data>
   <data name="ONAYA GÖNDER" xml:space="preserve">
-    <value>SEND FOR APPROVAL</value>
+    <value>ONAYA GÖNDER</value>
   </data>
   <data name="Pişirme Süresi" xml:space="preserve">
-    <value>Cooking time</value>
+    <value>Pişirme Süresi</value>
   </data>
   <data name="Saat" xml:space="preserve">
-    <value>Stunde</value>
+    <value>Saat</value>
   </data>
   <data name="Servis" xml:space="preserve">
-    <value>Service</value>
+    <value>Servis</value>
   </data>
   <data name="Sosyal Medya Linkinizi Giriniz" xml:space="preserve">
-    <value>Enter Your Social Media Link</value>
+    <value>Sosyal Medya Linkinizi Giriniz</value>
   </data>
   <data name="Tarif Ekle" xml:space="preserve">
-    <value>Add Recipe</value>
+    <value>Tarif Ekle</value>
   </data>
   <data name="Tarif Nasıl Yapılır?" xml:space="preserve">
-    <value>How to Make This Recipe?</value>
+    <value>Tarif Nasıl Yapılır?</value>
   </data>
   <data name="Tarif İçin Gerekli Malzemeler virgül ile ayırınız." xml:space="preserve">
-    <value>Separate the Ingredients Required for the Recipe with commas.</value>
+    <value>Tarif İçin Gerekli Malzemeler virgül ile ayırınız.</value>
   </data>
   <data name="Tarifiniz hakkında kısa fikir verin." xml:space="preserve">
-    <value>Give a brief idea about your recipe.</value>
+    <value>Tarifiniz hakkında kısa fikir verin.</value>
   </data>
   <data name="Tarifinizi Başlığını Giriniz." xml:space="preserve">
-    <value>Enter the Title of Your Recipe.</value>
+    <value>Tarifinizi Başlığını Giriniz.</value>
   </data>
   <data name="Tarifler" xml:space="preserve">
-    <value>Recipes</value>
+    <value>Tarifler</value>
   </data>
   <data name="TATLI KATEGORİSİ" xml:space="preserve">
-    <value>DESSERT CATEGORY</value>
+    <value>TATLI KATEGORİSİ</value>
   </data>
   <data name="Tatlı Tarifleri" xml:space="preserve">
-    <value>Dessert Recipes</value>
+    <value>Tatlı Tarifleri</value>
   </data>
   <data name="Yeni bir hesap oluştur." xml:space="preserve">
-    <value>Create a new account.</value>
+    <value>Yeni bir hesap oluştur.</value>
   </data>
   <data name="Yeni bir kullanıcı olarak kayıt ol." xml:space="preserve">
-    <value>Register as a new user.</value>
+    <value>Yeni bir kullanıcı olarak kayıt ol.</value>
   </data>
   <data name="Yönetici" xml:space="preserve">
-    <value>Admin</value>
+    <value>Yönetici</value>
   </data>
   <data name="ÇORBA KATEGORİSİ" xml:space="preserve">
-    <value>SOUP CATEGORY</value>
+    <value>ÇORBA KATEGORİSİ</value>
   </data>
   <data name="Çorba Tarifleri" xml:space="preserve">
-    <value>Soup Recipes</value>
+    <value>Çorba Tarifleri</value>
   </data>
   <data name="Çıkış Yap" xml:space="preserve">
-    <value>Logout</value>
+    <value>Çıkış Yap</value>
   </data>
   <data name="Özlü Söz Giriniz" xml:space="preserve">
-    <value>Enter Quotations</value>
+    <value>Özlü Söz Giriniz</value>
   </data>
   <data name="İÇECEK KATEGORİSİ" xml:space="preserve">
-    <value>BEVERAGE CATEGORY</value>
+    <value>İÇECEK KATEGORİSİ</value>
   </data>
   <data name="İçecek Tarifleri" xml:space="preserve">
-    <value>Drink Recipes</value>
+    <value>İçecek Tarifleri</value>
   </data>
   <data name="Şifre" xml:space="preserve">
-    <value>Password</value>
+    <value>Şifre</value>
   </data>
   <data name="Şifreni mi unuttun?" xml:space="preserve">
-    <value>Forgot your password?</value>
+    <value>Şifreni mi unuttun?</value>
   </data>
   <data name="Şifrenizi Doğrulayınız" xml:space="preserve">
-    <value>Confirm Your Password</value>
+    <value>Şifrenizi Doğrulayınız</value>
   </data>
 </root>

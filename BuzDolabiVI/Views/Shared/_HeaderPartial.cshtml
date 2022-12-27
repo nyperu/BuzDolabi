@@ -11,11 +11,13 @@
         <a class="" asp-area="" asp-controller="Tarifs" asp-action="Index"><img src="~/images/logoYazi.png" id="LogoYaziKontrol" alt="logoYazisi" /></a>
 
     </div>
+    
     <div class="aramaVeGiris">
         <div class="arama">Arama</div>
         <div class="giris">
             <div id="KullaniciKismi">  <partial name="_LoginPartial" /></div>
         </div>
+        
 
         <nav id="navbar" class="navbar mb-3">
 
@@ -31,10 +33,10 @@
                                 @language.Getkey("Tarifler")
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" asp-area="" asp-controller="Tarifs" asp-action="anaYemek">Ana Yemek Tarifleri</a>
-                                <a class="dropdown-item" asp-area="" asp-controller="Tarifs" asp-action="corba">Çorba Tarifleri</a>
-                                <a class="dropdown-item" asp-area="" asp-controller="Tarifs" asp-action="tatli">Tatlý Tarifleri</a>
-                                <a class="dropdown-item" asp-area="" asp-controller="Tarifs" asp-action="icecek">Ýçecek Tarifleri</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Tarifs" asp-action="anaYemek">@language.Getkey("Ana Yemek Tarifleri")</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Tarifs" asp-action="corba">@language.Getkey("Ana Yemek Tarifleri")</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Tarifs" asp-action="tatli">@language.Getkey("Tatlý Tarifleri")</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Tarifs" asp-action="icecek">@language.Getkey("Ýçecek Tarifleri")</a>
                             </div>
                         </li>
                      
@@ -48,7 +50,7 @@
                             if (User.Identity.IsAuthenticated)
                             {
                                  <li class="nav-item">
-                                      <a class="nav-link text-dark" asp-area="" asp-controller="Tarifs" asp-action="admin">Admin</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Tarifs" asp-action="admin">@language.Getkey("Yönetici")</a>
                                  </li>
                             }
                         }
@@ -66,6 +68,7 @@
                     Dil
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" asp-area="" asp-controller="Tarifs" asp-action="ChangeLanguage" asp-route-culture="tr-TR"><i class="flag-icon flag-icon-gb"></i>Türkçe</a>
                     <a class="dropdown-item" asp-area="" asp-controller="Tarifs" asp-action="ChangeLanguage" asp-route-culture="en-US"><i class="flag-icon flag-icon-gb"></i>English</a>
                     <a class="dropdown-item" asp-area="" asp-controller="Tarifs" asp-action="ChangeLanguage" asp-route-culture="de-DE"><i class="flag-icon flag-icon-de"></i>Deutsch</a>
                 </div>
