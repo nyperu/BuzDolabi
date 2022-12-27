@@ -10,9 +10,9 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading;
 using System.Threading.Tasks;
+using BuzDolabiVI.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
-using BuzDolabiVI.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -75,6 +75,8 @@ namespace BuzDolabiVI.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
+            /// 
+
             [Required]
             [Display(Name = "Ad Soyad Giriniz")]
             public string AdSoyad { get; set; }
@@ -90,8 +92,6 @@ namespace BuzDolabiVI.Areas.Identity.Pages.Account
 
             [Display(Name = "Sosyal Medya Linki Giriniz")]
             public string sosyalmedya { get; set; }
-
-
 
             [Required]
             [EmailAddress]
@@ -136,14 +136,14 @@ namespace BuzDolabiVI.Areas.Identity.Pages.Account
                     UserName = Input.Email,
                     Email = Input.Email,
                     AdSoyad = Input.AdSoyad,
-                    ozluSoz=Input.ozluSoz, 
-                    cinsiyet=Input.cinsiyet,
-                    sosyalMedya=Input.sosyalmedya
+                    ozluSoz = Input.ozluSoz,
+                    cinsiyet = Input.cinsiyet,
+                    sosyalMedya = Input.sosyalmedya
                 };
-                /*var user = CreateUser();
+                /* var user = CreateUser();
 
-                await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
-                await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);*/
+                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
+                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);*/
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)

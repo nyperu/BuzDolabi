@@ -4,19 +4,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>aspnet-BuzDolabiVI-0d0e50ed-e61f-43f1-8ee0-73762629b620</UserSecretsId>
+    <UserSecretsId>aspnet-BuzDolabiVI-bb5d3371-23ef-41cf-9e9b-39bf33d08266</UserSecretsId>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="Kestane.jpg" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Kestane.jpg">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.10" />
@@ -31,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Icecek\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

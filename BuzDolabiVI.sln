@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuzDolabiVI", "BuzDolabiVI\BuzDolabiVI.csproj", "{D8D1523E-07CD-4F27-BAB1-5C8BDCEA3CF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuzDolabiVI", "BuzDolabiVI\BuzDolabiVI.csproj", "{306BFD07-B75A-425C-91BE-C3DED6606501}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D8D1523E-07CD-4F27-BAB1-5C8BDCEA3CF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D8D1523E-07CD-4F27-BAB1-5C8BDCEA3CF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D8D1523E-07CD-4F27-BAB1-5C8BDCEA3CF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D8D1523E-07CD-4F27-BAB1-5C8BDCEA3CF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{306BFD07-B75A-425C-91BE-C3DED6606501}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{306BFD07-B75A-425C-91BE-C3DED6606501}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{306BFD07-B75A-425C-91BE-C3DED6606501}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{306BFD07-B75A-425C-91BE-C3DED6606501}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {0F0A9FE9-50DA-445C-A2B8-0C7B69109948}
+		SolutionGuid = {17EAD777-2C72-48BE-878B-3B0B1A19F3DE}
 	EndGlobalSection
 EndGlobal

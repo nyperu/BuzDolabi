@@ -40,38 +40,39 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.yorumOnay)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.yorumTarih)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.yorumIcerik)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.yorumAdSoyad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.yorumOzluSoz)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.yorumCinsiyet)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.yorumSosyal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tarif.tarifID)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.yorumID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.yorumID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.yorumID">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.yorumOnay)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.yorumTarih)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.yorumIcerik)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.yorumAdSoyad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.yorumOzluSoz)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.yorumCinsiyet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.yorumSosyal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tarif.tarifID)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.yorumID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.yorumID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.yorumID">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

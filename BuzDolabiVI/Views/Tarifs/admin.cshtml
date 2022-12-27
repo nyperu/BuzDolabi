@@ -43,11 +43,11 @@
         <ul class="cards">
             @foreach (var item in Model)
             {
-                @if (item.kategori == "anaYemek")
+                if (item.tarifOnay == "onay")
                 {
                     continue;
                 }
-                if (item.tarifOnay != "onay")
+                @if (item.kategori != "anaYemek")
                 {
                     continue;
                 }
