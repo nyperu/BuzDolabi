@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using BuzDolabiVI.Models;
+using BuzDolabiVI.Models;  
 using System.Globalization;
+using BuzDolabiVI.Models;
 
 namespace BuzDolabiVI.Controllers
 {
@@ -31,7 +32,7 @@ namespace BuzDolabiVI.Controllers
             {
                 return NotFound();
             }
-        
+
             var tarif = await _context.Tarif
                 .FirstOrDefaultAsync(m => m.tarifID == id);
             if (tarif == null)
@@ -97,7 +98,7 @@ namespace BuzDolabiVI.Controllers
                 return NotFound();
             }
 
-            tarif.tarifOnay="onay";
+            tarif.tarifOnay = "onay";
             _context.Update(tarif);
             await _context.SaveChangesAsync();
             return View(tarif);
@@ -105,7 +106,7 @@ namespace BuzDolabiVI.Controllers
 
         public async Task<IActionResult> Index()
         {
-            ViewData["yorumlar"]= _context.Yorum.ToList();
+            ViewData["yorumlar"] = _context.Yorum.ToList();
             return View(await _context.Tarif.ToListAsync());
         }
         public async Task<IActionResult> corba()
@@ -113,7 +114,7 @@ namespace BuzDolabiVI.Controllers
             ViewData["yorumlar"] = _context.Yorum.ToList();
             return View(await _context.Tarif.ToListAsync());
         }
-        public async Task<IActionResult>anaYemek()
+        public async Task<IActionResult> anaYemek()
         {
             ViewData["yorumlar"] = _context.Yorum.ToList();
             return View(await _context.Tarif.ToListAsync());
@@ -135,15 +136,15 @@ namespace BuzDolabiVI.Controllers
         // GET: Tarifs/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-             
+
             if (id == null || _context.Tarif == null)
             {
                 return NotFound();
             }
             var yorum = _context.Yorum.ToList();
             var yorumlar = (from m in yorum
-                        where m.tarifID == id
-                        select m).ToList();
+                            where m.tarifID == id
+                            select m).ToList();
             ViewData["yorumlar"] = yorumlar;
             var tarif = await _context.Tarif
                 .FirstOrDefaultAsync(m => m.tarifID == id);
@@ -279,15 +280,15 @@ namespace BuzDolabiVI.Controllers
             {
                 _context.Tarif.Remove(tarif);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool TarifExists(int id)
         {
-          return _context.Tarif.Any(e => e.tarifID == id);
+            return _context.Tarif.Any(e => e.tarifID == id);
         }
-        
+
     }
 }

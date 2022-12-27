@@ -3,7 +3,7 @@
 
 
 @{
-  int yorumSayisi = 0;
+    int yorumSayisi = 0;
 }
 <div class="sayfalarinBasligi"><h1>CORBA TARİFLERİ</h1></div>
 
@@ -50,23 +50,25 @@
         <!-- SON YORUMLAR LİSTELENİYOR -->
         @foreach (var std in ViewData["yorumlar"] as IList<Yorum>)
         {
-          @if(std.Tarif.kategori=="Corba"){
-                    yorumSayisi++;
-            } 
+            @if (std.Tarif.kategori == "Corba")
+            {
+                yorumSayisi++;
+            }
         }
         <div class="be-comment-block">
             <h1 class="comments-title">Corba Kategorisinde Toplam  @yorumSayisi yorum bulunmaktadır.</h1>
             @{
-               yorumSayisi = 0;
+                yorumSayisi = 0;
             }
             <div class="be-comment">
                 @foreach (var std in ViewData["yorumlar"] as IList<Yorum>)
                 {
-                    @if(std.Tarif.kategori!="Corba"){
+                    @if (std.Tarif.kategori != "Corba")
+                    {
                         continue;
                     }
                     <div class="be-img-comment">
-                       <a href="@std.yorumSosyal">
+                        <a href="@std.yorumSosyal">
                             @if (std.yorumCinsiyet == "erkek")
                             {
                                 <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="be-ava-comment">

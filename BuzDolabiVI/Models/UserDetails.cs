@@ -2,7 +2,7 @@
 
 namespace BuzDolabiVI.Models
 {
-    public class UserDetails:IdentityUser
+    public class UserDetails : IdentityUser
     {
         public string AdSoyad { get; set; }
         public string ozluSoz { get; set; }

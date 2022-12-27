@@ -2,12 +2,12 @@
 
 @{
     ViewData["Title"] = "Details";
-   
+
 }
 
 <h1>
     Details
-   
+
 </h1>
 <div class="imageHolder">
     <img src="~/images/@Model.tarifFoto" alt="kestane" class="tarifBanner golgelendir" style="" />
@@ -49,8 +49,10 @@
 
             </div>
             <ul class="tarifMalzemeleri">
-                <li class="mt-5"> <h6 class="fw-bold float-start" style="margin-top:2px">
-                    @Model.tarifMalzemeler</h6>
+                <li class="mt-5">
+                    <h6 class="fw-bold float-start" style="margin-top:2px">
+                        @Model.tarifMalzemeler
+                    </h6>
 
             </ul>
         </div>
@@ -58,7 +60,7 @@
             <img class="float-start" src="~/images/instructions.png" />
             <h4> -- 'Tarif ismi' Tarifi Nasıl Yapılır?</h4>
             <div class="tarifAnlatimi mt-5">
-              @Model.tarifNasilYapilir
+                @Model.tarifNasilYapilir
             </div>
         </div>
     </div>
@@ -70,19 +72,19 @@
         </div>
         <hr />
         <div class="buTarifiYazanKisi text-center">
-           <a href="@Model.sosyalMedya">
-           @if (@Model.cinsiyet == "erkek")
-            {
-                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="be-ava-comment">
+            <a href="@Model.sosyalMedya">
+                @if (@Model.cinsiyet == "erkek")
+                {
+                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="be-ava-comment">
 
-            }
-            else
-            {
-                <img src="https://bootdey.com/img/Content/avatar/avatar8.png" alt="" class="be-ava-comment">
-            } 
+                }
+                else
+                {
+                    <img src="https://bootdey.com/img/Content/avatar/avatar8.png" alt="" class="be-ava-comment">
+                }
             </a>
             <h2> @Model.adSoyad</h2>
-          
+
             <h6> @Model.ozluSoz </h6>
             Fotoğraf erkek yada kadın olarak tek bir tane olacak, herkeste.
             <hr />
