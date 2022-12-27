@@ -8,11 +8,17 @@ using Microsoft.EntityFrameworkCore;
 using BuzDolabiVI.Models;  
 using System.Globalization;
 using BuzDolabiVI.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
+using Microsoft.AspNetCore.Localization;
 
 namespace BuzDolabiVI.Controllers
 {
     public class TarifsController : Controller
+
     {
+
         private readonly ApplicationDbContext _context;
 
         public TarifsController(ApplicationDbContext context)
@@ -20,11 +26,14 @@ namespace BuzDolabiVI.Controllers
             _context = context;
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Tarifs
         public async Task<IActionResult> admin()
         {
             return View(await _context.Tarif.ToListAsync());
         }
+
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> adminDetails(int? id)
         {
 
@@ -41,6 +50,8 @@ namespace BuzDolabiVI.Controllers
             }
             return View(tarif);
         }
+
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> adminDuzenle(int? id)
         {
             if (id == null || _context.Tarif == null)
@@ -55,6 +66,8 @@ namespace BuzDolabiVI.Controllers
             }
             return View(tarif);
         }
+
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> adminDuzenle(int id, [Bind("tarifID,tarifAd,tarifOnay,tarifFoto,tarifMalzemeler,tarifNasilYapilir,tarifTarih,goruntulenme,tarifGirisYazisi,kacKalori,besinDegeriLink,kacKisilik,hazirlanmaSuresi,pisirmeSuresi,kategori,ozluSoz,adSoyad,sosyalMedya,cinsiyet")] Tarif tarif)
         {
             if (id != tarif.tarifID)
@@ -84,6 +97,8 @@ namespace BuzDolabiVI.Controllers
             }
             return View(tarif);
         }
+
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> adminOnay(int? id)
         {
 
@@ -156,9 +171,10 @@ namespace BuzDolabiVI.Controllers
             tarif.goruntulenme++;
             _context.Update(tarif);
             await _context.SaveChangesAsync();
-            return View(tarif);
+            return RedirectToAction("Create","Yorums",new {id});
         }
 
+        [Authorize]
         // GET: Tarifs/Create
         public IActionResult Create()
         {
@@ -186,6 +202,7 @@ namespace BuzDolabiVI.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("tarifID,tarifAd,tarifOnay,tarifFoto,tarifMalzemeler,tarifNasilYapilir,tarifTarih,goruntulenme,tarifGirisYazisi,kacKalori,besinDegeriLink,kacKisilik,hazirlanmaSuresi,pisirmeSuresi,kategori,ozluSoz,adSoyad,sosyalMedya,cinsiyet")] Tarif tarif)
         {
             if (ModelState.IsValid)
@@ -197,6 +214,7 @@ namespace BuzDolabiVI.Controllers
             return View(tarif);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Tarifs/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -217,6 +235,7 @@ namespace BuzDolabiVI.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("tarifID,tarifAd,tarifOnay,tarifFoto,tarifMalzemeler,tarifNasilYapilir,tarifTarih,goruntulenme,tarifGirisYazisi,kacKalori,besinDegeriLink,kacKisilik,hazirlanmaSuresi,pisirmeSuresi,kategori,ozluSoz,adSoyad,sosyalMedya,cinsiyet")] Tarif tarif)
         {
@@ -288,6 +307,15 @@ namespace BuzDolabiVI.Controllers
         private bool TarifExists(int id)
         {
             return _context.Tarif.Any(e => e.tarifID == id);
+        }
+
+        public IActionResult ChangeLanguage(string culture)
+        {
+            Response.Cookies.Append(CookieRequestCultureProvider.DefaultCookieName,
+                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                new CookieOptions() { Expires = DateTimeOffset.UtcNow.AddYears(1) });
+
+            return Redirect(Request.Headers["Referer"].ToString());
         }
 
     }

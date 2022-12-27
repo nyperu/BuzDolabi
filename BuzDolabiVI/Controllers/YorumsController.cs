@@ -49,6 +49,7 @@ namespace BuzDolabiVI.Controllers
         // GET: Yorums/Create
         public IActionResult Create(int? id)
         {
+
             ViewData["tarifID"] = new SelectList(_context.Tarif, "tarifID", "tarifID");
             string email = User.Identity.Name;
             ViewData["tarifler"] = _context.Tarif.ToList();
@@ -91,6 +92,8 @@ namespace BuzDolabiVI.Controllers
                 ViewData["yorumSosyalMedya"] = sosyalMedya;
                 ViewData["yorumAdi"] = adi2;
             }
+
+          
             return View();
         }
 
@@ -99,7 +102,7 @@ namespace BuzDolabiVI.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("yorumID,yorumOnay,yorumTarih,yorumIcerik,yorumAdSoyad,yorumOzluSoz,yorumCinsiyet,yorumSosyal,tarifID")] Yorum yorum)
+        public async Task<IActionResult> Create([Bind("yorumID,yorumOnay,yorumTarih,yorumIcerik,yorumAdSoyad,yorumOzluSoz,yorumCinsiyet,yorumSosyal,tarifID")] Yorum yorum, int? id)
         {
 
             _context.Add(yorum);
@@ -107,6 +110,7 @@ namespace BuzDolabiVI.Controllers
             return RedirectToAction(nameof(Index));
 
             ViewData["tarifID"] = new SelectList(_context.Tarif, "tarifID", "tarifID", yorum.tarifID);
+
             return View(yorum);
         }
 

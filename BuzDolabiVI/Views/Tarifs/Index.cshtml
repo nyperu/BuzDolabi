@@ -1,4 +1,6 @@
 ﻿@model IEnumerable<BuzDolabiVI.Models.Tarif>
+@inject LanguageService language
+
 
 @{
     ViewData["Title"] = "Index";
@@ -6,7 +8,7 @@
     int yorumSayisi = 0;
 }
 
-<h1>Index</h1>
+<h1>@language.Getkey("Index")</h1>
 
 <div class="container">
     <div style="margin-top:9%">
@@ -30,7 +32,7 @@
                         </div>
                     </div>
                     <div class="card-link-wrapper">
-                        <a class="card-link" asp-action="Create" asp-controller="Yorums" asp-route-id="@item.tarifID">İNCELE</a> @item.goruntulenme görüntülenme
+                        <a class="card-link" asp-action="Details" asp-controller="Tarifs" asp-route-id="@item.tarifID">İNCELE</a> @item.goruntulenme görüntülenme
                     </div>
                 </li>
             }
@@ -62,7 +64,7 @@
                         </div>
                     </div>
                     <div class="card-link-wrapper">
-                        <a class="card-link" asp-action="Details" asp-route-id="@item.tarifID">İncele</a> @item.goruntulenme görüntülenme
+                        <a class="card-link" asp-action="Create" asp-controller="Yorums" asp-route-id="@item.tarifID">İNCELE</a> @item.goruntulenme görüntülenme
                     </div>
                 </li>
 
@@ -96,7 +98,7 @@
                         </div>
                     </div>
                     <div class="card-link-wrapper">
-                        <a class="card-link" asp-action="Details" asp-route-id="@item.tarifID">İncele</a>@item.goruntulenme görüntülenme
+                        <a class="card-link" asp-action="Create" asp-controller="Yorums" asp-route-id="@item.tarifID">İNCELE</a> @item.goruntulenme görüntülenme
                     </div>
                 </li>
             }
@@ -130,7 +132,7 @@
                         </div>
                     </div>
                     <div class="card-link-wrapper">
-                        <a class="card-link" asp-action="Details" asp-route-id="@item.tarifID">İncele</a>@item.goruntulenme görüntülenme
+                        <a class="card-link" asp-action="Create" asp-controller="Yorums" asp-route-id="@item.tarifID">İNCELE</a> @item.goruntulenme görüntülenme
                     </div>
                 </li>
             }
@@ -162,7 +164,7 @@
                         </div>
                     </div>
                     <div class="card-link-wrapper">
-                        <a class="card-link" asp-action="Details" asp-route-id="@item.tarifID">İncele</a>@item.goruntulenme görüntülenme
+                        <a class="card-link" asp-action="Create" asp-controller="Yorums" asp-route-id="@item.tarifID">İNCELE</a> @item.goruntulenme görüntülenme
                     </div>
                 </li>
             }
