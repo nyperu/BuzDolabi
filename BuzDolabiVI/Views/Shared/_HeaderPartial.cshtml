@@ -49,9 +49,18 @@
                         {
                             if (User.Identity.IsAuthenticated)
                             {
-                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Tarifs" asp-action="admin">@language.Getkey("Yönetici")</a>
-                                 </li>
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @language.Getkey("Yönetici")
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" asp-area="" asp-controller="Yorums" asp-action="Index">@language.Getkey("Yorum Onaylarý")</a>
+                                        <a class="dropdown-item" asp-area="" asp-controller="Tarifs" asp-action="admin">@language.Getkey("Tarif Onaylarý")</a>
+                                
+                                    </div>
+                                </li>
+
                             }
                         }
 
@@ -61,18 +70,19 @@
             </div>
 
 
-
-
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dil
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" asp-area="" asp-controller="Tarifs" asp-action="ChangeLanguage" asp-route-culture="tr-TR"><i class="flag-icon flag-icon-gb"></i>Türkçe</a>
-                    <a class="dropdown-item" asp-area="" asp-controller="Tarifs" asp-action="ChangeLanguage" asp-route-culture="en-US"><i class="flag-icon flag-icon-gb"></i>English</a>
-                    <a class="dropdown-item" asp-area="" asp-controller="Tarifs" asp-action="ChangeLanguage" asp-route-culture="de-DE"><i class="flag-icon flag-icon-de"></i>Deutsch</a>
-                </div>
-            </li>
+            <div>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dil
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" asp-area="" asp-controller="Tarifs" asp-action="ChangeLanguage" asp-route-culture="tr-TR"><i class="flag-icon flag-icon-gb"></i>Türkçe</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Tarifs" asp-action="ChangeLanguage" asp-route-culture="en-US"><i class="flag-icon flag-icon-gb"></i>English</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Tarifs" asp-action="ChangeLanguage" asp-route-culture="de-DE"><i class="flag-icon flag-icon-de"></i>Deutsch</a>
+                    </div>
+                </li>
+            </div>
+            
 
 
         </nav>

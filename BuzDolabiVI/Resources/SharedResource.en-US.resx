@@ -192,6 +192,9 @@
   <data name="Tarif Nasıl Yapılır?" xml:space="preserve">
     <value>How to Make This Recipe?</value>
   </data>
+  <data name="Tarif Onayları" xml:space="preserve">
+    <value>Recipe Approvals</value>
+  </data>
   <data name="Tarif İçin Gerekli Malzemeler virgül ile ayırınız." xml:space="preserve">
     <value>Separate the Ingredients Required for the Recipe with commas.</value>
   </data>
@@ -215,6 +218,9 @@
   </data>
   <data name="Yeni bir kullanıcı olarak kayıt ol." xml:space="preserve">
     <value>Register as a new user.</value>
+  </data>
+  <data name="Yorum Onayları" xml:space="preserve">
+    <value>Comment Approvals</value>
   </data>
   <data name="Yönetici" xml:space="preserve">
     <value>Admin</value>

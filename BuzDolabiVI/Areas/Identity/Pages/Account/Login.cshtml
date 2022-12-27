@@ -2,10 +2,11 @@
 @using BuzDolabiVI.Models;
 @model LoginModel
 @inject LanguageService language
-
+<link rel="stylesheet" href="~/css/registerLogin.css" />
+@*
 @{
     ViewData["Title"] = @language.Getkey("Giriş Yap");
-}
+}*@
 
 <h1>@ViewData["Title"]</h1>
 <div class="row">
@@ -52,14 +53,14 @@
     </div>
     <div class="col-md-6 col-md-offset-2">
         <section>
-            <h3>Giriş yap aaa</h3>
-            <hr />
+           @* <h3>Giriş yap aaa</h3>*@
+          @*  <hr />*@
             @{
                 if ((Model.ExternalLogins?.Count ?? 0) == 0)
                 {
                     <div>
                         <p>
-                            Giriş Yapp
+                            @*Giriş Yapp*@
                         </p>
                     </div>
                 }

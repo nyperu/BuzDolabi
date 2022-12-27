@@ -192,6 +192,9 @@
   <data name="Tarif Nasıl Yapılır?" xml:space="preserve">
     <value>Tarif Nasıl Yapılır?</value>
   </data>
+  <data name="Tarif Onayları" xml:space="preserve">
+    <value>Tarif Onayları</value>
+  </data>
   <data name="Tarif İçin Gerekli Malzemeler virgül ile ayırınız." xml:space="preserve">
     <value>Tarif İçin Gerekli Malzemeler virgül ile ayırınız.</value>
   </data>
@@ -215,6 +218,9 @@
   </data>
   <data name="Yeni bir kullanıcı olarak kayıt ol." xml:space="preserve">
     <value>Yeni bir kullanıcı olarak kayıt ol.</value>
+  </data>
+  <data name="Yorum Onayları" xml:space="preserve">
+    <value>Yorum Onayları</value>
   </data>
   <data name="Yönetici" xml:space="preserve">
     <value>Yönetici</value>

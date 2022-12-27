@@ -1,14 +1,15 @@
 ﻿@model IEnumerable<BuzDolabiVI.Models.Yorum>
 
-@{
+@*{
     ViewData["Title"] = "Index";
-}
+}*@
 
-<h1>Index</h1>
+@*<h1>Index</h1>*@
 
+@*
 <p>
     <a asp-action="Create">Create New</a>
-</p>
+</p>*@
 <table class="table">
     <thead>
         <tr>
@@ -68,8 +69,8 @@
                     @Html.DisplayFor(modelItem => item.Tarif.tarifID)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.yorumID">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.yorumID">Details</a> |
+                   @* <a asp-action="Edit" asp-route-id="@item.yorumID">Edit</a> |*@
+                    @*<a asp-action="Details" asp-route-id="@item.yorumID">Details</a> |*@
                     <a asp-action="Delete" asp-route-id="@item.yorumID">Delete</a>
                 </td>
             </tr>

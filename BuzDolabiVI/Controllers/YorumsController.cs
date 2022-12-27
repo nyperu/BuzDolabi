@@ -7,7 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BuzDolabiVI.Models;
 using System.Globalization;
-
+using System.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BuzDolabiVI.Controllers
 {
@@ -21,6 +22,7 @@ namespace BuzDolabiVI.Controllers
         }
 
         // GET: Yorums
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Yorum.Include(y => y.Tarif);
@@ -168,6 +170,7 @@ namespace BuzDolabiVI.Controllers
         }
 
         // GET: Yorums/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Yorum == null)
@@ -188,6 +191,7 @@ namespace BuzDolabiVI.Controllers
 
         // POST: Yorums/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
