@@ -1,3 +1,6 @@
+@inject LanguageService language
+
+
 
 <div class="navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow buyukHeader mb-4">
     <div class="logoGelecek">
@@ -25,25 +28,20 @@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Tarifler
+                                @language.Getkey("Tarifler")
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" asp-area="" asp-controller="Tarifs" asp-action="anaYemek">Yemek Tarifleri</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Tarifs" asp-action="anaYemek">Ana Yemek Tarifleri</a>
                                 <a class="dropdown-item" asp-area="" asp-controller="Tarifs" asp-action="corba">Çorba Tarifleri</a>
                                 <a class="dropdown-item" asp-area="" asp-controller="Tarifs" asp-action="tatli">Tatlý Tarifleri</a>
                                 <a class="dropdown-item" asp-area="" asp-controller="Tarifs" asp-action="icecek">Ýçecek Tarifleri</a>
                             </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Tarifler" asp-action="Privacy">Privacy</a>
-                        </li>
-
-                        @if (User.Identity.IsAuthenticated)
-                        {
+                     
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Tarifs" asp-action="Create">TarifEkle</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Tarifs" asp-action="Create">@language.Getkey("Tarif Ekle")</a>
                             </li>
-                        }
+                        
 
                         @if (User.IsInRole("Admin"))
                         {
@@ -54,14 +52,31 @@
                                  </li>
                             }
                         }
-                       
 
 
                     </ul>
                 </div>
             </div>
+
+
+
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dil
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" asp-area="" asp-controller="Tarifs" asp-action="ChangeLanguage" asp-route-culture="en-US"><i class="flag-icon flag-icon-gb"></i>English</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Tarifs" asp-action="ChangeLanguage" asp-route-culture="de-DE"><i class="flag-icon flag-icon-de"></i>Deutsch</a>
+                </div>
+            </li>
+
+
         </nav>
 
     </div>
+
+
+
 </div>
 

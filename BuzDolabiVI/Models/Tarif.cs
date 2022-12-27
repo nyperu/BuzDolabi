@@ -28,5 +28,6 @@ namespace BuzDolabiVI.Models
         public string adSoyad { get; set; }
         public string sosyalMedya { get; set; }
         public string cinsiyet { get; set; }
+
     }
 }
