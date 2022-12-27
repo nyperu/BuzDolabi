@@ -1,4 +1,4 @@
-@model BuzDolabiVI.Models.Yorum
+﻿@model BuzDolabiVI.Models.Yorum
 
 @{
     ViewData["Title"] = "Create";
@@ -206,3 +206,6 @@
 
 @section Scripts {
     @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
