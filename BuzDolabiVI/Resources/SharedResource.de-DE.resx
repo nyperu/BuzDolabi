@@ -117,13 +117,139 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Ad Soyad" xml:space="preserve">
+    <value>Vorname Nachname</value>
+  </data>
+  <data name="Adet" xml:space="preserve">
+    <value>Anzahl</value>
+  </data>
+  <data name="ANA YEMEK KATEGORİSİ" xml:space="preserve">
+    <value>HAUPTGERICHTSKATEGORIE</value>
+  </data>
+  <data name="Ana Yemek Tarifleri" xml:space="preserve">
+    <value>Hauptrezepte</value>
+  </data>
+  <data name="BESİN DEĞERİ LİNKİ GİRİNİZ." xml:space="preserve">
+    <value>NÄHRWERT-LINK EINGEBEN.</value>
+  </data>
+  <data name="Cinsiyetinizi Giriniz" xml:space="preserve">
+    <value>Geben Sie Ihr Geschlecht ein</value>
+  </data>
+  <data name="Dakika" xml:space="preserve">
+    <value>Minute</value>
+  </data>
+  <data name="E-posta onayını yeniden gönder" xml:space="preserve">
+    <value>E-Mail-Bestätigung erneut senden</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Fotoğraf Seçiniz." xml:space="preserve">
+    <value>Wählen Sie Foto aus.</value>
+  </data>
+  <data name="Giriş Yap" xml:space="preserve">
+    <value>Anmeldung</value>
+  </data>
+  <data name="Hazırlama Süresi" xml:space="preserve">
+    <value>Vorbereitungszeit</value>
+  </data>
   <data name="Index" xml:space="preserve">
     <value>Inhalt</value>
+  </data>
+  <data name="Kategori Seçiniz." xml:space="preserve">
+    <value>Kategorie wählen.</value>
+  </data>
+  <data name="Kayıt Ol" xml:space="preserve">
+    <value>Registrieren</value>
+  </data>
+  <data name="KAÇ KALORİ BULUNMAKTA?" xml:space="preserve">
+    <value>WIE VIELE KALORIEN SIND ES?</value>
+  </data>
+  <data name="Kaç Kişilik?" xml:space="preserve">
+    <value>Für wie viele Personen?</value>
+  </data>
+  <data name="Kişi" xml:space="preserve">
+    <value>Person</value>
+  </data>
+  <data name="ONAYA GÖNDER" xml:space="preserve">
+    <value>ZUR GENEHMIGUNG SENDEN</value>
+  </data>
+  <data name="Pişirme Süresi" xml:space="preserve">
+    <value>Kochzeit</value>
+  </data>
+  <data name="Saat" xml:space="preserve">
+    <value>Stunde</value>
+  </data>
+  <data name="Servis" xml:space="preserve">
+    <value>Bedienung</value>
+  </data>
+  <data name="Sosyal Medya Linkinizi Giriniz" xml:space="preserve">
+    <value>Geben Sie Ihren Social-Media-Link ein</value>
   </data>
   <data name="Tarif Ekle" xml:space="preserve">
     <value>Rezept hinzufügen</value>
   </data>
+  <data name="Tarif Nasıl Yapılır?" xml:space="preserve">
+    <value>Wie erstelle ich ein Rezept?</value>
+  </data>
+  <data name="Tarif Onayları" xml:space="preserve">
+    <value>Rezeptzulassungen</value>
+  </data>
+  <data name="Tarif İçin Gerekli Malzemeler Tarif İçin Gerekli Malzemeler virgül ile Tarif İçin Gerekli Malzemeler virgül ile ayırınız." xml:space="preserve">
+    <value>Trennen Sie die für das Rezept erforderlichen Zutaten durch Kommas.</value>
+  </data>
+  <data name="Tarifiniz hakkında kısa fikir verin." xml:space="preserve">
+    <value>Geben Sie eine kurze Vorstellung von Ihrem Rezept.</value>
+  </data>
+  <data name="Tarifinizi Başlığını Giriniz." xml:space="preserve">
+    <value>Geben Sie den Titel Ihres Rezepts ein.</value>
+  </data>
   <data name="Tarifler" xml:space="preserve">
     <value>Rezepte</value>
+  </data>
+  <data name="TATLI KATEGORİSİ" xml:space="preserve">
+    <value>DESSERT-KATEGORIE</value>
+  </data>
+  <data name="Tatlı Tarifleri" xml:space="preserve">
+    <value>Dessert-Rezepte</value>
+  </data>
+  <data name="Yeni bir hesap oluştur." xml:space="preserve">
+    <value>Ein neues Konto erstellen.</value>
+  </data>
+  <data name="Yeni bir kullanıcı olarak kayıt ol." xml:space="preserve">
+    <value>Registrieren Sie sich als neuer Benutzer.</value>
+  </data>
+  <data name="Yorum Onayları" xml:space="preserve">
+    <value>Genehmigungen kommentieren</value>
+  </data>
+  <data name="Yönetici" xml:space="preserve">
+    <value>Administrator</value>
+  </data>
+  <data name="ÇORBA KATEGORİSİ" xml:space="preserve">
+    <value>SUPPENKATEGORIE</value>
+  </data>
+  <data name="Çorba Tarifleri" xml:space="preserve">
+    <value>Suppenrezepte</value>
+  </data>
+  <data name="Çıkış Yap" xml:space="preserve">
+    <value>Ausloggen</value>
+  </data>
+  <data name="Özlü Söz Giriniz" xml:space="preserve">
+    <value>Zitate eingeben</value>
+  </data>
+  <data name="İÇECEK KATEGORİSİ" xml:space="preserve">
+    <value>GETRÄNKEKATEGORIE</value>
+  </data>
+  <data name="İçecek Tarifleri" xml:space="preserve">
+    <value>Getränkerezepte</value>
+  </data>
+  <data name="Şifre" xml:space="preserve">
+    <value>Passwort</value>
+  </data>
+  <data name="Şifreni mi unuttun?" xml:space="preserve">
+    <value>Haben Sie Ihr Passwort vergessen?</value>
+  </data>
+  <data name="Şifrenizi Doğrulayınız" xml:space="preserve">
+    <value>Bestätigen Sie Ihr Passwort</value>
   </data>
 </root>

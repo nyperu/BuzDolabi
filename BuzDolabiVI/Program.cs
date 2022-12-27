@@ -53,11 +53,12 @@ builder.Services.Configure<RequestLocalizationOptions>(
         {
                             new CultureInfo("en-US"),
                             new CultureInfo("de-DE"),
+                            new CultureInfo("tr-TR"),
         };
 
 
 
-        options.DefaultRequestCulture = new RequestCulture(culture: "en-US", uiCulture: "en-US");
+        options.DefaultRequestCulture = new RequestCulture(culture: "tr-TR", uiCulture: "tr-TR");
 
         options.SupportedCultures = supportedCultures;
         options.SupportedUICultures = supportedCultures;

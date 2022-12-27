@@ -20,6 +20,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 
+
+
 namespace BuzDolabiVI.Areas.Identity.Pages.Account
 {
     public class RegisterModel : PageModel
@@ -78,24 +80,24 @@ namespace BuzDolabiVI.Areas.Identity.Pages.Account
             /// 
 
             [Required]
-            [Display(Name = "Ad Soyad Giriniz")]
+            //[Display(Name = "Ad Soyad Giriniz")]
             public string AdSoyad { get; set; }
 
 
-            [Display(Name = "Özlü Söz Giriniz")]
+           // [Display(Name = "Özlü Söz Giriniz")]
             public string ozluSoz { get; set; }
 
 
-            [Display(Name = "Cinsiyet Seçiniz")]
+           // [Display(Name = "Cinsiyet Seçiniz")]
             public string cinsiyet { get; set; }
 
 
-            [Display(Name = "Sosyal Medya Linki Giriniz")]
+           // [Display(Name = "Sosyal Medya Linki Giriniz")]
             public string sosyalmedya { get; set; }
 
             [Required]
             [EmailAddress]
-            [Display(Name = "Email")]
+           // [Display(Name = "Email")]
             public string Email { get; set; }
 
             /// <summary>
@@ -105,7 +107,7 @@ namespace BuzDolabiVI.Areas.Identity.Pages.Account
             [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Password")]
+           // [Display(Name = "Password")]
             public string Password { get; set; }
 
             /// <summary>
@@ -113,7 +115,7 @@ namespace BuzDolabiVI.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
+           // [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
         }
