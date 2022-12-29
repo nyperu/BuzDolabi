@@ -36,12 +36,7 @@ body {
     }
 }
 
-.sayfalarinBasligi {
-    text-align: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: bold;
-    margin: 3% auto;
-}
+
 
 .imageHolder {
     position: relative;
@@ -122,3 +117,134 @@ html {
     height: auto;
     box-shadow: 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
 }
+article {
+    height: 100vh;
+}
+
+#opac1 {
+    text-align: center;
+}
+
+.yandanH1 {
+    position: relative;
+    display: inline-block;
+    text-shadow: rgb(128, 128, 128) 1px 0 1px;
+}
+
+    .yandanH1::before, .yandanH1::after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: -120px;
+    width: 100px;
+    border-bottom: 4px solid #c12121;
+    border-radius:1px;
+    
+}
+
+.yandanH1::after {
+    left: auto;
+    right: -120px;
+}
+
+#intro {
+    /*width:100%;*/
+    display: block;
+    height: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+
+.story {
+    margin-left: 10%;
+    margin-top: 240px;
+    /*min-width: 980px;*/
+    overflow: auto;
+    /*width: 980px;*/
+    position: absolute;
+}
+
+.bg_big yandanH1 {
+    font-weight: lighter;
+    font-size: 3em;
+    text-transform: uppercase;
+    text-align: center;
+    /*opacity:0.3;*/
+}
+
+.bg_big p {
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 20px;
+    /*opacity:0;*/
+}
+
+.story .float-left, .story .float-right {
+    position: relative;
+    width: 350px;
+}
+
+.bg_big {
+    height: 200px;
+    width: 100%;
+}
+
+
+
+
+.grow {
+    display: inline-block;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: -webkit-transform;
+    transition-property: transform;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+
+    .grow:hover {
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+
+.goruntulenme{
+    height:120%;
+    width:20%;
+    margin-left:20%;
+    margin-top:-2%;
+    margin-right:-5%;
+}
+.sayfalarinBasligi {
+    text-align: center;
+    margin: 3% auto;
+    text-shadow: rgb(128, 128, 128) 1px 0 1px;
+}
+.cardUstBaslik {
+    text-align: center;
+    margin: 3% auto;
+    text-shadow: rgb(128, 128, 128) 1px 0 1px;
+    text-decoration:none;
+}
+.tarifSayfalariFoto {
+    width: 95%;
+    height: 50%;
+    box-shadow: 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+    border-radius:5px;
+}
+.tarifSayfalariAdSoyad
+{
+    text-decoration:none;
+}
+.navbarYapiyoruz{
+
+}
+
+
+

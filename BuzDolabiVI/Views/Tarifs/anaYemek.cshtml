@@ -4,6 +4,9 @@
 
 @{
     int yorumSayisi = 0;
+    string tarifGirisYazisi = "";
+    string yeniGirisYazisi = "";
+    int girisYazisiSiniri = 54;
 }
 <div class="sayfalarinBasligi"><h1>ANA YEMEK TARİFLERİ</h1></div>
 
@@ -32,11 +35,26 @@
                                     @item.tarifAd
                                 </h5>
                                 <br />
-                                <img src="~/images/@Html.DisplayFor(modelItem => item.tarifFoto)" alt="" class="" style="width:90%;height:90%">
+                                <img src="~/images/@Html.DisplayFor(modelItem => item.tarifFoto)" alt="" class="tarifSayfalariFoto">
                             </a>
-                            <p class="small text-muted mb-0 mt-1"> @item.tarifGirisYazisi </p>
+                            @{
+                                yeniGirisYazisi = "";
+
+                                tarifGirisYazisi = item.tarifGirisYazisi;
+                                yeniGirisYazisi = tarifGirisYazisi;
+                                if (tarifGirisYazisi.Length > girisYazisiSiniri)
+                                {
+                                    yeniGirisYazisi = "";
+                                    for (int i = 0; i <= girisYazisiSiniri; i++)
+                                        yeniGirisYazisi += tarifGirisYazisi[i];
+                                    yeniGirisYazisi += "...";
+                                }
+                            }
+                            <p class="small text-muted mb-0 mt-1 tarifSayfalariAdSoyad">
+                                @yeniGirisYazisi
+                            </p>
                             <div class="text-center  rounded-pill bg-light mb-2 mt-4">
-                                <p href="#" class="">@item.adSoyad</p>
+                                <p class="tarifSayfalariAdSoyad"><a href="@item.sosyalMedya" style="">@item.adSoyad</a> yazdı.</p>
                             </div>
                         </div>
                     </div>

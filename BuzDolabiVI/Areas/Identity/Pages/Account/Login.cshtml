@@ -9,9 +9,9 @@
 }*@
 
 <h1>@ViewData["Title"]</h1>
-<div class ="logindiv text-center">
+<div class ="logindiv text-center mt-5">
     <div class="rows">
-        <div class="col-md-4">
+        <div class="">
             <section>
                 <form id="account" method="post">
                     <h2>@language.Getkey("Giriş Yap")</h2>
@@ -54,36 +54,7 @@
         </div>
 </div>
 
-    <div class="col-md-6 col-md-offset-2">
-        <section>
-           @* <h3>Giriş yap aaa</h3>*@
-          @*  <hr />*@
-            @{
-                if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                {
-                    <div>
-                        <p>
-                            @*Giriş Yapp*@
-                        </p>
-                    </div>
-                }
-                else
-                {
-                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                        <div>
-                            <p>
-                                @foreach (var provider in Model.ExternalLogins)
-                                {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                }
-                            </p>
-                        </div>
-                    </form>
-                }
-            }
-        </section>
-    </div>
-</div>
+ 
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

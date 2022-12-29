@@ -107,9 +107,52 @@ namespace BuzDolabiVI.Controllers
         public async Task<IActionResult> Create([Bind("yorumID,yorumOnay,yorumTarih,yorumIcerik,yorumAdSoyad,yorumOzluSoz,yorumCinsiyet,yorumSosyal,tarifID")] Yorum yorum, int? id)
         {
 
+            ViewData["tarifID"] = new SelectList(_context.Tarif, "tarifID", "tarifID");
+            string email = User.Identity.Name;
+            ViewData["tarifler"] = _context.Tarif.ToList();
+            ViewData["yorumlar"] = _context.Yorum.ToList();
+            ViewData["tID"] = id;
+            var yorumlar = _context.Yorum.ToList();
+            var yorumKontrol = (from m in yorumlar
+                                where m.tarifID == id
+                                select m).ToList();
+            if (email == null)
+            {
+                var kullanicilar = _context.Users.ToList();
+                var kullanici = (from m in kullanicilar
+                                 select m).ToList();
+                string ozluSozz = kullanici[0].ozluSoz.ToString();
+                string cinsiyett = kullanici[0].cinsiyet.ToString();
+                string sosyalMedyaa = kullanici[0].sosyalMedya.ToString();
+                string adi22 = kullanici[0].AdSoyad.ToString();
+                string tarihh = DateTime.Now.ToString("MM/dd/yyyy HH:mm", CultureInfo.InvariantCulture);
+                ViewData["tarih"] = tarihh;
+                ViewData["yorumCinsiyet"] = cinsiyett;
+                ViewData["yorumOzluSoz"] = ozluSozz;
+                ViewData["yorumSosyalMedya"] = sosyalMedyaa;
+                ViewData["yorumAdi"] = adi22;
+            }
+            else
+            {
+                var users = _context.Users.ToList();
+                var kisi = (from m in users
+                            where m.Email == email
+                            select m).ToList();
+                string ozluSoz = kisi[0].ozluSoz.ToString();
+                string cinsiyet = kisi[0].cinsiyet.ToString();
+                string sosyalMedya = kisi[0].sosyalMedya.ToString();
+                string adi2 = kisi[0].AdSoyad.ToString();
+                string tarih = DateTime.Now.ToString("MM/dd/yyyy HH:mm", CultureInfo.InvariantCulture);
+                ViewData["tarih"] = tarih;
+                ViewData["yorumCinsiyet"] = cinsiyet;
+                ViewData["yorumOzluSoz"] = ozluSoz;
+                ViewData["yorumSosyalMedya"] = sosyalMedya;
+                ViewData["yorumAdi"] = adi2;
+            }
             _context.Add(yorum);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+
+            return View(yorum);
 
             ViewData["tarifID"] = new SelectList(_context.Tarif, "tarifID", "tarifID", yorum.tarifID);
 

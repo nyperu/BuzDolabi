@@ -64,6 +64,9 @@ h2 {
 
     .card .card-title {
         font-size: 20px;
+        margin-left: 2%;
+        font: larger;
+        text-shadow: #808080 0.5px 0 1px;
     }
 
     .card .card-content {
@@ -135,4 +138,14 @@ h2 {
         .card:not(:last-child) {
             margin-right: 40px;
         }
+}
+.cardFotoIndex {
+    width: 110%;
+    margin-left: -5%;
+    height: 50%;
+    border-radius: 5px;
+    box-shadow: 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+.logoDegisme{
+
 }
