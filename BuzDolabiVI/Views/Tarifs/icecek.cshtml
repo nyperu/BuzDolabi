@@ -4,6 +4,9 @@
 
 @{
     int yorumSayisi = 0;
+    string tarifGirisYazisi = "";
+    string yeniGirisYazisi = "";
+    int girisYazisiSiniri = 54;
 }
 <div class="sayfalarinBasligi"><h1>İÇECEK TARİFLERİ</h1></div>
 
@@ -27,16 +30,31 @@
                 <div class="col-xl-3 col-lg-4 col-md-6 mb-4 ustuneGelinceBuyusun">
                     <div class="bg-white rounded shadow-sm pb-1">
                         <div class="text-center">
-                            <a class="temizle" asp-controller="Tarifs" asp-action="Details" asp-route-id="@item.tarifID">
+                            <a class="temizle" asp-controller="Yorums" asp-action="Create" asp-route-id="@item.tarifID">
                                 <h5 href="#" class="cardUstBaslik">
                                     @item.tarifAd
                                 </h5>
                                 <br />
-                                <img src="https://bootstrapious.com/i/snippets/sn-gallery/img-1.jpg" alt="" class="" style="width:90%;height:90%">
+                                <img src="~/images/@Html.DisplayFor(modelItem => item.tarifFoto)" alt="" class="tarifSayfalariFoto">
                             </a>
-                            <p class="small text-muted mb-0 mt-1"> @item.tarifGirisYazisi </p>
+                            @{
+                                yeniGirisYazisi = "";
+
+                                tarifGirisYazisi = item.tarifGirisYazisi;
+                                yeniGirisYazisi = tarifGirisYazisi;
+                                if (tarifGirisYazisi.Length > girisYazisiSiniri)
+                                {
+                                    yeniGirisYazisi = "";
+                                    for (int i = 0; i <= girisYazisiSiniri; i++)
+                                        yeniGirisYazisi += tarifGirisYazisi[i];
+                                    yeniGirisYazisi += "...";
+                                }
+                            }
+                            <p class="small text-muted mb-0 mt-1 tarifSayfalariAdSoyad">
+                                @yeniGirisYazisi
+                            </p>
                             <div class="text-center  rounded-pill bg-light mb-2 mt-4">
-                                <p href="#" class="">@item.adSoyad</p>
+                                <p class="tarifSayfalariAdSoyad"><a href="@item.sosyalMedya" style="">@item.adSoyad</a> yazdı.</p>
                             </div>
                         </div>
                     </div>

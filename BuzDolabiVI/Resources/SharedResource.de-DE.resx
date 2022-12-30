@@ -138,6 +138,9 @@
   <data name="Dakika" xml:space="preserve">
     <value>Minute</value>
   </data>
+  <data name="Dil" xml:space="preserve">
+    <value>Sprache</value>
+  </data>
   <data name="E-posta onayını yeniden gönder" xml:space="preserve">
     <value>E-Mail-Bestätigung erneut senden</value>
   </data>

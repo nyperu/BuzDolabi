@@ -4,16 +4,29 @@
 
 @{
     ViewData["Title"] = "Index";
-
+    string tarifGirisYazisi;
     int yorumSayisi = 0;
+    string yeniGirisYazisi;
+    int girisYazisiSiniri = 54;
 }
 
 <h1>@language.Getkey("Index")</h1>
 
 <div class="container">
     <div style="margin-top:9%">
-        <h2 style="text-align:center;">SON EKLENEN TARİFLER</h2>
-        <ul class="cards">
+        <div id="intro">
+            <div class="bg_big bg_big_green glow">
+                <div id="opac1">
+                    <h1 class="yandanH1">SON EKLENENLER</h1 class="yandanH1">
+                    
+                </div>
+            </div>
+            <div class="story">
+                <div class="float-left">
+                </div>
+            </div> <!--.story-->
+        </div> <!--#intro--> 
+        <ul class="cards" style="margin-top:-10%">
             @foreach (var item in Model)
             {
                 if (item.tarifOnay != "onay")
@@ -22,26 +35,48 @@
                 }
                 <li class="card">
                     <div>
-                        <h3 class="card-title">@Html.DisplayFor(modelItem => item.tarifAd)</h3>
-                        <img src="~/images/@Html.DisplayFor(modelItem => item.tarifFoto)" alt="foto" width="80%" height="40%">
+                        <h3 class="card-title text-center">@Html.DisplayFor(modelItem => item.tarifAd)</h3>
+                        <img src="~/images/@Html.DisplayFor(modelItem => item.tarifFoto)" alt="foto" class="cardFotoIndex">
                         <div class="card-content">
-                            Yazan Kişi = @item.adSoyad
+                             <h6 class="text-center ml-2"><a href="@item.sosyalMedya" style="text-decoration:none">@item.adSoyad</a></h6>
                             <p>
-                                @Html.DisplayFor(modelItem => item.tarifGirisYazisi)
+                                @{
+                                    yeniGirisYazisi = "";
+
+                                    tarifGirisYazisi = item.tarifGirisYazisi;
+                                    yeniGirisYazisi = tarifGirisYazisi;
+                                    if (tarifGirisYazisi.Length > girisYazisiSiniri)
+                                    {
+                                        yeniGirisYazisi = "";
+                                        for (int i = 0; i <= girisYazisiSiniri; i++)
+                                            yeniGirisYazisi += tarifGirisYazisi[i];
+                                        yeniGirisYazisi += "...";
+                                    }
+                                }
+                               @yeniGirisYazisi
                             </p>
                         </div>
                     </div>
                     <div class="card-link-wrapper">
-                        <a class="card-link" asp-action="Details" asp-controller="Tarifs" asp-route-id="@item.tarifID">İNCELE</a> @item.goruntulenme görüntülenme
+                        <a class="card-link" asp-action="Details" asp-controller="Tarifs" asp-route-id="@item.tarifID">İNCELE</a> <img src="~/images/point-of-views-1-300x300.png" class="goruntulenme"/> @item.goruntulenme
                     </div>
                 </li>
             }
         </ul>
     </div>
     <div style="margin-top=:11%">
-        <h2 style="text-align:center;">ANA YEMEK TARİFLERİ</h2>
-
-        <ul class="cards">
+        <div id="intro">
+            <div class="bg_big bg_big_green glow">
+                <div id="opac1">
+                    <h1 class="yandanH1">ANA YEMEK TARİFLERİ</h1 class="yandanH1">
+                    
+                </div>
+            </div>
+            <div class="story">
+                <div class="float-left">
+                </div>
+            </div> <!--.story-->
+        <ul class="cards" style="margin-top:-10%">
             @foreach (var item in Model)
             {
                if (item.tarifOnay != "onay")
@@ -52,30 +87,52 @@
                 {
                     continue;
                 }
-                <li class="card">
+              <li class="card">
                     <div>
-                        <h3 class="card-title">@Html.DisplayFor(modelItem => item.tarifAd)</h3>
-                        <img src="~/images/@Html.DisplayFor(modelItem => item.tarifFoto)" alt="foto" width="50%" height="40%">
+                        <h3 class="card-title text-center">@Html.DisplayFor(modelItem => item.tarifAd)</h3>
+                        <img src="~/images/@Html.DisplayFor(modelItem => item.tarifFoto)" alt="foto" class="cardFotoIndex">
                         <div class="card-content">
-                            Yazan Kişi = @item.adSoyad
+                             <h6 class="text-center ml-2"><a href="@item.sosyalMedya" style="text-decoration:none">@item.adSoyad</a></h6>
                             <p>
-                                @Html.DisplayFor(modelItem => item.tarifGirisYazisi)
+                                    @{
+                                        yeniGirisYazisi = "";
+                                        tarifGirisYazisi = "";
+                                        tarifGirisYazisi = item.tarifGirisYazisi;
+                                       yeniGirisYazisi = tarifGirisYazisi;
+                                    if (tarifGirisYazisi.Length > girisYazisiSiniri)
+                                    {
+                                        yeniGirisYazisi = "";
+                                        for (int i = 0; i <= girisYazisiSiniri; i++)
+                                            yeniGirisYazisi += tarifGirisYazisi[i];
+                                        yeniGirisYazisi += "...";
+                                    }
+                                }
+                               @yeniGirisYazisi
                             </p>
                         </div>
                     </div>
                     <div class="card-link-wrapper">
-                        <a class="card-link" asp-action="Create" asp-controller="Yorums" asp-route-id="@item.tarifID">İNCELE</a> @item.goruntulenme görüntülenme
+                        <a class="card-link" asp-action="Details" asp-controller="Tarifs" asp-route-id="@item.tarifID">İNCELE</a> <img src="~/images/point-of-views-1-300x300.png" class="goruntulenme"/> @item.goruntulenme
                     </div>
                 </li>
 
             }
         </ul>
-
+        </div>
     </div>
     <div style="margin-top=:11%">
-        <h2 style="text-align:center;">ÇORBA TARİFLERİ</h2>
-
-        <ul class="cards">
+        <div id="intro">
+            <div class="bg_big bg_big_green glow">
+                <div id="opac1">
+                    <h1 class="yandanH1">ÇORBA TARİFLERİ</h1 class="yandanH1">
+                    
+                </div>
+            </div>
+            <div class="story">
+                <div class="float-left">
+                </div>
+            </div> <!--.story-->
+        <ul class="cards" style="margin-top:-10%">
             @foreach (var item in Model)
             {
                 if (item.tarifOnay != "onay")
@@ -86,30 +143,53 @@
                 {
                     continue;
                 }
-                <li class="card">
+               <li class="card">
                     <div>
-                        <h3 class="card-title">@Html.DisplayFor(modelItem => item.tarifAd)</h3>
-                        <img src="~/images/@Html.DisplayFor(modelItem => item.tarifFoto)" alt="foto" width="50%" height="40%">
+                        <h3 class="card-title text-center">@Html.DisplayFor(modelItem => item.tarifAd)</h3>
+                        <img src="~/images/@Html.DisplayFor(modelItem => item.tarifFoto)" class="cardFotoIndex" alt="foto">
                         <div class="card-content">
-                            Yazan Kişi = @item.adSoyad
+                             <h6 class="text-center ml-2"><a href="@item.sosyalMedya" style="text-decoration:none">@item.adSoyad</a></h6>
                             <p>
-                                @Html.DisplayFor(modelItem => item.tarifGirisYazisi)
+                                @{
+                                    yeniGirisYazisi = "";
+                                    
+                                        tarifGirisYazisi = "";
+                                    tarifGirisYazisi = item.tarifGirisYazisi;
+                                    
+                                     yeniGirisYazisi = tarifGirisYazisi;
+                                    if (tarifGirisYazisi.Length > girisYazisiSiniri)
+                                    {
+                                        yeniGirisYazisi = "";
+                                        for (int i = 0; i <= girisYazisiSiniri; i++)
+                                            yeniGirisYazisi += tarifGirisYazisi[i];
+                                        yeniGirisYazisi += "...";
+                                    }
+                                }
+                               @yeniGirisYazisi
                             </p>
                         </div>
                     </div>
                     <div class="card-link-wrapper">
-                        <a class="card-link" asp-action="Create" asp-controller="Yorums" asp-route-id="@item.tarifID">İNCELE</a> @item.goruntulenme görüntülenme
+                        <a class="card-link" asp-action="Details" asp-controller="Tarifs" asp-route-id="@item.tarifID">İNCELE</a> <img src="~/images/point-of-views-1-300x300.png" class="goruntulenme"/> @item.goruntulenme
                     </div>
                 </li>
             }
         </ul>
-
+    </div>
     </div>
     <div style="margin-top=:11%">
-        <h2 style="text-align:center;">TATLI TARİFLERİ</h2>
-
-
-        <ul class="cards">
+        <div id="intro">
+            <div class="bg_big bg_big_green glow">
+                <div id="opac1">
+                    <h1 class="yandanH1">TATLI TARİFLERİ</h1 class="yandanH1">
+                    
+                </div>
+            </div>
+            <div class="story">
+                <div class="float-left">
+                </div>
+            </div> <!--.story-->
+        <ul class="cards" style="margin-top:-10%">
             @foreach (var item in Model)
             {
                 if (item.tarifOnay != "onay")
@@ -120,28 +200,53 @@
                 {
                     continue;
                 }
-                <li class="card">
+               <li class="card">
                     <div>
-                        <h3 class="card-title">@Html.DisplayFor(modelItem => item.tarifAd)</h3>
-                        <img src="~/images/@Html.DisplayFor(modelItem => item.tarifFoto)" alt="foto" width="50%" height="40%">
+                        <h3 class="card-title text-center">@Html.DisplayFor(modelItem => item.tarifAd)</h3>
+                        <img src="~/images/@Html.DisplayFor(modelItem => item.tarifFoto)" alt="foto" class="cardFotoIndex">
                         <div class="card-content">
-                            Yazan Kişi = @item.adSoyad
+                             <h6 class="text-center ml-2"><a href="@item.sosyalMedya" style="text-decoration:none">@item.adSoyad</a></h6>
                             <p>
-                                @Html.DisplayFor(modelItem => item.tarifGirisYazisi)
+                                    @{
+                                        yeniGirisYazisi = "";
+
+                                        tarifGirisYazisi = "";
+                                        tarifGirisYazisi = @item.tarifGirisYazisi;
+                                        yeniGirisYazisi = tarifGirisYazisi;
+                                    if (tarifGirisYazisi.Length > girisYazisiSiniri)
+                                    {
+                                        yeniGirisYazisi = "";
+                                        for (int i = 0; i <= girisYazisiSiniri; i++)
+                                            yeniGirisYazisi += tarifGirisYazisi[i];
+                                        yeniGirisYazisi += "...";
+                                    }
+                                }
+                               @yeniGirisYazisi
                             </p>
                         </div>
                     </div>
                     <div class="card-link-wrapper">
-                        <a class="card-link" asp-action="Create" asp-controller="Yorums" asp-route-id="@item.tarifID">İNCELE</a> @item.goruntulenme görüntülenme
+                        <a class="card-link" asp-action="Details" asp-controller="Tarifs" asp-route-id="@item.tarifID">İNCELE</a> <img src="~/images/point-of-views-1-300x300.png" class="goruntulenme"/> @item.goruntulenme
                     </div>
                 </li>
             }
         </ul>
 
     </div>
+    </div>
     <div style="margin-top=:11%">
-        <h2 style="text-align:center;">İÇECEK TARİFLERİ</h2>
-        <ul class="cards">
+       <div id="intro">
+            <div class="bg_big bg_big_green glow">
+                <div id="opac1">
+                    <h1 class="yandanH1">İÇECEK TARİFLRİ</h1 class="yandanH1">
+                    
+                </div>
+            </div>
+            <div class="story">
+                <div class="float-left">
+                </div>
+            </div> <!--.story-->
+            <ul class="cards" style="margin-top:-10%">
             @foreach (var item in Model)
             {
                 if (item.tarifOnay != "onay")
@@ -152,19 +257,33 @@
                 {
                     continue;
                 }
-                <li class="card">
+              <li class="card">
                     <div>
-                        <h3 class="card-title">@Html.DisplayFor(modelItem => item.tarifAd)</h3>
-                        <img src="~/images/@Html.DisplayFor(modelItem => item.tarifFoto)" alt="foto" width="50%" height="40%">
+                        <h3 class="card-title text-center">@Html.DisplayFor(modelItem => item.tarifAd)</h3>
+                        <img src="~/images/@Html.DisplayFor(modelItem => item.tarifFoto)" alt="foto" class="cardFotoIndex">
                         <div class="card-content">
-                            Yazan Kişi = @item.adSoyad
+                             <h6 class="text-center ml-2"><a href="@item.sosyalMedya" style="text-decoration:none">@item.adSoyad</a></h6>
                             <p>
-                                @Html.DisplayFor(modelItem => item.tarifGirisYazisi)
+                                    @{
+                                        yeniGirisYazisi = "";
+
+                                        tarifGirisYazisi = "";
+                                        tarifGirisYazisi = @item.tarifGirisYazisi;
+                                        yeniGirisYazisi = tarifGirisYazisi;
+                                    if (tarifGirisYazisi.Length > girisYazisiSiniri)
+                                    {
+                                        yeniGirisYazisi = "";
+                                        for (int i = 0; i <= girisYazisiSiniri; i++)
+                                            yeniGirisYazisi += tarifGirisYazisi[i];
+                                        yeniGirisYazisi += "...";
+                                    }
+                                }
+                               @yeniGirisYazisi
                             </p>
                         </div>
                     </div>
                     <div class="card-link-wrapper">
-                        <a class="card-link" asp-action="Create" asp-controller="Yorums" asp-route-id="@item.tarifID">İNCELE</a> @item.goruntulenme görüntülenme
+                        <a class="card-link" asp-action="Details" asp-controller="Tarifs" asp-route-id="@item.tarifID">İNCELE</a> <img src="~/images/point-of-views-1-300x300.png" class="goruntulenme"/> @item.goruntulenme
                     </div>
                 </li>
             }

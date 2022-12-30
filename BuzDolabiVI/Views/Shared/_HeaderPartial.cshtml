@@ -3,10 +3,7 @@
 
 
 <div class="navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow buyukHeader mb-4">
-    <div class="logoGelecek">
-        <a class="" asp-area="" asp-controller="Tarifs" asp-action="Index">   <img src="~/images/buzdolabi.png" id="LogoResiKontrol" alt="logo" /></a>
-
-    </div>
+  
     <div class="yaziGelecek">
         <a class="" asp-area="" asp-controller="Tarifs" asp-action="Index"><img src="~/images/logoYazi.png" id="LogoYaziKontrol" alt="logoYazisi" /></a>
 
@@ -73,7 +70,7 @@
             <div>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dil
+                        @language.Getkey("Dil")
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" asp-area="" asp-controller="Tarifs" asp-action="ChangeLanguage" asp-route-culture="tr-TR"><i class="flag-icon flag-icon-gb"></i>Türkçe</a>
@@ -93,3 +90,39 @@
 
 </div>
 
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark mt-5" >
+    <!-- Brand -->
+     <div class="logoGelecek navbar-brand">
+        <a class="" asp-area="" asp-controller="Tarifs" asp-action="Index">
+            <img src="~/images/logoOnce.png" id="LogoResiKontrol" class="logoDegisme" alt="logo"/>
+        </a>
+       
+    </div>
+    <!-- Links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link 1</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link 2</a>
+        </li>
+
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                Dropdown link
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Link 1</a>
+                <a class="dropdown-item" href="#">Link 2</a>
+                <a class="dropdown-item" href="#">Link 3</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+<style>
+    document.querySelectorAll('a img[alt=logo]').addEventListener('mouseover', function() {
+      this.src = '~/images/logosonraa.png';
+});
+</style>

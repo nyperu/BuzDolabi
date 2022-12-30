@@ -138,6 +138,9 @@
   <data name="Dakika" xml:space="preserve">
     <value>Dakika</value>
   </data>
+  <data name="Dil" xml:space="preserve">
+    <value>Dil</value>
+  </data>
   <data name="E-posta onayını yeniden gönder" xml:space="preserve">
     <value>E-posta onayını yeniden gönder</value>
   </data>
