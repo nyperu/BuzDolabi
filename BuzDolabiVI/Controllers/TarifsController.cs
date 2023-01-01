@@ -120,7 +120,10 @@ namespace BuzDolabiVI.Controllers
 
         public async Task<IActionResult> Index()
         {
+            
             ViewData["yorumlar"] = _context.Yorum.ToList();
+            ViewData["tarifler"] = _context.Yorum.ToList();
+         
             return View(await _context.Tarif.ToListAsync());
         }
         public async Task<IActionResult> corba()
@@ -281,6 +284,7 @@ namespace BuzDolabiVI.Controllers
                 return NotFound();
             }
 
+
             return View(tarif);
         }
 
@@ -298,7 +302,12 @@ namespace BuzDolabiVI.Controllers
             {
                 _context.Tarif.Remove(tarif);
             }
+            var yorum = (from m in _context.Yorum
+                         where m.tarifID == id
+                              select m).ToList();
 
+            foreach (var std in yorum as IList<Yorum>)
+                _context.Yorum.Remove(std);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

@@ -14,9 +14,6 @@
     <!-- Font Awesome CSS -->
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
     <!-- jQuery -->
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <!-- Bootstrap JS -->
-    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'></script>
 </head>
 <body>
     <header>
@@ -29,8 +26,7 @@
         </main>
     </div>
     <div id="yukari">
-        <a href="#Nav"><img src="~/images/yukariok.png" style="width:30%; height:30%" /></a>
-
+        <a href=""><img src="~/images/yukariok.png" style="width:30%; height:30%" /></a>
     </div>
 
     <partial name="_FooterPartial" />
@@ -51,12 +47,17 @@
             } else {
                 mybutton.style.display = "none";
             }
-        }
+        };
+        
+        document.getElementById("yukari").onclick = function () {
+            window.scroll({ top: 0, behavior: "smooth" });
+
+        };
         document.getElementById("yukari").addEventListener("click", myFunction);
 
         function myFunction() {
             mybutton.style.display = "none";
-        }
+        };
     </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
