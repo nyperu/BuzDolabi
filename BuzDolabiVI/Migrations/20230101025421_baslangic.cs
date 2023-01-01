@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BuzDolabiVI.Migrations
 {
-    public partial class _1 : Migration
+    public partial class baslangic : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

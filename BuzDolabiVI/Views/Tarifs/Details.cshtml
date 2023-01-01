@@ -14,7 +14,7 @@
     <div class="imageBaslik">@Model.tarifAd</div>
 </div>
 <div class="row">
-    <div class="col-8 mt-4">
+    <div class="col-x-8 mt-4">col-xs-8
         <div class="mt-2">@Model.tarifTarih</div>
         <hr />
         <p>
@@ -24,16 +24,16 @@
         <div class="bilgiKutusu">@Model.kacKalori</div>
         <div class="bilgiKutusu"><a href="@Model.besinDegeriLink">@Model.besinDegeriLink</a></div>
         <div class="row genelKutu">
-            <div class="col-4 mt-2 text-center ">
+            <div class="col-x-4 mt-2 text-center ">
                 <h5 class="tarifDetay3luBaslik">Kaç Kişilik</h5>
                 <h3 class="tarifDetay3luCevap">@Model.kacKisilik</h3>
 
             </div>
-            <div class="col-4 mt-2 text-center ">
+            <div class="col-x-4 mt-2 text-center ">
                 <h5 class="tarifDetay3luBaslik">Hazırlama S.</h5>
                 <h3 class="tarifDetay3luCevap">@Model.hazirlanmaSuresi dakika</h3>
             </div>
-            <div class="col-4 mt-2 text-center ">
+            <div class="col-x-4 mt-2 text-center ">
                 <h5 class="tarifDetay3luBaslik">Pisme S.</h5>
                 <h3 class="tarifDetay3luCevap">@Model.pisirmeSuresi dakika</h3>
             </div>
@@ -65,7 +65,7 @@
         </div>
     </div>
 
-    <div class="col-4">
+    <div class="col-x-4">
         <div class="buTarifeKacKisiBakti text-center">
             <h5> Bu tarife kaç kişi baktı?</h5>
             <h2> @Model.goruntulenme</h2>
@@ -73,7 +73,7 @@
         <hr />
         <div class="buTarifiYazanKisi text-center">
             <a href="@Model.sosyalMedya">
-                @if (@Model.cinsiyet == "erkek")
+                @if (@Model.cinsiyet == "Erkek")
                 {
                     <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="be-ava-comment">
 

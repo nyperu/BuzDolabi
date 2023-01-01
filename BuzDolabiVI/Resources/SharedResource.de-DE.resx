@@ -123,6 +123,9 @@
   <data name="Adet" xml:space="preserve">
     <value>Anzahl</value>
   </data>
+  <data name="Ana Sayfa" xml:space="preserve">
+    <value>Hauptseite</value>
+  </data>
   <data name="ANA YEMEK KATEGORİSİ" xml:space="preserve">
     <value>HAUPTGERICHTSKATEGORIE</value>
   </data>
@@ -221,6 +224,9 @@
   </data>
   <data name="Yeni bir kullanıcı olarak kayıt ol." xml:space="preserve">
     <value>Registrieren Sie sich als neuer Benutzer.</value>
+  </data>
+  <data name="Yorum Api" xml:space="preserve">
+    <value>Kommentar-API</value>
   </data>
   <data name="Yorum Onayları" xml:space="preserve">
     <value>Genehmigungen kommentieren</value>

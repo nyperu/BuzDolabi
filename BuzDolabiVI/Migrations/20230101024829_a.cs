@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace BuzDolabiVI.Data.Migrations
+namespace BuzDolabiVI.Migrations
 {
     public partial class a : Migration
     {

@@ -6,51 +6,57 @@
     ViewData["Title"] = @language.Getkey("Kayıt Ol");
 }*@
 
-<h1>@ViewData["Title"]</h1>
 
-<div class="row">
+<div class="row" style="margin-top:100px">
     <div class="col-md-4">
         <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
             <h2>@language.Getkey("Yeni bir hesap oluştur.")</h2>
             <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-floating">
-                <input asp-for="Input.AdSoyad" class="form-control" autocomplete="username" aria-required="true" />
                 <label for="AdSoyad">@language.Getkey("Ad Soyad")</label>
 
+                <input asp-for="Input.AdSoyad" class="form-control" autocomplete="username" aria-required="true" />
+               
                 <span asp-validation-for="Input.AdSoyad" class="text-danger"></span>
             </div>
 
             <div class="form-floating">
-                <input asp-for="Input.ozluSoz" class="form-control" autocomplete="username" aria-required="true" />
                 <label for="ozluSoz">@language.Getkey("Özlü Söz Giriniz")</label>
-                <span asp-validation-for="Input.ozluSoz" class="text-danger"></span>
+
+                <input asp-for="Input.ozluSoz" class="form-control" autocomplete="username" aria-required="true" />
+                    <span asp-validation-for="Input.ozluSoz" class="text-danger"></span>
             </div>
 
             <div class="form-floating">
-                <input asp-for="Input.cinsiyet" class="form-control" autocomplete="username" aria-required="true" />
-                <label for="cinsiyet">@language.Getkey("Cinsiyetinizi Giriniz")</label>
-                <span asp-validation-for="Input.cinsiyet" class="text-danger"></span>
+                <label for="cinsiyet">@language.Getkey("Cinsiyetinizi Giriniz")</label> <br />
+                    <select id="cars" asp-for="Input.cinsiyet" autocomplete="unsername">
+                        <option value="Erkek">Erkek</option>
+                        <option value="Kadin">Kadin</option>
+                    </select>
             </div>
 
             <div class="form-floating">
-                <input asp-for="Input.sosyalmedya" class="form-control" autocomplete="username" aria-required="true" />
                 <label for="sosyalmedya">@language.Getkey("Sosyal Medya Linkinizi Giriniz")</label>
+                <input asp-for="Input.sosyalmedya" class="form-control" autocomplete="username" aria-required="true" />
                 <span asp-validation-for="Input.sosyalmedya" class="text-danger"></span>
             </div>
             <div class="form-floating">
+                <label for="Email">@language.Getkey("Email")</label>
+
                 <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
-               <label for="Email">@language.Getkey("Email")</label>
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
+                   <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
             <div class="form-floating">
-                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" />
                 <label for="Password">@language.Getkey("Şifre")</label>
+
+                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" />
                 <span asp-validation-for="Input.Password" class="text-danger"></span>
             </div>
             <div class="form-floating">
-                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
                 <label for="ConfirmPassword">@language.Getkey("Şifrenizi Doğrulayınız")</label>
+
+                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
             <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">@language.Getkey("Kayıt Ol")</button>
