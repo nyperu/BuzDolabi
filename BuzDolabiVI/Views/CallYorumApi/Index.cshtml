@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BuzDolabiVI.Models.Yorum>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.yorumAdSoyad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.yorumTarih)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.yorumIcerik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.yorumCinsiyet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.yorumSosyal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.yorumOzluSoz)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.yorumAdSoyad)
+                </td>
+              <td>
+                    @Html.DisplayFor(modelItem => item.yorumTarih)
+                </td>
+                 <td>
+                    @Html.DisplayFor(modelItem => item.yorumIcerik)
+                </td>
+                 <td>
+                    @Html.DisplayFor(modelItem => item.yorumCinsiyet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.yorumSosyal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.yorumOzluSoz)
+                </td>
+               
+            </tr>
+        }
+    </tbody>
+</table>

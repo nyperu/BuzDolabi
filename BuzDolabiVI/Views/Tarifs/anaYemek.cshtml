@@ -1,0 +1,125 @@
+﻿@model IEnumerable<BuzDolabiVI.Models.Tarif>
+
+
+
+@{
+    int yorumSayisi = 0;
+    string tarifGirisYazisi = "";
+    string yeniGirisYazisi = "";
+    int girisYazisiSiniri = 54;
+}
+<div class="sayfalarinBasligi"><h1>ANA YEMEK TARİFLERİ</h1></div>
+
+<div class="container-fluid">
+    <div class="px-lg-5">
+
+
+
+        <div class="row">
+            <!-- Gallery item -->
+            @foreach (var item in Model)
+            {
+                if (item.kategori != "anaYemek")
+                {
+                    continue;
+                }
+                if (item.tarifOnay != "onay")
+                {
+                    continue;
+                }
+               <div class="col-xl-2 col-lg-3 col-md-6 mb-4 ustuneGelinceBuyusun">
+                    <div class="golgelendir yuvarla " style="background:white; padding:4px;">
+                          <div class="text-center">
+                            <a class="temizle" asp-controller="Yorums" asp-action="Create" asp-route-id="@item.tarifID">
+                                <h5 href="#" class="cardUstBaslik">
+                                    @item.tarifAd
+                                </h5>
+                                <br />
+                                <img src="~/images/@Html.DisplayFor(modelItem => item.tarifFoto)" alt="" class="tarifSayfalariFoto">
+                            </a>
+                            @{
+                                yeniGirisYazisi = "";
+
+                                tarifGirisYazisi = item.tarifGirisYazisi;
+                                yeniGirisYazisi = tarifGirisYazisi;
+                                if (tarifGirisYazisi.Length > girisYazisiSiniri)
+                                {
+                                    yeniGirisYazisi = "";
+                                    for (int i = 0; i <= girisYazisiSiniri; i++)
+                                        yeniGirisYazisi += tarifGirisYazisi[i];
+                                    yeniGirisYazisi += "...";
+                                }
+                            }
+                            <p class="small text-muted mb-0 mt-1 tarifSayfalariAdSoyad">
+                                @yeniGirisYazisi
+                            </p>
+                            <div class="text-center  rounded-pill bg-light mb-2 mt-4">
+                                <p class="tarifSayfalariAdSoyad"><a href="@item.sosyalMedya" style="">@item.adSoyad</a> yazdı.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+
+        </div>
+        <!-- TARİFLER LİSTELENDİ -->
+        <!-- SON YORUMLAR LİSTELENİYOR -->
+        @foreach (var std in ViewData["yorumlar"] as IList<Yorum>)
+        {
+            @if (std.Tarif.kategori == "anaYemek")
+            {
+                yorumSayisi++;
+            }
+        }
+        <div class="be-comment-block">
+            <h1 class="comments-title">ANA YEMEK Kategorisinde Toplam  @yorumSayisi yorum bulunmaktadır.</h1>
+            @{
+                yorumSayisi = 0;
+            }
+            <div class="be-comment">
+                @foreach (var std in ViewData["yorumlar"] as IList<Yorum>)
+                {
+                    @if (std.Tarif.kategori != "anaYemek")
+                    {
+                        continue;
+                    }
+                    <div class="be-img-comment">
+
+                        <a href="@std.yorumSosyal">
+                            @if (std.yorumCinsiyet == "Erkek")
+                            {
+                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="be-ava-comment">
+
+                            }
+                            else
+                            {
+                                <img src="https://bootdey.com/img/Content/avatar/avatar8.png" alt="" class="be-ava-comment">
+                            }
+                        </a>
+                    </div>
+                    <div class="be-comment-content">
+
+                        <span class="be-comment-name">
+                            <a href="@std.yorumSosyal">@std.yorumAdSoyad</a>
+                        </span>
+                        <a class="yorumunTarifBasligi" asp-controller="Tarifs" asp-action="Details" asp-route-id="@std.tarifID"> @std.Tarif.tarifAd tarifine yorum yaptı.</a>
+                        <span class="be-comment-time">
+                            <i class="fa fa-clock-o"></i>
+                            @std.yorumTarih
+                        </span>
+
+                        <p class="be-comment-text">
+                            @std.yorumIcerik
+                        </p>
+                    </div>
+
+                }
+            </div>
+        </div>
+
+
+
+    </div>
+</div>

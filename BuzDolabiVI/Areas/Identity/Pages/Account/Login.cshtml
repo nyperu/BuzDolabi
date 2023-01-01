@@ -1,0 +1,63 @@
+﻿@page
+@using BuzDolabiVI.Models;
+@model LoginModel
+@inject LanguageService language
+<link rel="stylesheet" href="~/css/login.css" />
+@*
+@{
+    ViewData["Title"] = @language.Getkey("Giriş Yap");
+}*@
+
+<h1>@ViewData["Title"]</h1>
+<div class ="logindiv" style="margin-top:100px">
+    <div class="rows">
+        <div class="">
+            <section style="width:30%; margin:auto;">
+                <form id="account" method="post">
+                    <h2>@language.Getkey("Giriş Yap")</h2>
+                    <hr />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-floating" style="">
+                        <label asp-for="Input.Email" class="form-label"></label>
+
+                        <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+                         <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating" style="">
+                        <label asp-for="Input.Password" class="form-label"></label>
+
+                        <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" />
+                         <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <div class="checkbox" style="">
+                            <label asp-for="Input.RememberMe" class="form-label">
+                                <input class="form-check-input" asp-for="Input.RememberMe" />
+                                @Html.DisplayNameFor(m => m.Input.RememberMe)
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">@language.Getkey("Giriş Yap")</button>
+                    </div>
+                    <div style="margin-top:50px;">
+                        <p>
+                            <a id="forgot-password" asp-page="./ForgotPassword">@language.Getkey("Şifreni mi unuttun?")</a>
+                        </p>
+                        <p>
+                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">@language.Getkey("Yeni bir kullanıcı olarak kayıt ol.")</a>
+                        </p>
+                        <p>
+                            <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">@language.Getkey("E-posta onayını yeniden gönder")</a>
+                        </p>
+                    </div>
+                </form>
+            </section>
+        </div>
+</div>
+
+ 
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

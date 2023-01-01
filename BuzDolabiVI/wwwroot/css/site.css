@@ -1,0 +1,333 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+
+
+.cardUstBaslik {
+    padding-top: 10px;
+}
+
+    .cardUstBaslik:hover {
+        color: red;
+    }
+
+@media only screen and (min-width: 1260px) {
+    /* styles for browsers larger than 960px; */
+    .ustuneGelinceBuyusun:hover {
+        height: 70%;
+        width: 26%;
+        margin-left: -1%;
+        margin-right: -1%
+    }
+}
+
+
+
+.imageHolder {
+    position: relative;
+    text-align: center;
+    color: white;
+    margin-top:100px;
+}
+
+.imageBaslik {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size:50px;
+
+}
+
+.tarifBanner {
+    width: 100%;
+    border-radius: 20px;
+    height: 60%;
+    width: 80%;
+}
+
+.golgelendir {
+    box-shadow: 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#yukari {
+    z-index: 100;
+    position: fixed;
+    bottom: 10%;
+    right: 10px;
+    display: none;
+    left: 90%;
+}
+
+.bilgiKutusu {
+    width: 100%;
+    height: auto;
+    margin: 1% 0 1% 0;
+    border-style: dashed;
+    border-top-width: 3px;
+    border-bottom-width: 3px;
+    border-left-width: 3px;
+    border-right-width: 3px;
+    border-color: darkred;
+    padding: 1%;
+    text-align: center;
+}
+
+.buTarifeKacKisiBakti {
+    width: 80%;
+    padding: 5%;
+    margin-top: 5%;
+    border-radius: 8px;
+    height: auto;
+    box-shadow: 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+
+.buTarifiYazanKisi {
+    width: 80%;
+    padding: 5%;
+    margin-top: 5%;
+    border-radius: 8px;
+    height: auto;
+    box-shadow: 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+
+.genelKutu {
+    width: 90%;
+    padding: 5%;
+    margin: 3% auto 0 auto;
+    margin-top: 3%;
+    border-radius: 8px;
+    height: auto;
+    box-shadow: 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+article {
+    height: 100vh;
+}
+
+#opac1 {
+    text-align: center;
+}
+
+.yandanH1 {
+    position: relative;
+    display: inline-block;
+    text-shadow: rgb(128, 128, 128) 1px 0 1px;
+}
+
+    .yandanH1::before, .yandanH1::after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: -120px;
+    width: 100px;
+    border-bottom: 4px solid #c12121;
+    border-radius:1px;
+    
+}
+
+.yandanH1::after {
+    left: auto;
+    right: -120px;
+}
+
+#intro {
+    /*width:100%;*/
+    display: block;
+    height: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+
+.story {
+    margin-left: 10%;
+    margin-top: 240px;
+    /*min-width: 980px;*/
+    overflow: auto;
+    /*width: 980px;*/
+    position: absolute;
+}
+
+.bg_big yandanH1 {
+    font-weight: lighter;
+    font-size: 3em;
+    text-transform: uppercase;
+    text-align: center;
+    /*opacity:0.3;*/
+}
+
+.bg_big p {
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 20px;
+    /*opacity:0;*/
+}
+
+.story .float-left, .story .float-right {
+    position: relative;
+    width: 350px;
+}
+
+.bg_big {
+    height: 200px;
+    width: 100%;
+}
+
+
+
+
+.grow {
+    display: inline-block;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: -webkit-transform;
+    transition-property: transform;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+
+    .grow:hover {
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+
+.goruntulenme{
+    height:120%;
+    width:20%;
+    margin-left:20%;
+    margin-top:-2%;
+    margin-right:-5%;
+}
+.sayfalarinBasligi {
+    text-align: center;
+    margin: 12% auto;
+    text-shadow: rgb(128, 128, 128) 1px 0 1px;
+}
+.cardUstBaslik {
+    text-align: center;
+    margin: 3% auto;
+    text-shadow: rgb(128, 128, 128) 1px 0 1px;
+    text-decoration:none;
+    font-size:20px;
+}
+.tarifSayfalariFoto {
+    width: 95%;
+    box-shadow: 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    height:170px;
+}
+.tarifSayfalariAdSoyad
+{
+    text-decoration:none;
+}
+.navbarYapiyoruz{
+
+}
+#login-dp {
+    min-width: 250px;
+    padding: 14px 14px 0;
+    overflow: hidden;
+    background-color: rgba(255,255,255,.8);
+}
+
+    #login-dp .help-block {
+        font-size: 12px
+    }
+
+    #login-dp .bottom {
+        background-color: rgba(255,255,255,.8);
+        border-top: 1px solid #ddd;
+        clear: both;
+        padding: 14px;
+    }
+
+    #login-dp .social-buttons {
+        margin: 12px 0
+    }
+
+        #login-dp .social-buttons a {
+            width: 49%;
+        }
+
+    #login-dp .form-group {
+        margin-bottom: 10px;
+    }
+
+.btn-fb {
+    color: #fff;
+    background-color: #3b5998;
+}
+
+    .btn-fb:hover {
+        color: #fff;
+        background-color: #496ebc
+    }
+
+.btn-tw {
+    color: #fff;
+    background-color: #55acee;
+}
+
+    .btn-tw:hover {
+        color: #fff;
+        background-color: #59b5fa;
+    }
+
+@media(max-width:768px) {
+    #login-dp {
+        background-color: inherit;
+        color: #fff;
+    }
+
+        #login-dp .bottom {
+            background-color: inherit;
+            border-top: 0 none;
+        }
+}
+.mt-1{
+    margin-top:10px;
+}
+.mt-2{
+    margin-top:20px;
+}
+.mt-3{
+    margin-top:30px;
+}
+.mt-4{
+    margin-top:40px;
+}
+.mt-5{
+    margin-top:50px;
+}
+.yuvarla{
+    border-radius:5px;
+}
+
+
+body {
+    margin-bottom: 5%;
+    background: #f0eeec !important;
+}
