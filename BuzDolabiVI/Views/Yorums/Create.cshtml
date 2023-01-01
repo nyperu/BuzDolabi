@@ -1,4 +1,8 @@
 ﻿@model BuzDolabiVI.Models.Yorum
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<UserDetails> SignInManager
+@inject UserManager<UserDetails> UserManager
+@inject LanguageService language
 
 @{
     ViewData["Title"] = "Create";
@@ -14,31 +18,31 @@
     }
     
 
-<div class="imageHolder">
-    <img src="~/images/@std.tarifFoto" alt="kestane" class="tarifBanner golgelendir" style="" />
+    <div class="imageHolder ">
+        <img src="~/images/@std.tarifFoto" alt="kestane" class="tarifBanner golgelendir" style="font-size: 3em; color:White;" />
     <div class="imageBaslik">@std.tarifAd</div>
 </div>
-<div class="row">
-    <div class="col-8 mt-4">
-        <div class="mt-2">@std.tarifTarih</div>
+<div class="row" style="margin-top:20px;">
+        <div class="col-xs-8 mt-4">
+            <i class="mt-2 fa fa-clock-o be-comment-time">@std.tarifTarih</i>
         <hr />
         <p>
             @std.tarifGirisYazisi
         </p>
         <hr />
-        <div class="bilgiKutusu">100gr/ml'deki kalori = @std.kacKalori</div>
-        <div class="bilgiKutusu"><a href="@std.besinDegeriLink" style="text-decoration:none">Besin değeri linki için tklayınız.</a></div>
-        <div class="row genelKutu">
-            <div class="col-4 mt-2 text-center ">
+            <div class="bilgiKutusu golgelendir" style="width:90%; margin:0 auto;">100gr/ml'deki kalori = @std.kacKalori</div>
+            <div class="bilgiKutusu golgelendir" style="width:90%; margin:20px auto 0;"><a href="@std.besinDegeriLink" style="text-decoration:none">Besin değeri linki için tklayınız.</a></div>
+        <div class="row genelKutu ml-5" style="margin-left:4.7%;">
+                <div class="col-xs-4 mt-2 text-center ">
                 <h5 class="tarifDetay3luBaslik">Kaç Kişilik</h5>
                 <h3 class="tarifDetay3luCevap">@std.kacKisilik</h3>
 
             </div>
-            <div class="col-4 mt-2 text-center ">
+                <div class="col-xs-4 mt-2 text-center ">
                 <h5 class="tarifDetay3luBaslik">Hazırlama S.</h5>
                 <h3 class="tarifDetay3luCevap">@std.hazirlanmaSuresi dakika</h3>
             </div>
-            <div class="col-4 mt-2 text-center ">
+                <div class="col-xs-4 mt-2 text-center ">
                 <h5 class="tarifDetay3luBaslik">Pisme S.</h5>
                 <h3 class="tarifDetay3luCevap">@std.pisirmeSuresi dakika</h3>
             </div>
@@ -68,9 +72,14 @@
                 @std.tarifNasilYapilir
             </div>
         </div>
+            <div class="genelKutu">
+                <h2>
+                    AFİYET OLSUNN :))
+                </h2>
+            </div>
     </div>
 
-    <div class="col-4">
+        <div class="col-xs-4">
         <div class="buTarifeKacKisiBakti text-center">
             <h5> Bu tarife kaç kişi baktı?</h5>
             <h2> @std.goruntulenme</h2>
@@ -78,7 +87,7 @@
         <hr />
         <div class="buTarifiYazanKisi text-center">
             <a href="@std.sosyalMedya">
-                @if (@std.cinsiyet == "erkek")
+                @if (@std.cinsiyet == "Erkek")
                 {
                     <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="be-ava-comment">
 
@@ -93,26 +102,11 @@
             <h6> @std.ozluSoz </h6>
             <hr />
             <a href="@std.sosyalMedya">İletişim</a>
-
         </div>
-
     </div>
-
-
-
-
-
-
-
-
-
 </div>
 }
-<div class="genelKutu">
-    <h2>
-        AFİYET OLSUNN :))
-    </h2>
-</div>
+
 
 
 
@@ -141,7 +135,7 @@
                     <div class="be-img-comment">
 
                         <a href="@std.yorumSosyal">
-                            @if (std.yorumCinsiyet == "erkek")
+                            @if (std.yorumCinsiyet == "Erkek")
                             {
                                 <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="be-ava-comment">
 
@@ -180,17 +174,27 @@
             <input asp-for="tarifID" type="hidden" value="@ViewData["tID"]" class="form-control" />
 
             <div class="yorumYapBasligi text-center w-100"> <h2>YORUM YAP</h2></div>
+
             <div class="col-xs-12">
-                <div class="row">
-                    <div class="form-group">
-                         <input asp-for="yorumIcerik" class="form-control" />
-                         <span asp-validation-for="yorumIcerik" class="text-danger" row="3"></span>
-            
-                     </div>
-                     <div class="form-group">
-                            <input type="submit" value="Create" class="btn btn-primary w-100" />
-                        </div>
+                @if (SignInManager.IsSignedIn(User))
+                {
+                         <div class="row">
+                        <div class="form-group">
+              <input asp-for="yorumIcerik" class="form-control" />
+                             <span asp-validation-for="yorumIcerik" class="text-danger" row="3"></span>
+
+                         </div>
+
+                         <div class="form-group">
+                                <input type="submit" style="width:100%;"value="YORUM YAP" class="btn btn-primary" />
+                            </div>
                     </div>
+                }
+                else
+                {
+                    <h3 class="text-center mt-3" style="">YORUM YAPMAK İÇİN GİRİŞ YAPINIZ.</h3>
+                }
+
             </div>
     </form>
 

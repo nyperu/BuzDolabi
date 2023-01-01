@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace BuzDolabiVI.Data.Migrations
+namespace BuzDolabiVI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221227001604_adDegisti")]
-    partial class adDegisti
+    [Migration("20230101024829_a")]
+    partial class a
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

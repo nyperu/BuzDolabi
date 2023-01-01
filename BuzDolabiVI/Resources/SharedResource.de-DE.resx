@@ -123,6 +123,9 @@
   <data name="Adet" xml:space="preserve">
     <value>Anzahl</value>
   </data>
+  <data name="Ana Sayfa" xml:space="preserve">
+    <value>Hauptseite</value>
+  </data>
   <data name="ANA YEMEK KATEGORİSİ" xml:space="preserve">
     <value>HAUPTGERICHTSKATEGORIE</value>
   </data>
