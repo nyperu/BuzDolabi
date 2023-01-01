@@ -152,7 +152,7 @@ namespace BuzDolabiVI.Controllers
             _context.Add(yorum);
             await _context.SaveChangesAsync();
 
-            return View(yorum);
+            return RedirectToAction(nameof(Create));
 
             ViewData["tarifID"] = new SelectList(_context.Tarif, "tarifID", "tarifID", yorum.tarifID);
 
