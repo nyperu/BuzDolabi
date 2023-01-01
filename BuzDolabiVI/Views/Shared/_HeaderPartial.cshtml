@@ -66,6 +66,21 @@
 
                     }
                 }
+
+                @if (User.IsInRole("Admin"))
+                {
+                    if (User.Identity.IsAuthenticated)
+                    {
+                        <li>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="CallYorumApi" asp-action="Index">@language.Getkey("Yorum Api")</a>
+                        </li>
+
+                    }
+                }
+
+             
+
+
             </ul>
 
 
